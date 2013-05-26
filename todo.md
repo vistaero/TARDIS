@@ -2,7 +2,7 @@
 
 ## Current version `1.0`
 1. Languages support.
-2. Adjustements saving.
+2. Application adjustments auto-saving.
 
 ## Next version `1.1`
 1. Volume control for each sound.
