@@ -130,39 +130,6 @@
         DAAAAGYAYQBsAHMAZQAAAAgABAAAADAAAAAL
 </value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Created by vistaero on Visual Basic .NET
-
-Icon created by Girl-on-the-Moon
-
-Animations created by richsc21
-
-TARDIS and all other Doctor Who stuff belongs to BBC.
-This application has not any intention of making money.
-
-Follow the To-Do list.
-
-Follow my job in my blog (spanish): </value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Press a key to...
-
-Escape: Close the application.
-F2: Show/hide this window.
-F11: Fullscreen.
-
-The numbers keys changes the look and the ambience sound.
-1: 2005 TARDIS (Ninth and tenth Doctor)
-2: 2010 TARDIS (Eleventh Doctor)
-3: 2013 TARDIS (Eleventh Doctor)
-
-Enter: Start travel.
-Space: End travel
-T: Time Vortex sound
-
-
-</value>
-  </data>
   <metadata name="Help.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>13, 19</value>
   </metadata>

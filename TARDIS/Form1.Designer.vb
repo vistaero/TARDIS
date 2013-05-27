@@ -28,8 +28,10 @@ Partial Class Form1
         Me.tabControl1 = New System.Windows.Forms.TabControl()
         Me.tabPage1 = New System.Windows.Forms.TabPage()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.label1 = New System.Windows.Forms.Label()
         Me.tabPage2 = New System.Windows.Forms.TabPage()
+        Me.TrackBar7 = New System.Windows.Forms.TrackBar()
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TrackBar4 = New System.Windows.Forms.TrackBar()
         Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -71,22 +73,14 @@ Partial Class Form1
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ControlsTextBox = New System.Windows.Forms.Label()
-        Me.tabPage3 = New System.Windows.Forms.TabPage()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.label2 = New System.Windows.Forms.Label()
-        Me.label5 = New System.Windows.Forms.Label()
-        Me.label4 = New System.Windows.Forms.Label()
         Me.Help = New System.Windows.Forms.Timer(Me.components)
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.TrackBar7 = New System.Windows.Forms.TrackBar()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
+        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,8 +88,6 @@ Partial Class Form1
         CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage4.SuspendLayout()
-        Me.tabPage3.SuspendLayout()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'videoP
@@ -114,7 +106,6 @@ Partial Class Form1
         Me.tabControl1.Controls.Add(Me.tabPage1)
         Me.tabControl1.Controls.Add(Me.tabPage2)
         Me.tabControl1.Controls.Add(Me.tabPage4)
-        Me.tabControl1.Controls.Add(Me.tabPage3)
         Me.tabControl1.Location = New System.Drawing.Point(12, 12)
         Me.tabControl1.Name = "tabControl1"
         Me.tabControl1.SelectedIndex = 0
@@ -124,8 +115,8 @@ Partial Class Form1
         'tabPage1
         '
         Me.tabPage1.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage1.Controls.Add(Me.RichTextBox1)
         Me.tabPage1.Controls.Add(Me.Label7)
-        Me.tabPage1.Controls.Add(Me.label1)
         Me.tabPage1.Location = New System.Drawing.Point(4, 25)
         Me.tabPage1.Name = "tabPage1"
         Me.tabPage1.Size = New System.Drawing.Size(882, 474)
@@ -143,19 +134,6 @@ Partial Class Form1
         Me.Label7.Size = New System.Drawing.Size(577, 89)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Work In Progress"
-        '
-        'label1
-        '
-        Me.label1.AutoSize = True
-        Me.label1.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.label1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.label1.Location = New System.Drawing.Point(10, 10)
-        Me.label1.Margin = New System.Windows.Forms.Padding(10)
-        Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(500, 400)
-        Me.label1.TabIndex = 1
-        Me.label1.Text = resources.GetString("label1.Text")
         '
         'tabPage2
         '
@@ -188,6 +166,34 @@ Partial Class Form1
         Me.tabPage2.Size = New System.Drawing.Size(882, 474)
         Me.tabPage2.TabIndex = 4
         Me.tabPage2.Text = "Sound"
+        '
+        'TrackBar7
+        '
+        Me.TrackBar7.Location = New System.Drawing.Point(246, 145)
+        Me.TrackBar7.Name = "TrackBar7"
+        Me.TrackBar7.Size = New System.Drawing.Size(104, 45)
+        Me.TrackBar7.TabIndex = 24
+        '
+        'ComboBox7
+        '
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(119, 149)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox7.TabIndex = 23
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label3.Location = New System.Drawing.Point(10, 145)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(96, 25)
+        Me.Label3.TabIndex = 22
+        Me.Label3.Text = "2013 Hum"
         '
         'TrackBar4
         '
@@ -581,7 +587,7 @@ Partial Class Form1
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(117, 25)
         Me.Label20.TabIndex = 7
-        Me.Label20.Text = "2012 TARDIS"
+        Me.Label20.Text = "2013 TARDIS"
         '
         'Label19
         '
@@ -624,79 +630,15 @@ Partial Class Form1
         'ControlsTextBox
         '
         Me.ControlsTextBox.AutoSize = True
-        Me.ControlsTextBox.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.ControlsTextBox.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
         Me.ControlsTextBox.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.ControlsTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.ControlsTextBox.Location = New System.Drawing.Point(10, 10)
         Me.ControlsTextBox.Margin = New System.Windows.Forms.Padding(10)
         Me.ControlsTextBox.Name = "ControlsTextBox"
-        Me.ControlsTextBox.Size = New System.Drawing.Size(275, 25)
+        Me.ControlsTextBox.Size = New System.Drawing.Size(297, 25)
         Me.ControlsTextBox.TabIndex = 2
         Me.ControlsTextBox.Text = "Personalize the controls (TO-DO)."
-        '
-        'tabPage3
-        '
-        Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
-        Me.tabPage3.Controls.Add(Me.Label11)
-        Me.tabPage3.Controls.Add(Me.Label6)
-        Me.tabPage3.Controls.Add(Me.Label10)
-        Me.tabPage3.Controls.Add(Me.label2)
-        Me.tabPage3.Controls.Add(Me.label5)
-        Me.tabPage3.Controls.Add(Me.label4)
-        Me.tabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.tabPage3.Name = "tabPage3"
-        Me.tabPage3.Size = New System.Drawing.Size(882, 474)
-        Me.tabPage3.TabIndex = 5
-        Me.tabPage3.Text = "About"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.MidnightBlue
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(511, 538)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(577, 89)
-        Me.Label10.TabIndex = 5
-        Me.Label10.Text = "Work In Progress"
-        '
-        'label2
-        '
-        Me.label2.AutoSize = True
-        Me.label2.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.label2.Location = New System.Drawing.Point(332, 59)
-        Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(488, 50)
-        Me.label2.TabIndex = 4
-        Me.label2.Text = "http://girl-on-the-moon.deviantart.com/art/THE-ICONS-OF-" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "RASSILON-116296443"
-        '
-        'label5
-        '
-        Me.label5.AutoSize = True
-        Me.label5.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.label5.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.label5.Location = New System.Drawing.Point(332, 110)
-        Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(381, 25)
-        Me.label5.TabIndex = 3
-        Me.label5.Text = "http://insertcredit.net/doctorwho/tardisscreen/"
-        '
-        'label4
-        '
-        Me.label4.AutoSize = True
-        Me.label4.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.label4.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.label4.Location = New System.Drawing.Point(10, 10)
-        Me.label4.Margin = New System.Windows.Forms.Padding(10)
-        Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(457, 300)
-        Me.label4.TabIndex = 2
-        Me.label4.Text = resources.GetString("label4.Text")
         '
         'Help
         '
@@ -707,57 +649,21 @@ Partial Class Form1
         '
         Me.DelayAndNoise.Interval = 1300
         '
-        'Label3
+        'RichTextBox1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label3.Location = New System.Drawing.Point(10, 145)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 25)
-        Me.Label3.TabIndex = 22
-        Me.Label3.Text = "2013 Hum"
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(119, 149)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 23
-        '
-        'TrackBar7
-        '
-        Me.TrackBar7.Location = New System.Drawing.Point(246, 145)
-        Me.TrackBar7.Name = "TrackBar7"
-        Me.TrackBar7.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar7.TabIndex = 24
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(332, 233)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(480, 25)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "https://github.com/vistaero/TARDIS/blob/master/todo.md"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label11.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label11.Location = New System.Drawing.Point(332, 285)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(222, 25)
-        Me.Label11.TabIndex = 7
-        Me.Label11.Text = "http://vistaero.site11.com/"
+        Me.RichTextBox1.BackColor = System.Drawing.Color.MidnightBlue
+        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.Arrow
+        Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RichTextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(882, 474)
+        Me.RichTextBox1.TabIndex = 14
+        Me.RichTextBox1.TabStop = False
+        Me.RichTextBox1.Text = ""
         '
         'Form1
         '
@@ -778,6 +684,7 @@ Partial Class Form1
         Me.tabPage1.PerformLayout()
         Me.tabPage2.ResumeLayout(False)
         Me.tabPage2.PerformLayout()
+        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -786,29 +693,20 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabPage4.ResumeLayout(False)
         Me.tabPage4.PerformLayout()
-        Me.tabPage3.ResumeLayout(False)
-        Me.tabPage3.PerformLayout()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
     Private WithEvents tabControl1 As System.Windows.Forms.TabControl
     Private WithEvents tabPage1 As System.Windows.Forms.TabPage
-    Private WithEvents label1 As System.Windows.Forms.Label
     Private WithEvents tabPage2 As System.Windows.Forms.TabPage
     Private WithEvents SoundTabText As System.Windows.Forms.Label
     Private WithEvents tabPage4 As System.Windows.Forms.TabPage
     Private WithEvents ControlsTextBox As System.Windows.Forms.Label
-    Private WithEvents tabPage3 As System.Windows.Forms.TabPage
-    Private WithEvents label2 As System.Windows.Forms.Label
-    Private WithEvents label5 As System.Windows.Forms.Label
-    Private WithEvents label4 As System.Windows.Forms.Label
     Friend WithEvents Help As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Private WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents TrackBar1 As System.Windows.Forms.TrackBar
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
@@ -849,7 +747,6 @@ Partial Class Form1
     Friend WithEvents TrackBar7 As System.Windows.Forms.TrackBar
     Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
     Private WithEvents Label3 As System.Windows.Forms.Label
-    Private WithEvents Label11 As System.Windows.Forms.Label
-    Private WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
 
 End Class

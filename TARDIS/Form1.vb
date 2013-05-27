@@ -199,6 +199,7 @@ Public Class Form1
         videoP.Loop = True
         Me.BackgroundImage = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
         Me.BackgroundImageLayout = ImageLayout.Zoom
+        RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
     End Sub
 
     Private Sub videoP_GotFocus1(sender As Object, e As EventArgs) Handles videoP.GotFocus
@@ -209,21 +210,6 @@ Public Class Form1
         Me.Focus()
     End Sub
 
-    Private Sub label2_Click(sender As Object, e As EventArgs) Handles label2.Click
-        System.Diagnostics.Process.Start("http://girl-on-the-moon.deviantart.com/art/THE-ICONS-OF-RASSILON-116296443")
-    End Sub
-
-    Private Sub label5_Click(sender As Object, e As EventArgs) Handles label5.Click
-        System.Diagnostics.Process.Start("http://insertcredit.net/doctorwho/tardisscreen/")
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-        System.Diagnostics.Process.Start("https://github.com/vistaero/TARDIS/blob/master/todo.md")
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-        System.Diagnostics.Process.Start("http://vistaero.site11.com/")
-    End Sub
     Private Sub Help_Tick(sender As Object, e As EventArgs) Handles Help.Tick
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
@@ -247,5 +233,11 @@ Public Class Form1
         DelayAndNoise.Enabled = False
     End Sub
 
+    Private Sub RichTextBox1_LinkClicked(sender As Object, e As LinkClickedEventArgs)
+        System.Diagnostics.Process.Start(e.LinkText)
+    End Sub
 
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
