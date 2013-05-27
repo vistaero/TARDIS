@@ -14,7 +14,7 @@
 ## To do when I can
 1. Compatibility with third-party controllers.
 2. Record audio session.
-3. Compatibility with multiple monitor. (One TARDIS screen for each PC monitor)
+3. Compatibility with up to three monitors. (One TARDIS screen for each PC monitor)
 	- TARDIS 2005: One single screen
 	- TARDIS 2010: One normal screen and one a big round screen
 	- TARDIS 2013: Two normal screen and one elliptical screen
