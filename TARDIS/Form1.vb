@@ -1,5 +1,6 @@
 ﻿Imports NAudio.Wave
 Imports System.Threading
+Imports System.Globalization.CultureInfo
 
 Public Class Form1
     Inherits System.Windows.Forms.Form
@@ -71,6 +72,7 @@ Public Class Form1
     Private ActualHum As String
     Private Travelling As Boolean
     Private SpaceEnabled As Boolean
+    Private Language As String
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
@@ -108,12 +110,12 @@ Public Class Form1
             Else
                 Hum.Stop()
                 Hum.Dispose()
-                videoP.Visible = True
                 Dim reader As New WaveFileReader("media/2005Hum.wav")
                 Dim looping As New LoopStream(reader)
                 Hum = New WaveOut()
                 Hum.Init(looping)
                 Hum.Play()
+                PictureBox1.Visible = False
                 ActualHum = "Hum2005"
             End If
         End If
@@ -124,12 +126,14 @@ Public Class Form1
             Else
                 Hum.Stop()
                 Hum.Dispose()
-                videoP.Visible = False
                 Dim reader As New WaveFileReader("media/2010Hum.wav")
                 Dim looping As New LoopStream(reader)
                 Hum = New WaveOut()
                 Hum.Init(looping)
                 Hum.Play()
+                PictureBox1.Visible = True
+                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
+                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
                 ActualHum = "Hum2010"
             End If
         End If
@@ -140,12 +144,14 @@ Public Class Form1
             Else
                 Hum.Stop()
                 Hum.Dispose()
-                videoP.Visible = False
                 Dim reader As New WaveFileReader("media/2013Hum.wav")
                 Dim looping As New LoopStream(reader)
                 Hum = New WaveOut()
                 Hum.Init(looping)
                 Hum.Play()
+                PictureBox1.Visible = True
+                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
+                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
                 ActualHum = "Hum2013"
             End If
         End If
@@ -197,9 +203,23 @@ Public Class Form1
         videoP.LoadMovie(0, SWFfile)
         videoP.Play()
         videoP.Loop = True
-        Me.BackgroundImage = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
-        Me.BackgroundImageLayout = ImageLayout.Zoom
-        RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
+        Label1.Parent = PictureBox1
+        Language = System.Globalization.CultureInfo.CurrentCulture.ToString
+        If Language.StartsWith("en") Then
+            RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
+            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
+            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
+            Label1.Text = "Missing video. Do you have one?"
+        ElseIf Language.StartsWith("es") Then
+            RichTextBox1.LoadFile(Application.StartupPath & "\media\spanish.rtf")
+            tabPage1.Text = "Ayuda"
+            tabPage2.Text = "Sonido"
+            tabPage3.Text = "Controles"
+            SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
+            ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
+            Label1.Text = "No hay vídeo. ¿Tienes uno?"
+        End If
+
     End Sub
 
     Private Sub videoP_GotFocus1(sender As Object, e As EventArgs) Handles videoP.GotFocus
@@ -237,7 +257,5 @@ Public Class Form1
         System.Diagnostics.Process.Start(e.LinkText)
     End Sub
 
-    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs)
 
-    End Sub
 End Class
