@@ -130,20 +130,19 @@
         DAAAAGYAYQBsAHMAZQAAAAgABAAAADAAAAAL
 </value>
   </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>- Soporte para múltiples idiomas.
-- Guardado de ajustes.
-- Regular volumen de cada sonido.
-- Dispositivo de salida para cada sonido.
-- Personalizar controles.
-- Compatibilidad con periféricos de terceros para los controles personalizados.
-- Grabar sesiones en archivos de audio con diferentes pistas para cada sonido.
-- Compatibilidad con múltiples pantallas.
-     - Una sola pantalla para TARDIS 2005.
-     - Pantalla secundaria grande redonda para TARDIS 2010.
-     - Pantalla secundaria idéntica y pantalla terciaria elíptica para TARDIS 2012.
-- Vídeo para monitor primario y secundario 2010.
-- Vídeo para monitores 2012.</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Created by vistaero on Visual Basic .NET
+
+Icon created by Girl-on-the-Moon
+
+Animations created by richsc21
+
+TARDIS and all other Doctor Who stuff belongs to BBC.
+This application has not any intention of making money.
+
+Follow the To-Do list.
+
+Follow my job in my blog (spanish): </value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Press a key to...
@@ -155,7 +154,7 @@ F11: Fullscreen.
 The numbers keys changes the look and the ambience sound.
 1: 2005 TARDIS (Ninth and tenth Doctor)
 2: 2010 TARDIS (Eleventh Doctor)
-3: 2012 TARDIS (Eleventh Doctor)
+3: 2013 TARDIS (Eleventh Doctor)
 
 Enter: Start travel.
 Space: End travel
@@ -163,16 +162,6 @@ T: Time Vortex sound
 
 
 </value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Created by vistaero on Visual Basic .NET
-
-Icon created by Girl-on-the-Moon
-
-Animations created by richsc21
-
-TARDIS and all other Doctor Who stuff belongs to BBC.
-This application has not any intention of making money.</value>
   </data>
   <metadata name="Help.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>13, 19</value>

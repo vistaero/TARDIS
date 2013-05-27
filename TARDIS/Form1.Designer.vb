@@ -76,11 +76,13 @@ Partial Class Form1
         Me.label2 = New System.Windows.Forms.Label()
         Me.label5 = New System.Windows.Forms.Label()
         Me.label4 = New System.Windows.Forms.Label()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Help = New System.Windows.Forms.Timer(Me.components)
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.TrackBar7 = New System.Windows.Forms.TrackBar()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
@@ -93,7 +95,7 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage4.SuspendLayout()
         Me.tabPage3.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
+        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'videoP
@@ -113,7 +115,6 @@ Partial Class Form1
         Me.tabControl1.Controls.Add(Me.tabPage2)
         Me.tabControl1.Controls.Add(Me.tabPage4)
         Me.tabControl1.Controls.Add(Me.tabPage3)
-        Me.tabControl1.Controls.Add(Me.TabPage5)
         Me.tabControl1.Location = New System.Drawing.Point(12, 12)
         Me.tabControl1.Name = "tabControl1"
         Me.tabControl1.SelectedIndex = 0
@@ -159,6 +160,9 @@ Partial Class Form1
         'tabPage2
         '
         Me.tabPage2.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage2.Controls.Add(Me.TrackBar7)
+        Me.tabPage2.Controls.Add(Me.ComboBox7)
+        Me.tabPage2.Controls.Add(Me.Label3)
         Me.tabPage2.Controls.Add(Me.TrackBar4)
         Me.tabPage2.Controls.Add(Me.ComboBox4)
         Me.tabPage2.Controls.Add(Me.Label15)
@@ -187,7 +191,7 @@ Partial Class Form1
         '
         'TrackBar4
         '
-        Me.TrackBar4.Location = New System.Drawing.Point(247, 280)
+        Me.TrackBar4.Location = New System.Drawing.Point(247, 325)
         Me.TrackBar4.Name = "TrackBar4"
         Me.TrackBar4.Size = New System.Drawing.Size(104, 45)
         Me.TrackBar4.TabIndex = 21
@@ -195,7 +199,7 @@ Partial Class Form1
         'ComboBox4
         '
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(120, 283)
+        Me.ComboBox4.Location = New System.Drawing.Point(120, 328)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox4.TabIndex = 20
@@ -206,7 +210,7 @@ Partial Class Form1
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label15.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label15.Location = New System.Drawing.Point(10, 280)
+        Me.Label15.Location = New System.Drawing.Point(10, 325)
         Me.Label15.Margin = New System.Windows.Forms.Padding(10)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(106, 25)
@@ -215,7 +219,7 @@ Partial Class Form1
         '
         'TrackBar5
         '
-        Me.TrackBar5.Location = New System.Drawing.Point(247, 235)
+        Me.TrackBar5.Location = New System.Drawing.Point(247, 280)
         Me.TrackBar5.Name = "TrackBar5"
         Me.TrackBar5.Size = New System.Drawing.Size(104, 45)
         Me.TrackBar5.TabIndex = 18
@@ -223,7 +227,7 @@ Partial Class Form1
         'ComboBox5
         '
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(120, 238)
+        Me.ComboBox5.Location = New System.Drawing.Point(120, 283)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox5.TabIndex = 17
@@ -234,7 +238,7 @@ Partial Class Form1
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label16.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label16.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label16.Location = New System.Drawing.Point(10, 235)
+        Me.Label16.Location = New System.Drawing.Point(10, 280)
         Me.Label16.Margin = New System.Windows.Forms.Padding(10)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(57, 25)
@@ -243,7 +247,7 @@ Partial Class Form1
         '
         'TrackBar6
         '
-        Me.TrackBar6.Location = New System.Drawing.Point(247, 190)
+        Me.TrackBar6.Location = New System.Drawing.Point(247, 235)
         Me.TrackBar6.Name = "TrackBar6"
         Me.TrackBar6.Size = New System.Drawing.Size(104, 45)
         Me.TrackBar6.TabIndex = 15
@@ -251,7 +255,7 @@ Partial Class Form1
         'ComboBox6
         '
         Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(120, 193)
+        Me.ComboBox6.Location = New System.Drawing.Point(120, 238)
         Me.ComboBox6.Name = "ComboBox6"
         Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox6.TabIndex = 14
@@ -262,7 +266,7 @@ Partial Class Form1
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label17.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label17.Location = New System.Drawing.Point(10, 190)
+        Me.Label17.Location = New System.Drawing.Point(10, 235)
         Me.Label17.Margin = New System.Windows.Forms.Padding(10)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(92, 25)
@@ -271,7 +275,7 @@ Partial Class Form1
         '
         'TrackBar3
         '
-        Me.TrackBar3.Location = New System.Drawing.Point(247, 145)
+        Me.TrackBar3.Location = New System.Drawing.Point(247, 190)
         Me.TrackBar3.Name = "TrackBar3"
         Me.TrackBar3.Size = New System.Drawing.Size(104, 45)
         Me.TrackBar3.TabIndex = 12
@@ -279,7 +283,7 @@ Partial Class Form1
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(120, 148)
+        Me.ComboBox3.Location = New System.Drawing.Point(120, 193)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox3.TabIndex = 11
@@ -290,7 +294,7 @@ Partial Class Form1
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label14.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label14.Location = New System.Drawing.Point(10, 145)
+        Me.Label14.Location = New System.Drawing.Point(10, 190)
         Me.Label14.Margin = New System.Windows.Forms.Padding(10)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(99, 25)
@@ -633,6 +637,8 @@ Partial Class Form1
         'tabPage3
         '
         Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage3.Controls.Add(Me.Label11)
+        Me.tabPage3.Controls.Add(Me.Label6)
         Me.tabPage3.Controls.Add(Me.Label10)
         Me.tabPage3.Controls.Add(Me.label2)
         Me.tabPage3.Controls.Add(Me.label5)
@@ -688,46 +694,9 @@ Partial Class Form1
         Me.label4.Location = New System.Drawing.Point(10, 10)
         Me.label4.Margin = New System.Windows.Forms.Padding(10)
         Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(457, 200)
+        Me.label4.Size = New System.Drawing.Size(457, 300)
         Me.label4.TabIndex = 2
         Me.label4.Text = resources.GetString("label4.Text")
-        '
-        'TabPage5
-        '
-        Me.TabPage5.BackColor = System.Drawing.Color.MidnightBlue
-        Me.TabPage5.Controls.Add(Me.Label11)
-        Me.TabPage5.Controls.Add(Me.Label6)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(882, 474)
-        Me.TabPage5.TabIndex = 6
-        Me.TabPage5.Text = "To-Do"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.BackColor = System.Drawing.Color.MidnightBlue
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(511, 538)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(577, 89)
-        Me.Label11.TabIndex = 4
-        Me.Label11.Text = "Work In Progress"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(10, 10)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(634, 325)
-        Me.Label6.TabIndex = 3
-        Me.Label6.Text = resources.GetString("Label6.Text")
         '
         'Help
         '
@@ -737,6 +706,58 @@ Partial Class Form1
         'DelayAndNoise
         '
         Me.DelayAndNoise.Interval = 1300
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label3.Location = New System.Drawing.Point(10, 145)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(96, 25)
+        Me.Label3.TabIndex = 22
+        Me.Label3.Text = "2013 Hum"
+        '
+        'ComboBox7
+        '
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(119, 149)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox7.TabIndex = 23
+        '
+        'TrackBar7
+        '
+        Me.TrackBar7.Location = New System.Drawing.Point(246, 145)
+        Me.TrackBar7.Name = "TrackBar7"
+        Me.TrackBar7.Size = New System.Drawing.Size(104, 45)
+        Me.TrackBar7.TabIndex = 24
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label6.Location = New System.Drawing.Point(332, 233)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(480, 25)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "https://github.com/vistaero/TARDIS/blob/master/todo.md"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label11.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label11.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label11.Location = New System.Drawing.Point(332, 285)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(222, 25)
+        Me.Label11.TabIndex = 7
+        Me.Label11.Text = "http://vistaero.site11.com/"
         '
         'Form1
         '
@@ -767,8 +788,7 @@ Partial Class Form1
         Me.tabPage4.PerformLayout()
         Me.tabPage3.ResumeLayout(False)
         Me.tabPage3.PerformLayout()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
+        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -785,13 +805,10 @@ Partial Class Form1
     Private WithEvents label5 As System.Windows.Forms.Label
     Private WithEvents label4 As System.Windows.Forms.Label
     Friend WithEvents Help As System.Windows.Forms.Timer
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
-    Private WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
     Private WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents TrackBar1 As System.Windows.Forms.TrackBar
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
@@ -829,5 +846,10 @@ Partial Class Form1
     Private WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents DelayAndNoise As System.Windows.Forms.Timer
+    Friend WithEvents TrackBar7 As System.Windows.Forms.TrackBar
+    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
+    Private WithEvents Label3 As System.Windows.Forms.Label
+    Private WithEvents Label11 As System.Windows.Forms.Label
+    Private WithEvents Label6 As System.Windows.Forms.Label
 
 End Class

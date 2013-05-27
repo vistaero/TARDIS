@@ -217,6 +217,13 @@ Public Class Form1
         System.Diagnostics.Process.Start("http://insertcredit.net/doctorwho/tardisscreen/")
     End Sub
 
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        System.Diagnostics.Process.Start("https://github.com/vistaero/TARDIS/blob/master/todo.md")
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+        System.Diagnostics.Process.Start("http://vistaero.site11.com/")
+    End Sub
     Private Sub Help_Tick(sender As Object, e As EventArgs) Handles Help.Tick
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
@@ -239,4 +246,6 @@ Public Class Form1
         SpaceEnabled = True
         DelayAndNoise.Enabled = False
     End Sub
+
+
 End Class
