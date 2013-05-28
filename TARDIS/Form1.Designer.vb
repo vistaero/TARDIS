@@ -78,12 +78,17 @@ Partial Class Form1
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.ControlsTextBox = New System.Windows.Forms.Label()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button11 = New System.Windows.Forms.Button()
         Me.Help = New System.Windows.Forms.Timer(Me.components)
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
@@ -96,8 +101,10 @@ Partial Class Form1
         CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabControl1
@@ -106,6 +113,7 @@ Partial Class Form1
         Me.tabControl1.Controls.Add(Me.tabPage1)
         Me.tabControl1.Controls.Add(Me.tabPage2)
         Me.tabControl1.Controls.Add(Me.tabPage3)
+        Me.tabControl1.Controls.Add(Me.TabPage4)
         Me.tabControl1.Location = New System.Drawing.Point(12, 12)
         Me.tabControl1.Name = "tabControl1"
         Me.tabControl1.SelectedIndex = 0
@@ -438,7 +446,6 @@ Partial Class Form1
         'tabPage3
         '
         Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
-        Me.tabPage3.Controls.Add(Me.Button11)
         Me.tabPage3.Controls.Add(Me.Button10)
         Me.tabPage3.Controls.Add(Me.Label4)
         Me.tabPage3.Controls.Add(Me.Button9)
@@ -711,6 +718,39 @@ Partial Class Form1
         Me.ControlsTextBox.Size = New System.Drawing.Size(0, 25)
         Me.ControlsTextBox.TabIndex = 2
         '
+        'TabPage4
+        '
+        Me.TabPage4.BackColor = System.Drawing.Color.MidnightBlue
+        Me.TabPage4.Controls.Add(Me.CheckBox1)
+        Me.TabPage4.Controls.Add(Me.Button11)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(882, 474)
+        Me.TabPage4.TabIndex = 5
+        Me.TabPage4.Text = "Other"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.ForeColor = System.Drawing.Color.White
+        Me.CheckBox1.Location = New System.Drawing.Point(7, 6)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
+        Me.CheckBox1.TabIndex = 27
+        Me.CheckBox1.Text = "Start with Windows"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(7, 429)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(152, 39)
+        Me.Button11.TabIndex = 26
+        Me.Button11.Text = "BIG FRIENDLY BUTTON"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
         'Help
         '
         Me.Help.Interval = 10000
@@ -752,14 +792,24 @@ Partial Class Form1
         Me.videoP.Size = New System.Drawing.Size(1104, 661)
         Me.videoP.TabIndex = 9
         '
-        'Button11
+        'NotifyIcon1
         '
-        Me.Button11.Location = New System.Drawing.Point(727, 432)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(152, 39)
-        Me.Button11.TabIndex = 25
-        Me.Button11.Text = "BIG FRIENDLY BUTTON"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.NotifyIcon1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "TARDIS App"
+        Me.NotifyIcon1.Visible = True
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 48)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Text = "Hide"
         '
         'Form1
         '
@@ -791,8 +841,11 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabPage3.ResumeLayout(False)
         Me.tabPage3.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -856,6 +909,11 @@ Partial Class Form1
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Private WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
     Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

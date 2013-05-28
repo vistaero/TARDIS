@@ -1,6 +1,9 @@
 ﻿Imports NAudio.Wave
 Imports System.Threading
 Imports System.Globalization.CultureInfo
+Imports Microsoft
+Imports Microsoft.Win32
+Imports Microsoft.Win32.Registry
 
 Public Class Form1
 
@@ -75,6 +78,7 @@ Public Class Form1
     Private Travelling As Boolean
     Private SpaceEnabled As Boolean
     Private Language As String
+    Private Closemsg As String
     
 
 
@@ -109,6 +113,7 @@ Public Class Form1
 
         ' Exit key
         If e.KeyCode = My.Settings.Escapekey Then
+            NotifyIcon1.Visible = False
             End
         End If
 
@@ -230,125 +235,144 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         SpaceEnabled = False
         Travelling = False
         Label1.Parent = PictureBox1
-        Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
-        videoP.LoadMovie(0, SWFfile)
-        videoP.Play()
-        videoP.Loop = True
+        ThreadPool.QueueUserWorkItem(Sub(o)
+                                         Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
+                                         videoP.LoadMovie(0, SWFfile)
+                                         videoP.Play()
+                                         videoP.Loop = True
+
+                                     End Sub)
         Language = System.Globalization.CultureInfo.CurrentCulture.ToString
         If Language.StartsWith("es") Then
             RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
             tabPage1.Text = "Ayuda"
             tabPage2.Text = "Sonido"
             tabPage3.Text = "Controles"
+            TabPage4.Text = "Otros"
             SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
             ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
             Label1.Text = "No hay vídeo. ¿Tienes uno?"
             Button11.Text = "GRAN BOTÓN AMISTOSO"
+            Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
+            CheckBox1.Text = "Iniciar con Windows."
         Else
             RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
             SoundTabText.Text = "Output devices and volume settings (TO-DO)."
             ControlsTextBox.Text = "Personalize the controls (TO-DO)."
             Label1.Text = "Missing video. Do you have one?"
+            Closemsg = "Al changes have been restored. The application will end. You can open it again."
         End If
 
-        ' //////////////////////////
-        ' IF IT IS THE FIRST RUN
-        ' \\\\\\\\\\\\\\\\\\\\\\\\\\
-
-        If My.Settings.IsFirstTime = True Then
-            tabControl1.Visible = True
-            Help.Enabled = True
-
-            ' Setting look
-
-            Dim reader As New WaveFileReader("media/2005Hum.wav")
-            Dim looping As New LoopStream(reader)
-            Hum = New WaveOut()
-            Hum.Init(looping)
-            Hum.Play()
-            PictureBox1.Visible = False
-            My.Settings.ActualHum = "Hum2005"
-            ' Setting the keys
-            My.Settings.Escapekey = Keys.Escape
-            My.Settings.Helpkey = Keys.F2
-            My.Settings.Startkey = Keys.Enter
-            My.Settings.Endkey = Keys.Space
-            My.Settings.TVKey = Keys.T
-            My.Settings.CBKey = Keys.C
-            My.Settings.T2005Key = Keys.D1
-            My.Settings.T2010Key = Keys.D2
-            My.Settings.T2013key = Keys.D3
-            My.Settings.Fullscreenkey = Keys.F11
-            My.Settings.Fullscreen = False
-            My.Settings.IsFirstTime = False
-            My.Settings.Save()
-            My.Application.SaveMySettingsOnExit = True
-            My.Settings.IsFirstTime = False
-        Else
 
 
-            ' //////////////////////////
-            ' IF IT IS NOT THE FIRST RUN
-            ' \\\\\\\\\\\\\\\\\\\\\\\\\\
-
-            If My.Settings.Fullscreen = True Then
-                Me.TopMost = True
-                Me.WindowState = FormWindowState.Maximized
-                My.Settings.Fullscreen = True
-            Else
-                Me.WindowState = FormWindowState.Normal
-                Me.TopMost = False
-                My.Settings.Fullscreen = False
-
-            End If
-
-            If My.Settings.ActualHum = "Hum2005" Then
-                Dim reader As New WaveFileReader("media/2005Hum.wav")
-                Dim looping As New LoopStream(reader)
-                Hum = New WaveOut()
-                Hum.Init(looping)
-                Hum.Play()
-                PictureBox1.Visible = False
-                My.Settings.ActualHum = "Hum2005"
-            End If
+                                         ' //////////////////////////
+                                         ' IF IT IS THE FIRST RUN
+                                         ' \\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-            ' 2010 TARDIS
+                                         If My.Settings.IsFirstTime = True Then
+                                             tabControl1.Visible = True
+                                             Help.Enabled = True
+                                             CheckBox1.Checked = False
+                                             ' Setting look
 
-            If My.Settings.ActualHum = "Hum2010" Then
-                Dim reader As New WaveFileReader("media/2010Hum.wav")
-                Dim looping As New LoopStream(reader)
-                Hum = New WaveOut()
-                Hum.Init(looping)
-                Hum.Play()
-                PictureBox1.Visible = True
-                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
-                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-                My.Settings.ActualHum = "Hum2010"
-            End If
+                                             Dim reader As New WaveFileReader("media/2005Hum.wav")
+                                             Dim looping As New LoopStream(reader)
+                                             Hum = New WaveOut()
+                                             Hum.Init(looping)
+                                             Hum.Play()
+                                             PictureBox1.Visible = False
+                                             My.Settings.ActualHum = "Hum2005"
+                                             ' Setting the keys
+                                             My.Settings.Escapekey = Keys.Escape
+                                             My.Settings.Helpkey = Keys.F2
+                                             My.Settings.Startkey = Keys.Enter
+                                             My.Settings.Endkey = Keys.Space
+                                             My.Settings.TVKey = Keys.T
+                                             My.Settings.CBKey = Keys.C
+                                             My.Settings.T2005Key = Keys.D1
+                                             My.Settings.T2010Key = Keys.D2
+                                             My.Settings.T2013key = Keys.D3
+                                             My.Settings.Fullscreenkey = Keys.F11
+                                             My.Settings.Fullscreen = False
+                                             My.Settings.IsFirstTime = False
+                                             My.Settings.Save()
+                                             My.Application.SaveMySettingsOnExit = True
+                                             My.Settings.IsFirstTime = False
+                                         Else
 
 
-            '2012 TARDIS (To-Do)
+                                             ' //////////////////////////
+                                             ' IF IT IS NOT THE FIRST RUN
+                                             ' \\\\\\\\\\\\\\\\\\\\\\\\\\
 
-            If My.Settings.ActualHum = "Hum2013" Then
+                                             If My.Settings.RunAtStart = True Then
+                                                 CheckBox1.Checked = True
+                                             Else
+                                                 CheckBox1.Checked = False
+                                             End If
 
-                Dim reader As New WaveFileReader("media/2013Hum.wav")
-                Dim looping As New LoopStream(reader)
-                Hum = New WaveOut()
-                Hum.Init(looping)
-                Hum.Play()
-                PictureBox1.Visible = True
-                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
-                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-                My.Settings.ActualHum = "Hum2013"
-            End If
+                                             If My.Settings.Fullscreen = True Then
+                                                 Me.TopMost = True
+                                                 Me.WindowState = FormWindowState.Maximized
+                                                 My.Settings.Fullscreen = True
+                                             Else
+                                                 Me.WindowState = FormWindowState.Normal
+                                                 Me.TopMost = False
+                                                 My.Settings.Fullscreen = False
 
-        End If
-        
+                                             End If
+
+                                             If My.Settings.ActualHum = "Hum2005" Then
+                                                 Dim reader As New WaveFileReader("media/2005Hum.wav")
+                                                 Dim looping As New LoopStream(reader)
+                                                 Hum = New WaveOut()
+                                                 Hum.Init(looping)
+                                                 Hum.Play()
+                                                 PictureBox1.Visible = False
+                                                 My.Settings.ActualHum = "Hum2005"
+                                             End If
+
+
+                                             ' 2010 TARDIS
+
+                                             If My.Settings.ActualHum = "Hum2010" Then
+                                                 Dim reader As New WaveFileReader("media/2010Hum.wav")
+                                                 Dim looping As New LoopStream(reader)
+                                                 Hum = New WaveOut()
+                                                 Hum.Init(looping)
+                                                 Hum.Play()
+                                                 PictureBox1.Visible = True
+                                                 PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
+                                                 PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+                                                 My.Settings.ActualHum = "Hum2010"
+                                             End If
+
+
+                                             '2012 TARDIS (To-Do)
+
+                                             If My.Settings.ActualHum = "Hum2013" Then
+
+                                                 Dim reader As New WaveFileReader("media/2013Hum.wav")
+                                                 Dim looping As New LoopStream(reader)
+                                                 Hum = New WaveOut()
+                                                 Hum.Init(looping)
+                                                 Hum.Play()
+                                                 PictureBox1.Visible = True
+                                                 PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
+                                                 PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+                                                 My.Settings.ActualHum = "Hum2013"
+
+
+                                             End If
+
+                                         End If
+
     End Sub
 
     Private Sub videoP_GotFocus1(sender As Object, e As EventArgs)
@@ -386,10 +410,63 @@ Public Class Form1
         System.Diagnostics.Process.Start(e.LinkText)
     End Sub
 
-
-    Private Sub Button11_Click_1(sender As Object, e As EventArgs) Handles Button11.Click
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        NotifyIcon1.Visible = False
         My.Settings.IsFirstTime = True
         My.Settings.Save()
+        start_Up(False)
+        MsgBox(Closemsg)
+        End
     End Sub
 
+    Private Function start_Up(ByVal bCreate As Boolean) As String
+        Const key As String = "SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+        Dim subClave As String = Application.ProductName.ToString
+        Dim msg As String = ""
+
+        Try
+            Dim Registro As RegistryKey = CurrentUser.CreateSubKey(key, RegistryKeyPermissionCheck.ReadWriteSubTree)
+            With Registro
+                .OpenSubKey(key, True)
+                Select Case bCreate
+                    Case True
+                        .SetValue(subClave, _
+                                  Application.ExecutablePath.ToString)
+                    Case False
+                        If .GetValue(subClave, "").ToString <> "" Then
+                            .DeleteValue(subClave)
+                        End If
+                End Select
+            End With
+        Catch ex As Exception
+            msg = ex.Message.ToString
+        End Try
+        Return Nothing
+    End Function
+
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked = True Then
+            ' Código para añadir a inicio
+            start_Up(True)
+            My.Settings.RunAtStart = True
+            My.Settings.Save()
+        Else
+            ' Código para quitar de inicio
+            start_Up(False)
+            My.Settings.RunAtStart = False
+            My.Settings.Save()
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        If ToolStripMenuItem1.Text = "Hide" Then
+            Me.Visible = False
+            ToolStripMenuItem1.Text = "Show"
+        Else
+            Me.Visible = true
+            ToolStripMenuItem1.Text = "Hide"
+        End If
+
+    End Sub
 End Class
