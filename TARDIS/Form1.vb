@@ -100,7 +100,7 @@ Public Class Form1
     End Sub
 
     Sub Play2005()
-        Dim reader As New WaveFileReader("media/2005Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
@@ -110,7 +110,7 @@ Public Class Form1
     End Sub
 
     Sub Play2010()
-        Dim reader As New WaveFileReader("media/2010Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
@@ -122,7 +122,7 @@ Public Class Form1
     End Sub
 
     Sub Play2013()
-        Dim reader As New WaveFileReader("media/2013Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2013Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
@@ -199,7 +199,7 @@ Public Class Form1
         If e.KeyCode = My.Settings.Startkey Then
             If Travelling = False Then
                 Travelling = True
-                Dim reader As New WaveFileReader("media/Drum.wav")
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\Drum.wav")
                 Drum = New WaveOut()
                 Drum.Init(reader)
                 Drum.Play()
@@ -214,7 +214,7 @@ Public Class Form1
                 SpaceEnabled = False
                 Noise.Stop()
                 Noise.Dispose()
-                Dim reader As New WaveFileReader("media/EndDrum.wav")
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\EndDrum.wav")
                 EndDrum = New WaveOut()
                 EndDrum.Init(reader)
                 EndDrum.Play()
@@ -224,7 +224,7 @@ Public Class Form1
         ' Time Vortex
         If e.KeyCode = My.Settings.TVKey Then
             If TVPlaying = False Then
-                Dim reader As New WaveFileReader("media/TimeVortex.wav")
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\TimeVortex.wav")
                 Dim looping As New LoopStream(reader)
                 TimeVortex = New WaveOut()
                 TimeVortex.Init(looping)
@@ -239,7 +239,7 @@ Public Class Form1
         ' Cloister Bell
         If e.KeyCode = My.Settings.CBKey Then
             If CBPlaying = False Then
-                Dim reader As New WaveFileReader("media/CloisterBell.wav")
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\CloisterBell.wav")
                 Dim looping As New LoopStream(reader)
                 CloisterBell = New WaveOut()
                 CloisterBell.Init(looping)
@@ -313,12 +313,11 @@ Public Class Form1
             My.Settings.Fullscreenkey = Keys.F11
             My.Settings.Fullscreen = False
             My.Settings.IsFirstTime = False
-            My.Application.SaveMySettingsOnExit = True
-            My.Settings.IsFirstTime = False
         Else
             ' //////////////////////////
             ' IF IT IS NOT THE FIRST RUN
             ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+            Cursor.Hide()
             If My.Settings.RunAtStart = True Then
                 CheckBox1.Checked = True
             ElseIf My.Settings.RunAtStart = False Then
@@ -358,7 +357,7 @@ Public Class Form1
     End Sub
 
     Private Sub DelayAndNoise_Tick(sender As Object, e As EventArgs) Handles DelayAndNoise.Tick
-        Dim reader As New WaveFileReader("media/Noise.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\Noise.wav")
         Dim looping As New LoopStream(reader)
         Noise = New WaveOut()
         Noise.Init(looping)
