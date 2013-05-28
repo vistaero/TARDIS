@@ -72,12 +72,23 @@ Public Class Form1
     Private ActualHum As String
     Private Travelling As Boolean
     Private SpaceEnabled As Boolean
+    ' Valores que deben ser guardados en un archivo
     Private Language As String
+    Private Fullscreenkey As String
+    Private Escapekey As String
+    Private Helpkey As String
+    Private Startkey As String
+    Private Endkey As String
+    Private TVKey As String
+    Private T2005Key As String
+    Private T2010Key As String
+    Private T2013key As String
+
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         ' Help key
-        If e.KeyCode = Keys.F2 Then
+        If e.KeyCode = Helpkey Then
             Help.Enabled = False
             If tabControl1.Visible = True Then
                 tabControl1.Visible = False
@@ -89,7 +100,7 @@ Public Class Form1
         End If
 
         ' Fullscreen key
-        If e.KeyCode = Keys.F11 Then
+        If e.KeyCode = Fullscreenkey Then
             If Me.WindowState = FormWindowState.Maximized Then
                 Me.WindowState = FormWindowState.Normal
             ElseIf Me.WindowState = FormWindowState.Normal Then
@@ -99,13 +110,13 @@ Public Class Form1
         End If
 
         ' Exit key
-        If e.KeyCode = Keys.Escape Then
+        If e.KeyCode = Escapekey Then
             End
         End If
 
         ' Look and hum
         ' 2005 TARDIS
-        If e.KeyCode = Keys.D1 Then
+        If e.KeyCode = T2005Key Then
             If ActualHum = "Hum2005" Then
             Else
                 Hum.Stop()
@@ -121,7 +132,7 @@ Public Class Form1
         End If
 
         ' 2010 TARDIS
-        If e.KeyCode = Keys.D2 Then
+        If e.KeyCode = T2010Key Then
             If ActualHum = "Hum2010" Then
             Else
                 Hum.Stop()
@@ -139,7 +150,7 @@ Public Class Form1
         End If
 
         '2012 TARDIS (To-Do)
-        If e.KeyCode = Keys.D3 Then
+        If e.KeyCode = T2013key Then
             If ActualHum = "Hum2013" Then
             Else
                 Hum.Stop()
@@ -159,7 +170,7 @@ Public Class Form1
         ' End look and hum
 
         ' Start travel
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Startkey Then
             If Travelling = False Then
                 Travelling = True
                 Dim reader As New WaveFileReader("media/Drum.wav")
@@ -171,7 +182,7 @@ Public Class Form1
         End If
 
         ' End travel
-        If e.KeyCode = Keys.Space Then
+        If e.KeyCode = Endkey Then
             If SpaceEnabled = True Then
                 Travelling = False
                 SpaceEnabled = False
@@ -185,7 +196,7 @@ Public Class Form1
         End If
 
         ' Time vortex
-        If e.KeyCode = Keys.T Then
+        If e.KeyCode = TVKey Then
 
         End If
 
@@ -205,12 +216,7 @@ Public Class Form1
         videoP.Loop = True
         Label1.Parent = PictureBox1
         Language = System.Globalization.CultureInfo.CurrentCulture.ToString
-        If Language.StartsWith("en") Then
-            RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
-            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
-            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
-            Label1.Text = "Missing video. Do you have one?"
-        ElseIf Language.StartsWith("es") Then
+        If Language.StartsWith("es") Then
             RichTextBox1.LoadFile(Application.StartupPath & "\media\spanish.rtf")
             tabPage1.Text = "Ayuda"
             tabPage2.Text = "Sonido"
@@ -218,8 +224,22 @@ Public Class Form1
             SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
             ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
             Label1.Text = "No hay vídeo. ¿Tienes uno?"
+        Else
+            RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
+            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
+            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
+            Label1.Text = "Missing video. Do you have one?"
         End If
-
+        ' Setting the keys
+        Fullscreenkey = Keys.F11
+        Escapekey = Keys.Escape
+        Helpkey = Keys.F2
+        Startkey = Keys.Enter
+        Endkey = Keys.Space
+        TVKey = Keys.T
+        T2005Key = Keys.D1
+        T2010Key = Keys.D2
+        T2013key = Keys.D3
     End Sub
 
     Private Sub videoP_GotFocus1(sender As Object, e As EventArgs) Handles videoP.GotFocus
