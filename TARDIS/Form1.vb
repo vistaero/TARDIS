@@ -95,12 +95,15 @@ Public Class Form1
         ' Fullscreen key
         If e.KeyCode = My.Settings.Fullscreenkey Then
             If My.Settings.Fullscreen = True Then
+                Me.TopMost = False
                 Me.WindowState = FormWindowState.Normal
                 My.Settings.Fullscreen = False
+                My.Settings.Save()
             Else
+                Me.TopMost = True
                 Me.WindowState = FormWindowState.Maximized
                 My.Settings.Fullscreen = True
-
+                My.Settings.Save()
             End If
         End If
 
@@ -291,6 +294,17 @@ Public Class Form1
             ' //////////////////////////
             ' IF IT IS NOT THE FIRST RUN
             ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+
+            If My.Settings.Fullscreen = True Then
+                Me.TopMost = True
+                Me.WindowState = FormWindowState.Maximized
+                My.Settings.Fullscreen = True
+            Else
+                Me.WindowState = FormWindowState.Normal
+                Me.TopMost = False
+                My.Settings.Fullscreen = False
+
+            End If
 
             If My.Settings.ActualHum = "Hum2005" Then
                 Dim reader As New WaveFileReader("media/2005Hum.wav")
