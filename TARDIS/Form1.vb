@@ -82,9 +82,14 @@ Public Class Form1
     Private WordShow As String
     Private WordHide As String
     Private WordClose As String
-    
+
+    Sub CloseApp()
+        My.Settings.Save()
+        NotifyIcon1.Visible = False
+        Application.Exit()
+    End Sub
+
     Sub HelpWindow()
-        Help.Enabled = False
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
             Cursor.Hide()
@@ -132,7 +137,6 @@ Public Class Form1
 
         ' Help key
         If e.KeyCode = My.Settings.Helpkey Then
-            Help.Enabled = False
             HelpWindow()
         End If
 
@@ -151,9 +155,7 @@ Public Class Form1
 
         ' Exit key
         If e.KeyCode = My.Settings.Escapekey Then
-            My.Settings.Save()
-            NotifyIcon1.Visible = False
-            End
+            CloseApp()
         End If
 
         ' Look and hum
@@ -295,7 +297,6 @@ Public Class Form1
         ' \\\\\\\\\\\\\\\\\\\\\\\\\\
         If My.Settings.IsFirstTime = True Then
             tabControl1.Visible = True
-            Help.Enabled = True
             CheckBox1.Checked = False
             ' Setting look
             Play2005()
@@ -352,7 +353,7 @@ Public Class Form1
         Me.Focus()
     End Sub
 
-    Private Sub Help_Tick(sender As Object, e As EventArgs) Handles Help.Tick
+    Private Sub Help_Tick(sender As Object, e As EventArgs)
         HelpWindow()
     End Sub
 
@@ -372,12 +373,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        NotifyIcon1.Visible = False
         My.Settings.IsFirstTime = True
-        My.Settings.Save()
         start_Up(False)
         MsgBox(Closemsg)
-        End
+        CloseApp()
     End Sub
 
     Private Function start_Up(ByVal bCreate As Boolean) As String

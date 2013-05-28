@@ -81,16 +81,15 @@ Partial Class Form1
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Button11 = New System.Windows.Forms.Button()
-        Me.Help = New System.Windows.Forms.Timer(Me.components)
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
@@ -753,10 +752,6 @@ Partial Class Form1
         Me.Button11.Text = "BIG FRIENDLY BUTTON"
         Me.Button11.UseVisualStyleBackColor = True
         '
-        'Help
-        '
-        Me.Help.Interval = 10000
-        '
         'DelayAndNoise
         '
         Me.DelayAndNoise.Interval = 1800
@@ -797,10 +792,21 @@ Partial Class Form1
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(104, 54)
         '
+        'CloseToolStripMenuItem
+        '
+        Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.CloseToolStripMenuItem.Text = "Close"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(100, 6)
+        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(103, 22)
         Me.ToolStripMenuItem1.Text = "Hide"
         '
         'videoP
@@ -812,17 +818,6 @@ Partial Class Form1
         Me.videoP.OcxState = CType(resources.GetObject("videoP.OcxState"), System.Windows.Forms.AxHost.State)
         Me.videoP.Size = New System.Drawing.Size(1104, 661)
         Me.videoP.TabIndex = 9
-        '
-        'CloseToolStripMenuItem
-        '
-        Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CloseToolStripMenuItem.Text = "Close"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'Form1
         '
@@ -870,7 +865,6 @@ Partial Class Form1
     Private WithEvents SoundTabText As System.Windows.Forms.Label
     Private WithEvents tabPage3 As System.Windows.Forms.TabPage
     Private WithEvents ControlsTextBox As System.Windows.Forms.Label
-    Friend WithEvents Help As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
