@@ -54,14 +54,14 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.Configuration.DefaultSettingValueAttribute("Keys.F11")> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Keys.F11")>  _
         Public Property Fullscreenkey() As String
             Get
-                Return CType(Me("Fullscreenkey"), String)
+                Return CType(Me("Fullscreenkey"),String)
             End Get
-            Set(value As String)
+            Set
                 Me("Fullscreenkey") = value
             End Set
         End Property
@@ -75,10 +75,10 @@ Namespace My
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.TARDIS.My.MySettings
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
+        Friend ReadOnly Property Settings() As Global.TARDIS_App_Beta.My.MySettings
             Get
-                Return Global.TARDIS.My.MySettings.Default
+                Return Global.TARDIS_App_Beta.My.MySettings.Default
             End Get
         End Property
     End Module

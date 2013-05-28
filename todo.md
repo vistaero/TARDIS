@@ -23,3 +23,4 @@
 5. Implement an OpenGL graphic engine.
 6. Implement Google Maps to show the user location.
 7. Can set a time and space destination to travel.
+8. The looping sounds should only can be stopped at the end of a cycle, not at any moment.

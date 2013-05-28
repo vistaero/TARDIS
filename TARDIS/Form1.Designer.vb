@@ -30,6 +30,9 @@ Partial Class Form1
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tabPage2 = New System.Windows.Forms.TabPage()
+        Me.TrackBar8 = New System.Windows.Forms.TrackBar()
+        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TrackBar7 = New System.Windows.Forms.TrackBar()
         Me.ComboBox7 = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -54,6 +57,8 @@ Partial Class Form1
         Me.Label8 = New System.Windows.Forms.Label()
         Me.SoundTabText = New System.Windows.Forms.Label()
         Me.tabPage3 = New System.Windows.Forms.TabPage()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
@@ -78,15 +83,11 @@ Partial Class Form1
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TrackBar8 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
+        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +97,6 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'videoP
@@ -194,6 +194,34 @@ Partial Class Form1
         Me.tabPage2.Size = New System.Drawing.Size(882, 474)
         Me.tabPage2.TabIndex = 4
         Me.tabPage2.Text = "Sound"
+        '
+        'TrackBar8
+        '
+        Me.TrackBar8.Location = New System.Drawing.Point(247, 370)
+        Me.TrackBar8.Name = "TrackBar8"
+        Me.TrackBar8.Size = New System.Drawing.Size(104, 45)
+        Me.TrackBar8.TabIndex = 27
+        '
+        'ComboBox8
+        '
+        Me.ComboBox8.FormattingEnabled = True
+        Me.ComboBox8.Location = New System.Drawing.Point(120, 373)
+        Me.ComboBox8.Name = "ComboBox8"
+        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox8.TabIndex = 26
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label2.Location = New System.Drawing.Point(10, 370)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(103, 25)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Cloister Bell"
         '
         'TrackBar7
         '
@@ -445,6 +473,28 @@ Partial Class Form1
         Me.tabPage3.Size = New System.Drawing.Size(882, 474)
         Me.tabPage3.TabIndex = 2
         Me.tabPage3.Text = "Controls"
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(15, 327)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 23)
+        Me.Button10.TabIndex = 24
+        Me.Button10.Text = "C"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label4.Location = New System.Drawing.Point(103, 325)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(103, 25)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Cloister Bell"
         '
         'Button9
         '
@@ -700,56 +750,6 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(0, 86)
         Me.Label1.TabIndex = 8
         '
-        'TrackBar8
-        '
-        Me.TrackBar8.Location = New System.Drawing.Point(247, 370)
-        Me.TrackBar8.Name = "TrackBar8"
-        Me.TrackBar8.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar8.TabIndex = 27
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(120, 373)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 26
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label2.Location = New System.Drawing.Point(10, 370)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 25)
-        Me.Label2.TabIndex = 25
-        Me.Label2.Text = "Cloister Bell"
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(15, 327)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 24
-        Me.Button10.Text = "C"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label4.Location = New System.Drawing.Point(103, 325)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 25)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Cloister Bell"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -764,13 +764,14 @@ Partial Class Form1
         Me.KeyPreview = True
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Display 1"
+        Me.Text = "TARDIS App Beta"
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabControl1.ResumeLayout(False)
         Me.tabPage1.ResumeLayout(False)
         Me.tabPage1.PerformLayout()
         Me.tabPage2.ResumeLayout(False)
         Me.tabPage2.PerformLayout()
+        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -781,7 +782,6 @@ Partial Class Form1
         Me.tabPage3.ResumeLayout(False)
         Me.tabPage3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,4 +1,6 @@
-﻿Imports System
+﻿Imports System.Resources
+
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,14 +10,14 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("TARDIS Monitor")> 
+<Assembly: AssemblyTitle("TARDIS App")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("vistaero")> 
-<Assembly: AssemblyProduct("TARDIS Monitor")> 
+<Assembly: AssemblyProduct("TARDIS App")> 
 <Assembly: AssemblyCopyright("Copyright ©  2013")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("vistaero")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'El siguiente GUID sirve como identificador de typelib si este proyecto se expone a COM
 <Assembly: Guid("993d15fa-eeef-47e7-8eb2-a76e7a8240b9")> 
@@ -33,3 +35,5 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyVersion("1.0.0.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> 
+
+<Assembly: NeutralResourcesLanguageAttribute("en")> 

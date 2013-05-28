@@ -3,7 +3,6 @@ Imports System.Threading
 Imports System.Globalization.CultureInfo
 
 Public Class Form1
-    Inherits System.Windows.Forms.Form
     Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
 
     Public Class LoopStream
@@ -305,9 +304,8 @@ Public Class Form1
         DelayAndNoise.Enabled = False
     End Sub
 
-    Private Sub RichTextBox1_LinkClicked(sender As Object, e As LinkClickedEventArgs)
+    Private Sub RichTextBox1_LinkClicked1(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox1.LinkClicked
         System.Diagnostics.Process.Start(e.LinkText)
     End Sub
-
 
 End Class
