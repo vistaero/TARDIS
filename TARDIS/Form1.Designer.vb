@@ -78,6 +78,11 @@ Partial Class Form1
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TrackBar8 = New System.Windows.Forms.TrackBar()
+        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
@@ -91,6 +96,7 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'videoP
@@ -157,6 +163,9 @@ Partial Class Form1
         'tabPage2
         '
         Me.tabPage2.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage2.Controls.Add(Me.TrackBar8)
+        Me.tabPage2.Controls.Add(Me.ComboBox8)
+        Me.tabPage2.Controls.Add(Me.Label2)
         Me.tabPage2.Controls.Add(Me.TrackBar7)
         Me.tabPage2.Controls.Add(Me.ComboBox7)
         Me.tabPage2.Controls.Add(Me.Label3)
@@ -409,6 +418,8 @@ Partial Class Form1
         'tabPage3
         '
         Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage3.Controls.Add(Me.Button10)
+        Me.tabPage3.Controls.Add(Me.Label4)
         Me.tabPage3.Controls.Add(Me.Button9)
         Me.tabPage3.Controls.Add(Me.Button7)
         Me.tabPage3.Controls.Add(Me.Button8)
@@ -446,7 +457,7 @@ Partial Class Form1
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(15, 372)
+        Me.Button7.Location = New System.Drawing.Point(526, 102)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 21
@@ -455,7 +466,7 @@ Partial Class Form1
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(15, 417)
+        Me.Button8.Location = New System.Drawing.Point(526, 147)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(75, 23)
         Me.Button8.TabIndex = 20
@@ -509,7 +520,7 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(15, 327)
+        Me.Button1.Location = New System.Drawing.Point(526, 57)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 14
@@ -522,7 +533,7 @@ Partial Class Form1
         Me.Label26.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label26.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label26.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label26.Location = New System.Drawing.Point(103, 415)
+        Me.Label26.Location = New System.Drawing.Point(614, 145)
         Me.Label26.Margin = New System.Windows.Forms.Padding(10)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(89, 25)
@@ -535,7 +546,7 @@ Partial Class Form1
         Me.Label25.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label25.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label25.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label25.Location = New System.Drawing.Point(103, 370)
+        Me.Label25.Location = New System.Drawing.Point(614, 100)
         Me.Label25.Margin = New System.Windows.Forms.Padding(10)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(49, 25)
@@ -548,7 +559,7 @@ Partial Class Form1
         Me.Label24.Font = New System.Drawing.Font("Segoe UI", 13.0!)
         Me.Label24.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.Label24.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label24.Location = New System.Drawing.Point(103, 325)
+        Me.Label24.Location = New System.Drawing.Point(614, 55)
         Me.Label24.Margin = New System.Windows.Forms.Padding(10)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(147, 25)
@@ -689,6 +700,56 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(0, 86)
         Me.Label1.TabIndex = 8
         '
+        'TrackBar8
+        '
+        Me.TrackBar8.Location = New System.Drawing.Point(247, 370)
+        Me.TrackBar8.Name = "TrackBar8"
+        Me.TrackBar8.Size = New System.Drawing.Size(104, 45)
+        Me.TrackBar8.TabIndex = 27
+        '
+        'ComboBox8
+        '
+        Me.ComboBox8.FormattingEnabled = True
+        Me.ComboBox8.Location = New System.Drawing.Point(120, 373)
+        Me.ComboBox8.Name = "ComboBox8"
+        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox8.TabIndex = 26
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label2.Location = New System.Drawing.Point(10, 370)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(103, 25)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Cloister Bell"
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(15, 327)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 23)
+        Me.Button10.TabIndex = 24
+        Me.Button10.Text = "C"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 13.0!)
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label4.Location = New System.Drawing.Point(103, 325)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(103, 25)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Cloister Bell"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -720,6 +781,7 @@ Partial Class Form1
         Me.tabPage3.ResumeLayout(False)
         Me.tabPage3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -778,5 +840,10 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TrackBar8 As System.Windows.Forms.TrackBar
+    Friend WithEvents ComboBox8 As System.Windows.Forms.ComboBox
+    Private WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Private WithEvents Label4 As System.Windows.Forms.Label
 
 End Class

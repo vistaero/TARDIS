@@ -69,17 +69,22 @@ Public Class Form1
     Private Drum As WaveOut
     Private Noise As WaveOut
     Private EndDrum As WaveOut
+    Private CloisterBell As WaveOut
+    Private TimeVortex As WaveOut
+    Private CBPlaying As Boolean
+    Private TVPlaying As Boolean
     Private ActualHum As String
     Private Travelling As Boolean
     Private SpaceEnabled As Boolean
     ' Valores que deben ser guardados en un archivo
     Private Language As String
-    Private Fullscreenkey As String
     Private Escapekey As String
     Private Helpkey As String
+    Private Fullscreenkey As String
     Private Startkey As String
     Private Endkey As String
     Private TVKey As String
+    Private CBKey As String
     Private T2005Key As String
     Private T2010Key As String
     Private T2013key As String
@@ -195,9 +200,35 @@ Public Class Form1
             End If
         End If
 
-        ' Time vortex
+        ' Time Vortex
         If e.KeyCode = TVKey Then
-
+            If TVPlaying = False Then
+                Dim reader As New WaveFileReader("media/TimeVortex.wav")
+                Dim looping As New LoopStream(reader)
+                TimeVortex = New WaveOut()
+                TimeVortex.Init(looping)
+                TimeVortex.Play()
+                TVPlaying = True
+            Else
+                TimeVortex.Stop()
+                TimeVortex.Dispose()
+                TVPlaying = False
+            End If
+        End If
+        ' Cloister Bell
+        If e.KeyCode = CBKey Then
+            If CBPlaying = False Then
+                Dim reader As New WaveFileReader("media/CloisterBell.wav")
+                Dim looping As New LoopStream(reader)
+                CloisterBell = New WaveOut()
+                CloisterBell.Init(looping)
+                CloisterBell.Play()
+                CBPlaying = True
+            Else
+                CloisterBell.Stop()
+                CloisterBell.Dispose()
+                CBPlaying = False
+            End If
         End If
 
     End Sub
@@ -231,12 +262,13 @@ Public Class Form1
             Label1.Text = "Missing video. Do you have one?"
         End If
         ' Setting the keys
-        Fullscreenkey = Keys.F11
         Escapekey = Keys.Escape
         Helpkey = Keys.F2
+        Fullscreenkey = Keys.F11
         Startkey = Keys.Enter
         Endkey = Keys.Space
         TVKey = Keys.T
+        CBKey = Keys.C
         T2005Key = Keys.D1
         T2010Key = Keys.D2
         T2013key = Keys.D3
