@@ -135,6 +135,12 @@ Public Class Form1
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
+        ' Hide Key
+        If e.KeyCode = My.Settings.HideKey Then
+            Me.Visible = False
+            ToolStripMenuItem1.Text = WordShow
+        End If
+
         ' Help key
         If e.KeyCode = My.Settings.Helpkey Then
             HelpWindow()
@@ -307,12 +313,14 @@ Public Class Form1
             My.Settings.Endkey = Keys.Space
             My.Settings.TVKey = Keys.T
             My.Settings.CBKey = Keys.C
+            My.Settings.HideKey = Keys.H
             My.Settings.T2005Key = Keys.D1
             My.Settings.T2010Key = Keys.D2
             My.Settings.T2013key = Keys.D3
             My.Settings.Fullscreenkey = Keys.F11
             My.Settings.Fullscreen = False
             My.Settings.IsFirstTime = False
+            My.Settings.Save()
         Else
             ' //////////////////////////
             ' IF IT IS NOT THE FIRST RUN
@@ -432,5 +440,35 @@ Public Class Form1
         My.Settings.Save()
         NotifyIcon1.Visible = False
         End
+    End Sub
+
+    Private Sub ContextMenuStrip1_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles ContextMenuStrip1.Closing
+        HelpWindow()
+        Me.Focus()
+        Me.TopMost = False
+
+    End Sub
+
+    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
+        If tabControl1.Visible = False Then
+            HelpWindow()
+            Me.Focus()
+            Me.TopMost = True
+            Me.TopMost = False
+        End If
+    End Sub
+
+    Private Sub NotifyIcon1_MouseDown(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDown
+        Me.Focus()
+        Me.TopMost = True
+        Me.TopMost = False
+    End Sub
+
+    Private Sub BigFriendlyButtonToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BigFriendlyButtonToolStripMenuItem.Click
+        My.Settings.IsFirstTime = True
+        Cursor.Show()
+        start_Up(False)
+        MsgBox(Closemsg)
+        CloseApp()
     End Sub
 End Class
