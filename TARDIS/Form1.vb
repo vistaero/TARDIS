@@ -3,7 +3,6 @@ Imports System.Threading
 Imports System.Globalization.CultureInfo
 
 Public Class Form1
-    Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
 
     Public Class LoopStream
         Inherits WaveStream
@@ -22,6 +21,7 @@ Public Class Form1
                 m_EnableLooping = value
             End Set
         End Property
+
         Private m_EnableLooping As Boolean
 
         Public Overrides ReadOnly Property WaveFormat() As WaveFormat
@@ -72,56 +72,48 @@ Public Class Form1
     Private TimeVortex As WaveOut
     Private CBPlaying As Boolean
     Private TVPlaying As Boolean
-    Private ActualHum As String
     Private Travelling As Boolean
     Private SpaceEnabled As Boolean
-    ' Valores que deben ser guardados en un archivo
     Private Language As String
-    Private Escapekey As String
-    Private Helpkey As String
-    Private Fullscreenkey As String
-    Private Startkey As String
-    Private Endkey As String
-    Private TVKey As String
-    Private CBKey As String
-    Private T2005Key As String
-    Private T2010Key As String
-    Private T2013key As String
+    
 
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         ' Help key
-        If e.KeyCode = Helpkey Then
+        If e.KeyCode = My.Settings.Helpkey Then
             Help.Enabled = False
             If tabControl1.Visible = True Then
                 tabControl1.Visible = False
                 Cursor.Hide()
-            ElseIf tabControl1.Visible = False Then
+            Else
                 tabControl1.Visible = True
                 Cursor.Show()
             End If
         End If
 
         ' Fullscreen key
-        If e.KeyCode = Fullscreenkey Then
-            If Me.WindowState = FormWindowState.Maximized Then
+        If e.KeyCode = My.Settings.Fullscreenkey Then
+            If My.Settings.Fullscreen = True Then
                 Me.WindowState = FormWindowState.Normal
-            ElseIf Me.WindowState = FormWindowState.Normal Then
+                My.Settings.Fullscreen = False
+            Else
                 Me.WindowState = FormWindowState.Maximized
+                My.Settings.Fullscreen = True
 
             End If
         End If
 
         ' Exit key
-        If e.KeyCode = Escapekey Then
+        If e.KeyCode = My.Settings.Escapekey Then
             End
         End If
 
         ' Look and hum
         ' 2005 TARDIS
-        If e.KeyCode = T2005Key Then
-            If ActualHum = "Hum2005" Then
+        If e.KeyCode = My.Settings.T2005Key Then
+
+            If My.Settings.ActualHum = "Hum2005" Then
             Else
                 Hum.Stop()
                 Hum.Dispose()
@@ -131,13 +123,14 @@ Public Class Form1
                 Hum.Init(looping)
                 Hum.Play()
                 PictureBox1.Visible = False
-                ActualHum = "Hum2005"
+                My.Settings.ActualHum = "Hum2005"
+                My.Settings.Save()
             End If
         End If
 
         ' 2010 TARDIS
-        If e.KeyCode = T2010Key Then
-            If ActualHum = "Hum2010" Then
+        If e.KeyCode = My.Settings.T2010Key Then
+            If My.Settings.ActualHum = "Hum2010" Then
             Else
                 Hum.Stop()
                 Hum.Dispose()
@@ -149,13 +142,14 @@ Public Class Form1
                 PictureBox1.Visible = True
                 PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
                 PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-                ActualHum = "Hum2010"
+                My.Settings.ActualHum = "Hum2010"
+                My.Settings.Save()
             End If
         End If
 
         '2012 TARDIS (To-Do)
-        If e.KeyCode = T2013key Then
-            If ActualHum = "Hum2013" Then
+        If e.KeyCode = My.Settings.T2013key Then
+            If My.Settings.ActualHum = "Hum2013" Then
             Else
                 Hum.Stop()
                 Hum.Dispose()
@@ -167,14 +161,15 @@ Public Class Form1
                 PictureBox1.Visible = True
                 PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
                 PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
-                ActualHum = "Hum2013"
+                My.Settings.ActualHum = "Hum2013"
+                My.Settings.Save()
             End If
         End If
 
         ' End look and hum
 
         ' Start travel
-        If e.KeyCode = Startkey Then
+        If e.KeyCode = My.Settings.Startkey Then
             If Travelling = False Then
                 Travelling = True
                 Dim reader As New WaveFileReader("media/Drum.wav")
@@ -186,7 +181,7 @@ Public Class Form1
         End If
 
         ' End travel
-        If e.KeyCode = Endkey Then
+        If e.KeyCode = My.Settings.Endkey Then
             If SpaceEnabled = True Then
                 Travelling = False
                 SpaceEnabled = False
@@ -200,7 +195,7 @@ Public Class Form1
         End If
 
         ' Time Vortex
-        If e.KeyCode = TVKey Then
+        If e.KeyCode = My.Settings.TVKey Then
             If TVPlaying = False Then
                 Dim reader As New WaveFileReader("media/TimeVortex.wav")
                 Dim looping As New LoopStream(reader)
@@ -215,7 +210,7 @@ Public Class Form1
             End If
         End If
         ' Cloister Bell
-        If e.KeyCode = CBKey Then
+        If e.KeyCode = My.Settings.CBKey Then
             If CBPlaying = False Then
                 Dim reader As New WaveFileReader("media/CloisterBell.wav")
                 Dim looping As New LoopStream(reader)
@@ -235,49 +230,118 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SpaceEnabled = False
         Travelling = False
-        Dim reader As New WaveFileReader("media/2005Hum.wav")
-        Dim looping As New LoopStream(reader)
-        Hum = New WaveOut()
-        Hum.Init(looping)
-        Hum.Play()
-        ActualHum = "Hum2005"
+        Label1.Parent = PictureBox1
+        Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
         videoP.LoadMovie(0, SWFfile)
         videoP.Play()
         videoP.Loop = True
-        Label1.Parent = PictureBox1
         Language = System.Globalization.CultureInfo.CurrentCulture.ToString
         If Language.StartsWith("es") Then
-            RichTextBox1.LoadFile(Application.StartupPath & "\media\spanish.rtf")
+            RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
             tabPage1.Text = "Ayuda"
             tabPage2.Text = "Sonido"
             tabPage3.Text = "Controles"
             SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
             ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
             Label1.Text = "No hay vídeo. ¿Tienes uno?"
+            Button11.Text = "GRAN BOTÓN AMISTOSO"
         Else
-            RichTextBox1.LoadFile(Application.StartupPath & "\media\english.rtf")
+            RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
             SoundTabText.Text = "Output devices and volume settings (TO-DO)."
             ControlsTextBox.Text = "Personalize the controls (TO-DO)."
             Label1.Text = "Missing video. Do you have one?"
         End If
-        ' Setting the keys
-        Escapekey = Keys.Escape
-        Helpkey = Keys.F2
-        Fullscreenkey = Keys.F11
-        Startkey = Keys.Enter
-        Endkey = Keys.Space
-        TVKey = Keys.T
-        CBKey = Keys.C
-        T2005Key = Keys.D1
-        T2010Key = Keys.D2
-        T2013key = Keys.D3
+
+        ' //////////////////////////
+        ' IF IT IS THE FIRST RUN
+        ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+
+        If My.Settings.IsFirstTime = True Then
+            tabControl1.Visible = True
+            Help.Enabled = True
+
+            ' Setting look
+
+            Dim reader As New WaveFileReader("media/2005Hum.wav")
+            Dim looping As New LoopStream(reader)
+            Hum = New WaveOut()
+            Hum.Init(looping)
+            Hum.Play()
+            PictureBox1.Visible = False
+            My.Settings.ActualHum = "Hum2005"
+            ' Setting the keys
+            My.Settings.Escapekey = Keys.Escape
+            My.Settings.Helpkey = Keys.F2
+            My.Settings.Startkey = Keys.Enter
+            My.Settings.Endkey = Keys.Space
+            My.Settings.TVKey = Keys.T
+            My.Settings.CBKey = Keys.C
+            My.Settings.T2005Key = Keys.D1
+            My.Settings.T2010Key = Keys.D2
+            My.Settings.T2013key = Keys.D3
+            My.Settings.Fullscreenkey = Keys.F11
+            My.Settings.Fullscreen = False
+            My.Settings.IsFirstTime = False
+            My.Settings.Save()
+            My.Application.SaveMySettingsOnExit = True
+            My.Settings.IsFirstTime = False
+        Else
+
+
+            ' //////////////////////////
+            ' IF IT IS NOT THE FIRST RUN
+            ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+
+            If My.Settings.ActualHum = "Hum2005" Then
+                Dim reader As New WaveFileReader("media/2005Hum.wav")
+                Dim looping As New LoopStream(reader)
+                Hum = New WaveOut()
+                Hum.Init(looping)
+                Hum.Play()
+                PictureBox1.Visible = False
+                My.Settings.ActualHum = "Hum2005"
+            End If
+
+
+            ' 2010 TARDIS
+
+            If My.Settings.ActualHum = "Hum2010" Then
+                Dim reader As New WaveFileReader("media/2010Hum.wav")
+                Dim looping As New LoopStream(reader)
+                Hum = New WaveOut()
+                Hum.Init(looping)
+                Hum.Play()
+                PictureBox1.Visible = True
+                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
+                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+                My.Settings.ActualHum = "Hum2010"
+            End If
+
+
+            '2012 TARDIS (To-Do)
+
+            If My.Settings.ActualHum = "Hum2013" Then
+
+                Dim reader As New WaveFileReader("media/2013Hum.wav")
+                Dim looping As New LoopStream(reader)
+                Hum = New WaveOut()
+                Hum.Init(looping)
+                Hum.Play()
+                PictureBox1.Visible = True
+                PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
+                PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+                My.Settings.ActualHum = "Hum2013"
+            End If
+
+        End If
+        
     End Sub
 
-    Private Sub videoP_GotFocus1(sender As Object, e As EventArgs) Handles videoP.GotFocus
+    Private Sub videoP_GotFocus1(sender As Object, e As EventArgs)
         Me.Focus()
     End Sub
 
-    Private Sub videoP_MouseCaptureChanged(sender As Object, e As EventArgs) Handles videoP.MouseCaptureChanged
+    Private Sub videoP_MouseCaptureChanged(sender As Object, e As EventArgs)
         Me.Focus()
     End Sub
 
@@ -306,6 +370,12 @@ Public Class Form1
 
     Private Sub RichTextBox1_LinkClicked1(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox1.LinkClicked
         System.Diagnostics.Process.Start(e.LinkText)
+    End Sub
+
+
+    Private Sub Button11_Click_1(sender As Object, e As EventArgs) Handles Button11.Click
+        My.Settings.IsFirstTime = True
+        My.Settings.Save()
     End Sub
 
 End Class

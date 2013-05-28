@@ -3,9 +3,7 @@
 ## Current version `1.0`
 1. Implement Time Vortex (video and sound while travelling).
 2. Improve languages support.
-3. Application adjustments auto-saving.
-4. Selection of the default TARDIS.
-5. Secret button.
+3. Secret button.
 
 ## Next version `1.1`
 1. Volume control for each sound.

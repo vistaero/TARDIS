@@ -24,7 +24,6 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.tabControl1 = New System.Windows.Forms.TabControl()
         Me.tabPage1 = New System.Windows.Forms.TabPage()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
@@ -83,7 +82,8 @@ Partial Class Form1
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
+        Me.Button11 = New System.Windows.Forms.Button()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
@@ -97,17 +97,8 @@ Partial Class Form1
         CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPage3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'videoP
-        '
-        Me.videoP.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.videoP.Enabled = True
-        Me.videoP.Location = New System.Drawing.Point(0, 0)
-        Me.videoP.Name = "videoP"
-        Me.videoP.OcxState = CType(resources.GetObject("videoP.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.videoP.Size = New System.Drawing.Size(1104, 661)
-        Me.videoP.TabIndex = 3
         '
         'tabControl1
         '
@@ -120,6 +111,7 @@ Partial Class Form1
         Me.tabControl1.SelectedIndex = 0
         Me.tabControl1.Size = New System.Drawing.Size(890, 503)
         Me.tabControl1.TabIndex = 5
+        Me.tabControl1.Visible = False
         '
         'tabPage1
         '
@@ -446,6 +438,7 @@ Partial Class Form1
         'tabPage3
         '
         Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
+        Me.tabPage3.Controls.Add(Me.Button11)
         Me.tabPage3.Controls.Add(Me.Button10)
         Me.tabPage3.Controls.Add(Me.Label4)
         Me.tabPage3.Controls.Add(Me.Button9)
@@ -720,7 +713,6 @@ Partial Class Form1
         '
         'Help
         '
-        Me.Help.Enabled = True
         Me.Help.Interval = 10000
         '
         'DelayAndNoise
@@ -750,13 +742,32 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(0, 86)
         Me.Label1.TabIndex = 8
         '
+        'videoP
+        '
+        Me.videoP.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.videoP.Enabled = True
+        Me.videoP.Location = New System.Drawing.Point(0, 0)
+        Me.videoP.Name = "videoP"
+        Me.videoP.OcxState = CType(resources.GetObject("videoP.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.videoP.Size = New System.Drawing.Size(1104, 661)
+        Me.videoP.TabIndex = 9
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(727, 432)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(152, 39)
+        Me.Button11.TabIndex = 25
+        Me.Button11.Text = "BIG FRIENDLY BUTTON"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1104, 661)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tabControl1)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.videoP)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -765,7 +776,6 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TARDIS App Beta"
-        CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabControl1.ResumeLayout(False)
         Me.tabPage1.ResumeLayout(False)
         Me.tabPage1.PerformLayout()
@@ -782,11 +792,11 @@ Partial Class Form1
         Me.tabPage3.ResumeLayout(False)
         Me.tabPage3.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
     Private WithEvents tabControl1 As System.Windows.Forms.TabControl
     Private WithEvents tabPage1 As System.Windows.Forms.TabPage
     Private WithEvents tabPage2 As System.Windows.Forms.TabPage
@@ -845,5 +855,7 @@ Partial Class Form1
     Private WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Private WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
+    Friend WithEvents Button11 As System.Windows.Forms.Button
 
 End Class
