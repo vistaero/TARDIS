@@ -86,12 +86,12 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.BigFriendlyButtonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
-        Me.BigFriendlyButtonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tabControl1.SuspendLayout()
         Me.tabPage1.SuspendLayout()
         Me.tabPage2.SuspendLayout()
@@ -794,6 +794,17 @@ Partial Class Form1
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(176, 82)
         '
+        'BigFriendlyButtonToolStripMenuItem
+        '
+        Me.BigFriendlyButtonToolStripMenuItem.Name = "BigFriendlyButtonToolStripMenuItem"
+        Me.BigFriendlyButtonToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
+        Me.BigFriendlyButtonToolStripMenuItem.Text = "Big Friendly Button"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(172, 6)
+        '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
@@ -820,17 +831,6 @@ Partial Class Form1
         Me.videoP.OcxState = CType(resources.GetObject("videoP.OcxState"), System.Windows.Forms.AxHost.State)
         Me.videoP.Size = New System.Drawing.Size(1104, 661)
         Me.videoP.TabIndex = 9
-        '
-        'BigFriendlyButtonToolStripMenuItem
-        '
-        Me.BigFriendlyButtonToolStripMenuItem.Name = "BigFriendlyButtonToolStripMenuItem"
-        Me.BigFriendlyButtonToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
-        Me.BigFriendlyButtonToolStripMenuItem.Text = "Big Friendly Button"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(172, 6)
         '
         'Form1
         '

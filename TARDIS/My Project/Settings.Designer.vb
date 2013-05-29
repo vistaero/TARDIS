@@ -232,6 +232,29 @@ Namespace My
                 Me("HideKey") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property MouseKey() As String
+            Get
+                Return CType(Me("MouseKey"),String)
+            End Get
+            Set
+                Me("MouseKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IsMouseVisible() As Boolean
+            Get
+                Return CType(Me("IsMouseVisible"),Boolean)
+            End Get
+            Set
+                Me("IsMouseVisible") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

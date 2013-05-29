@@ -82,6 +82,104 @@ Public Class Form1
     Private WordShow As String
     Private WordHide As String
     Private WordClose As String
+    Dim ismousevisible As Boolean
+    Sub Initapp()
+        ThreadPool.QueueUserWorkItem(Sub(o)
+                                         Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
+                                         videoP.LoadMovie(0, SWFfile)
+                                         videoP.Play()
+                                         videoP.Loop = True
+                                     End Sub)
+        SpaceEnabled = False
+        Travelling = False
+        Label1.Parent = PictureBox1
+        Language = System.Globalization.CultureInfo.CurrentCulture.ToString
+        If Language.StartsWith("es") Then
+            RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
+            tabPage1.Text = "Ayuda"
+            tabPage2.Text = "Sonido"
+            tabPage3.Text = "Controles"
+            TabPage4.Text = "Otros"
+            SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
+            ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
+            Label1.Text = "No hay vídeo. ¿Tienes uno?"
+            Button11.Text = "GRAN BOTÓN AMISTOSO"
+            Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
+            CheckBox1.Text = "Iniciar con Windows."
+            WordShow = "Mostrar"
+            WordHide = "Ocultar"
+            WordClose = "Cerrar"
+        Else
+            RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
+            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
+            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
+            Label1.Text = "Missing video. Do you have one?"
+            Closemsg = "Al changes have been restored. The application will end. You can open it again."
+            WordShow = "Show"
+            WordHide = "Hide"
+            WordClose = "Close"
+        End If
+        ToolStripMenuItem1.Text = WordHide
+        CloseToolStripMenuItem.Text = WordClose
+        ' //////////////////////////
+        ' IF IT IS THE FIRST RUN
+        ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+        If My.Settings.IsFirstTime = True Then
+            My.Settings.IsMouseVisible = True
+            tabControl1.Visible = True
+            CheckBox1.Checked = False
+            ' Setting look
+            Play2005()
+            ' Setting the keys
+            My.Settings.Escapekey = Keys.Escape
+            My.Settings.Helpkey = Keys.F2
+            My.Settings.Startkey = Keys.Enter
+            My.Settings.Endkey = Keys.Space
+            My.Settings.TVKey = Keys.T
+            My.Settings.CBKey = Keys.C
+            My.Settings.MouseKey = Keys.M
+            My.Settings.HideKey = Keys.H
+            My.Settings.T2005Key = Keys.D1
+            My.Settings.T2010Key = Keys.D2
+            My.Settings.T2013key = Keys.D3
+            My.Settings.Fullscreenkey = Keys.F11
+            My.Settings.Fullscreen = False
+            My.Settings.IsFirstTime = False
+            My.Settings.Save()
+        Else
+            ' //////////////////////////
+            ' IF IT IS NOT THE FIRST RUN
+            ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+            My.Settings.Reload()
+            If My.Settings.IsMouseVisible = False Then
+                Cursor.Hide()
+            End If
+            If My.Settings.RunAtStart = True Then
+                CheckBox1.Checked = True
+            ElseIf My.Settings.RunAtStart = False Then
+                CheckBox1.Checked = False
+            End If
+            If My.Settings.Fullscreen = True Then
+                Me.TopMost = True
+                Me.WindowState = FormWindowState.Maximized
+                My.Settings.Fullscreen = True
+            Else
+                Me.WindowState = FormWindowState.Normal
+                Me.TopMost = False
+                My.Settings.Fullscreen = False
+            End If
+            If My.Settings.ActualHum = "Hum2005" Then
+                Play2005()
+            End If
+            If My.Settings.ActualHum = "Hum2010" Then
+                Play2010()
+            End If
+            If My.Settings.ActualHum = "Hum2013" Then
+                Play2013()
+            End If
+        End If
+    End Sub
+
 
     Sub CloseApp()
         My.Settings.Save()
@@ -92,10 +190,10 @@ Public Class Form1
     Sub HelpWindow()
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
-            Cursor.Hide()
+
         Else
             tabControl1.Visible = True
-            Cursor.Show()
+
         End If
     End Sub
 
@@ -139,6 +237,17 @@ Public Class Form1
         If e.KeyCode = My.Settings.HideKey Then
             Me.Visible = False
             ToolStripMenuItem1.Text = WordShow
+        End If
+
+        ' Mouse Hide Key
+        If e.KeyCode = My.Settings.MouseKey Then
+            If My.Settings.IsMouseVisible = True Then
+                Cursor.Hide()
+                My.Settings.IsMouseVisible = False
+            ElseIf My.Settings.IsMouseVisible = False Then
+                Cursor.Show()
+                My.Settings.IsMouseVisible = True
+            End If
         End If
 
         ' Help key
@@ -261,95 +370,7 @@ Public Class Form1
     End Sub
 
     Public Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ThreadPool.QueueUserWorkItem(Sub(o)
-                                         Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
-                                         videoP.LoadMovie(0, SWFfile)
-                                         videoP.Play()
-                                         videoP.Loop = True
-                                     End Sub)
-        SpaceEnabled = False
-        Travelling = False
-        Label1.Parent = PictureBox1
-        Language = System.Globalization.CultureInfo.CurrentCulture.ToString
-        If Language.StartsWith("es") Then
-            RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
-            tabPage1.Text = "Ayuda"
-            tabPage2.Text = "Sonido"
-            tabPage3.Text = "Controles"
-            TabPage4.Text = "Otros"
-            SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
-            ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
-            Label1.Text = "No hay vídeo. ¿Tienes uno?"
-            Button11.Text = "GRAN BOTÓN AMISTOSO"
-            Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
-            CheckBox1.Text = "Iniciar con Windows."
-            WordShow = "Mostrar"
-            WordHide = "Ocultar"
-            WordClose = "Cerrar"
-        Else
-            RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
-            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
-            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
-            Label1.Text = "Missing video. Do you have one?"
-            Closemsg = "Al changes have been restored. The application will end. You can open it again."
-            WordShow = "Show"
-            WordHide = "Hide"
-            WordClose = "Close"
-        End If
-        ToolStripMenuItem1.Text = WordHide
-        CloseToolStripMenuItem.Text = WordClose
-        ' //////////////////////////
-        ' IF IT IS THE FIRST RUN
-        ' \\\\\\\\\\\\\\\\\\\\\\\\\\
-        If My.Settings.IsFirstTime = True Then
-            tabControl1.Visible = True
-            CheckBox1.Checked = False
-            ' Setting look
-            Play2005()
-            ' Setting the keys
-            My.Settings.Escapekey = Keys.Escape
-            My.Settings.Helpkey = Keys.F2
-            My.Settings.Startkey = Keys.Enter
-            My.Settings.Endkey = Keys.Space
-            My.Settings.TVKey = Keys.T
-            My.Settings.CBKey = Keys.C
-            My.Settings.HideKey = Keys.H
-            My.Settings.T2005Key = Keys.D1
-            My.Settings.T2010Key = Keys.D2
-            My.Settings.T2013key = Keys.D3
-            My.Settings.Fullscreenkey = Keys.F11
-            My.Settings.Fullscreen = False
-            My.Settings.IsFirstTime = False
-            My.Settings.Save()
-        Else
-            ' //////////////////////////
-            ' IF IT IS NOT THE FIRST RUN
-            ' \\\\\\\\\\\\\\\\\\\\\\\\\\
-            Cursor.Hide()
-            If My.Settings.RunAtStart = True Then
-                CheckBox1.Checked = True
-            ElseIf My.Settings.RunAtStart = False Then
-                CheckBox1.Checked = False
-            End If
-            If My.Settings.Fullscreen = True Then
-                Me.TopMost = True
-                Me.WindowState = FormWindowState.Maximized
-                My.Settings.Fullscreen = True
-            Else
-                Me.WindowState = FormWindowState.Normal
-                Me.TopMost = False
-                My.Settings.Fullscreen = False
-            End If
-            If My.Settings.ActualHum = "Hum2005" Then
-                Play2005()
-            End If
-            If My.Settings.ActualHum = "Hum2010" Then
-                Play2010()
-            End If
-            If My.Settings.ActualHum = "Hum2013" Then
-                Play2013()
-            End If
-        End If
+        Initapp()
     End Sub
 
     Private Sub videoP_GotFocus1(sender As Object, e As EventArgs)
@@ -451,7 +472,6 @@ Public Class Form1
 
     Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
         If tabControl1.Visible = False Then
-            HelpWindow()
             Me.Focus()
             Me.TopMost = True
             Me.TopMost = False
@@ -466,9 +486,9 @@ Public Class Form1
 
     Private Sub BigFriendlyButtonToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BigFriendlyButtonToolStripMenuItem.Click
         My.Settings.IsFirstTime = True
-        Cursor.Show()
         start_Up(False)
         MsgBox(Closemsg)
         CloseApp()
     End Sub
+    
 End Class
