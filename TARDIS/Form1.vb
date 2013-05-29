@@ -452,6 +452,7 @@ Public Class Form1
             ToolStripMenuItem1.Text = WordShow
         Else
             Me.Visible = True
+            tabControl1.Visible = False
             ToolStripMenuItem1.Text = WordHide
         End If
 

@@ -1,6 +1,7 @@
 # TO-DO
 
 ## Current version `1.0`
+1. "BIG FRIENDLY BUTTON" (Reset button) needs a not configurable key to run it (that's failsafe).
 1. Option to choose the language. (A list box)
 2. Making language files must be as simple as copying the original file with another name (the name of the language) and translate it.
 

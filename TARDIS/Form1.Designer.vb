@@ -792,7 +792,7 @@ Partial Class Form1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BigFriendlyButtonToolStripMenuItem, Me.ToolStripSeparator2, Me.CloseToolStripMenuItem, Me.ToolStripSeparator1, Me.ToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(176, 82)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(176, 104)
         '
         'BigFriendlyButtonToolStripMenuItem
         '
