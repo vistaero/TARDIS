@@ -21,8 +21,7 @@
 3. Webcam compatibility.
 4. Implement web browser.
 5. Compatibility with third-party controllers, like Xbox 360 controller for Windows or PC Joysticks.
-
-- Compatibility with up to three monitors. (One TARDIS screen for each PC monitor)
+6. Compatibility with up to three monitors. (One TARDIS screen for each PC monitor)
 	- TARDIS 2005: One single screen
 	- TARDIS 2010: One normal screen and one a big round screen
 	- TARDIS 2013: Two normal screen and one elliptical screen
