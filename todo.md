@@ -6,7 +6,6 @@
 3. Get looping videos for 2010 and 2013 TARDIS screens.
 4. The app must open hidden if it was closed hidden.
 5. Personalize controls.
-6. Merge Controls and Sound tabs and implement auto-saving of the values of the volume sliders and sounds output device.
 
 ## Next version `1.1`
 1. Make work the volume controls.

@@ -255,6 +255,209 @@ Namespace My
                 Me("IsMouseVisible") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IsUiVisible() As Boolean
+            Get
+                Return CType(Me("IsUiVisible"),Boolean)
+            End Get
+            Set
+                Me("IsUiVisible") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property T2005Volume() As Integer
+            Get
+                Return CType(Me("T2005Volume"),Integer)
+            End Get
+            Set
+                Me("T2005Volume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property T2010Volume() As Integer
+            Get
+                Return CType(Me("T2010Volume"),Integer)
+            End Get
+            Set
+                Me("T2010Volume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property T2013Volume() As Integer
+            Get
+                Return CType(Me("T2013Volume"),Integer)
+            End Get
+            Set
+                Me("T2013Volume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property StartVolume() As Integer
+            Get
+                Return CType(Me("StartVolume"),Integer)
+            End Get
+            Set
+                Me("StartVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property TravellingVolume() As Integer
+            Get
+                Return CType(Me("TravellingVolume"),Integer)
+            End Get
+            Set
+                Me("TravellingVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property EndTravelVolume() As Integer
+            Get
+                Return CType(Me("EndTravelVolume"),Integer)
+            End Get
+            Set
+                Me("EndTravelVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property TVVolume() As Integer
+            Get
+                Return CType(Me("TVVolume"),Integer)
+            End Get
+            Set
+                Me("TVVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property CBVolume() As Integer
+            Get
+                Return CType(Me("CBVolume"),Integer)
+            End Get
+            Set
+                Me("CBVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property T2005Device() As String
+            Get
+                Return CType(Me("T2005Device"),String)
+            End Get
+            Set
+                Me("T2005Device") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property T2010Device() As String
+            Get
+                Return CType(Me("T2010Device"),String)
+            End Get
+            Set
+                Me("T2010Device") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property T2013Device() As String
+            Get
+                Return CType(Me("T2013Device"),String)
+            End Get
+            Set
+                Me("T2013Device") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("StartDevice")>  _
+        Public Property StartDevice() As String
+            Get
+                Return CType(Me("StartDevice"),String)
+            End Get
+            Set
+                Me("StartDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TravellingDevice() As String
+            Get
+                Return CType(Me("TravellingDevice"),String)
+            End Get
+            Set
+                Me("TravellingDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property EndDevice() As String
+            Get
+                Return CType(Me("EndDevice"),String)
+            End Get
+            Set
+                Me("EndDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TVDevice() As String
+            Get
+                Return CType(Me("TVDevice"),String)
+            End Get
+            Set
+                Me("TVDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CBDevice() As String
+            Get
+                Return CType(Me("CBDevice"),String)
+            End Get
+            Set
+                Me("CBDevice") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

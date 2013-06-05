@@ -25,60 +25,56 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.tabControl1 = New System.Windows.Forms.TabControl()
-        Me.tabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabHelp = New System.Windows.Forms.TabPage()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.tabPage2 = New System.Windows.Forms.TabPage()
-        Me.TrackBar8 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TrackBar7 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TrackBar4 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.TrackBar5 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.TrackBar6 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.TrackBar3 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TrackBar2 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.SoundTabText = New System.Windows.Forms.Label()
-        Me.tabPage3 = New System.Windows.Forms.TabPage()
-        Me.Button10 = New System.Windows.Forms.Button()
+        Me.TabSettings = New System.Windows.Forms.TabPage()
+        Me.SettingsTable = New System.Windows.Forms.TableLayoutPanel()
+        Me.ButtonHideMouse = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.ButtonHide = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.ControlsTextBox = New System.Windows.Forms.Label()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.ButtonFullscreen = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.ButtonMenu = New System.Windows.Forms.Button()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.CBDevice = New System.Windows.Forms.ComboBox()
+        Me.CBVolume = New System.Windows.Forms.TrackBar()
+        Me.ButtonCB = New System.Windows.Forms.Button()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.TVDevice = New System.Windows.Forms.ComboBox()
+        Me.TVVolume = New System.Windows.Forms.TrackBar()
+        Me.ButtonTV = New System.Windows.Forms.Button()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.EndDevice = New System.Windows.Forms.ComboBox()
+        Me.EndTravelVolume = New System.Windows.Forms.TrackBar()
+        Me.ButtonEnd = New System.Windows.Forms.Button()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.TravellingDevice = New System.Windows.Forms.ComboBox()
+        Me.TravellingVolume = New System.Windows.Forms.TrackBar()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.StartDevice = New System.Windows.Forms.ComboBox()
+        Me.StartVolume = New System.Windows.Forms.TrackBar()
+        Me.ButtonStart = New System.Windows.Forms.Button()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.T2013Device = New System.Windows.Forms.ComboBox()
+        Me.T2013Volume = New System.Windows.Forms.TrackBar()
+        Me.Button2013 = New System.Windows.Forms.Button()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.T2010Device = New System.Windows.Forms.ComboBox()
+        Me.T2010Volume = New System.Windows.Forms.TrackBar()
+        Me.Button2010 = New System.Windows.Forms.Button()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.T2005Volume = New System.Windows.Forms.TrackBar()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button2005 = New System.Windows.Forms.Button()
+        Me.ButtonEscape = New System.Windows.Forms.Button()
+        Me.T2005Device = New System.Windows.Forms.ComboBox()
+        Me.TabOther = New System.Windows.Forms.TabPage()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
@@ -92,48 +88,53 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
+        Me.DoorTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.tabControl1.SuspendLayout()
-        Me.tabPage1.SuspendLayout()
-        Me.tabPage2.SuspendLayout()
-        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabPage3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
+        Me.TabHelp.SuspendLayout()
+        Me.TabSettings.SuspendLayout()
+        Me.SettingsTable.SuspendLayout()
+        CType(Me.CBVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TVVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EndTravelVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TravellingVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StartVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.T2013Volume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabOther.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabControl1
         '
-        Me.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
-        Me.tabControl1.Controls.Add(Me.tabPage1)
-        Me.tabControl1.Controls.Add(Me.tabPage2)
-        Me.tabControl1.Controls.Add(Me.tabPage3)
-        Me.tabControl1.Controls.Add(Me.TabPage4)
+        Me.tabControl1.Controls.Add(Me.TabHelp)
+        Me.tabControl1.Controls.Add(Me.TabSettings)
+        Me.tabControl1.Controls.Add(Me.TabOther)
         Me.tabControl1.Location = New System.Drawing.Point(12, 12)
         Me.tabControl1.Name = "tabControl1"
         Me.tabControl1.SelectedIndex = 0
-        Me.tabControl1.Size = New System.Drawing.Size(890, 503)
+        Me.tabControl1.Size = New System.Drawing.Size(890, 609)
         Me.tabControl1.TabIndex = 5
         Me.tabControl1.Visible = False
         '
-        'tabPage1
+        'TabHelp
         '
-        Me.tabPage1.BackColor = System.Drawing.Color.MidnightBlue
-        Me.tabPage1.Controls.Add(Me.RichTextBox1)
-        Me.tabPage1.Controls.Add(Me.Label7)
-        Me.tabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.tabPage1.Name = "tabPage1"
-        Me.tabPage1.Size = New System.Drawing.Size(882, 474)
-        Me.tabPage1.TabIndex = 3
-        Me.tabPage1.Text = "Help"
+        Me.TabHelp.BackColor = System.Drawing.Color.MidnightBlue
+        Me.TabHelp.Controls.Add(Me.RichTextBox1)
+        Me.TabHelp.Controls.Add(Me.Label7)
+        Me.TabHelp.Location = New System.Drawing.Point(4, 22)
+        Me.TabHelp.Name = "TabHelp"
+        Me.TabHelp.Size = New System.Drawing.Size(882, 583)
+        Me.TabHelp.TabIndex = 3
+        Me.TabHelp.Text = "Help"
         '
         'RichTextBox1
         '
@@ -146,7 +147,7 @@ Partial Class Form1
         Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(882, 474)
+        Me.RichTextBox1.Size = New System.Drawing.Size(882, 583)
         Me.RichTextBox1.TabIndex = 14
         Me.RichTextBox1.TabStop = False
         Me.RichTextBox1.Text = ""
@@ -163,582 +164,597 @@ Partial Class Form1
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Work In Progress"
         '
-        'tabPage2
+        'TabSettings
         '
-        Me.tabPage2.BackColor = System.Drawing.Color.MidnightBlue
-        Me.tabPage2.Controls.Add(Me.TrackBar8)
-        Me.tabPage2.Controls.Add(Me.ComboBox8)
-        Me.tabPage2.Controls.Add(Me.Label2)
-        Me.tabPage2.Controls.Add(Me.TrackBar7)
-        Me.tabPage2.Controls.Add(Me.ComboBox7)
-        Me.tabPage2.Controls.Add(Me.Label3)
-        Me.tabPage2.Controls.Add(Me.TrackBar4)
-        Me.tabPage2.Controls.Add(Me.ComboBox4)
-        Me.tabPage2.Controls.Add(Me.Label15)
-        Me.tabPage2.Controls.Add(Me.TrackBar5)
-        Me.tabPage2.Controls.Add(Me.ComboBox5)
-        Me.tabPage2.Controls.Add(Me.Label16)
-        Me.tabPage2.Controls.Add(Me.TrackBar6)
-        Me.tabPage2.Controls.Add(Me.ComboBox6)
-        Me.tabPage2.Controls.Add(Me.Label17)
-        Me.tabPage2.Controls.Add(Me.TrackBar3)
-        Me.tabPage2.Controls.Add(Me.ComboBox3)
-        Me.tabPage2.Controls.Add(Me.Label14)
-        Me.tabPage2.Controls.Add(Me.TrackBar2)
-        Me.tabPage2.Controls.Add(Me.ComboBox2)
-        Me.tabPage2.Controls.Add(Me.Label13)
-        Me.tabPage2.Controls.Add(Me.TrackBar1)
-        Me.tabPage2.Controls.Add(Me.ComboBox1)
-        Me.tabPage2.Controls.Add(Me.Label12)
-        Me.tabPage2.Controls.Add(Me.Label8)
-        Me.tabPage2.Controls.Add(Me.SoundTabText)
-        Me.tabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.tabPage2.Name = "tabPage2"
-        Me.tabPage2.Size = New System.Drawing.Size(882, 474)
-        Me.tabPage2.TabIndex = 4
-        Me.tabPage2.Text = "Sound"
+        Me.TabSettings.BackColor = System.Drawing.Color.MidnightBlue
+        Me.TabSettings.Controls.Add(Me.SettingsTable)
+        Me.TabSettings.Location = New System.Drawing.Point(4, 22)
+        Me.TabSettings.Name = "TabSettings"
+        Me.TabSettings.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabSettings.Size = New System.Drawing.Size(882, 583)
+        Me.TabSettings.TabIndex = 6
+        Me.TabSettings.Text = "Personalize controls and audio settings"
         '
-        'TrackBar8
+        'SettingsTable
         '
-        Me.TrackBar8.Location = New System.Drawing.Point(247, 370)
-        Me.TrackBar8.Name = "TrackBar8"
-        Me.TrackBar8.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar8.TabIndex = 27
+        Me.SettingsTable.ColumnCount = 4
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.SettingsTable.Controls.Add(Me.ButtonHideMouse, 1, 13)
+        Me.SettingsTable.Controls.Add(Me.Label5, 0, 13)
+        Me.SettingsTable.Controls.Add(Me.ButtonHide, 1, 12)
+        Me.SettingsTable.Controls.Add(Me.Label4, 0, 12)
+        Me.SettingsTable.Controls.Add(Me.Label3, 0, 11)
+        Me.SettingsTable.Controls.Add(Me.ButtonFullscreen, 1, 10)
+        Me.SettingsTable.Controls.Add(Me.Label36, 0, 10)
+        Me.SettingsTable.Controls.Add(Me.ButtonMenu, 1, 9)
+        Me.SettingsTable.Controls.Add(Me.Label35, 0, 9)
+        Me.SettingsTable.Controls.Add(Me.CBDevice, 3, 8)
+        Me.SettingsTable.Controls.Add(Me.CBVolume, 2, 8)
+        Me.SettingsTable.Controls.Add(Me.ButtonCB, 1, 8)
+        Me.SettingsTable.Controls.Add(Me.Label34, 0, 8)
+        Me.SettingsTable.Controls.Add(Me.TVDevice, 3, 7)
+        Me.SettingsTable.Controls.Add(Me.TVVolume, 2, 7)
+        Me.SettingsTable.Controls.Add(Me.ButtonTV, 1, 7)
+        Me.SettingsTable.Controls.Add(Me.Label33, 0, 7)
+        Me.SettingsTable.Controls.Add(Me.EndDevice, 3, 6)
+        Me.SettingsTable.Controls.Add(Me.EndTravelVolume, 2, 6)
+        Me.SettingsTable.Controls.Add(Me.ButtonEnd, 1, 6)
+        Me.SettingsTable.Controls.Add(Me.Label32, 0, 6)
+        Me.SettingsTable.Controls.Add(Me.TravellingDevice, 3, 5)
+        Me.SettingsTable.Controls.Add(Me.TravellingVolume, 2, 5)
+        Me.SettingsTable.Controls.Add(Me.Label31, 0, 5)
+        Me.SettingsTable.Controls.Add(Me.StartDevice, 3, 4)
+        Me.SettingsTable.Controls.Add(Me.StartVolume, 2, 4)
+        Me.SettingsTable.Controls.Add(Me.ButtonStart, 1, 4)
+        Me.SettingsTable.Controls.Add(Me.Label30, 0, 4)
+        Me.SettingsTable.Controls.Add(Me.T2013Device, 3, 3)
+        Me.SettingsTable.Controls.Add(Me.T2013Volume, 2, 3)
+        Me.SettingsTable.Controls.Add(Me.Button2013, 1, 3)
+        Me.SettingsTable.Controls.Add(Me.Label29, 0, 3)
+        Me.SettingsTable.Controls.Add(Me.T2010Device, 3, 2)
+        Me.SettingsTable.Controls.Add(Me.T2010Volume, 2, 2)
+        Me.SettingsTable.Controls.Add(Me.Button2010, 1, 2)
+        Me.SettingsTable.Controls.Add(Me.Label28, 0, 2)
+        Me.SettingsTable.Controls.Add(Me.T2005Volume, 2, 1)
+        Me.SettingsTable.Controls.Add(Me.Label27, 0, 1)
+        Me.SettingsTable.Controls.Add(Me.Label11, 3, 0)
+        Me.SettingsTable.Controls.Add(Me.Label10, 2, 0)
+        Me.SettingsTable.Controls.Add(Me.Label6, 1, 0)
+        Me.SettingsTable.Controls.Add(Me.Button2005, 1, 1)
+        Me.SettingsTable.Controls.Add(Me.ButtonEscape, 1, 11)
+        Me.SettingsTable.Controls.Add(Me.T2005Device, 3, 1)
+        Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SettingsTable.Location = New System.Drawing.Point(3, 3)
+        Me.SettingsTable.Name = "SettingsTable"
+        Me.SettingsTable.RowCount = 14
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.SettingsTable.Size = New System.Drawing.Size(876, 577)
+        Me.SettingsTable.TabIndex = 0
         '
-        'ComboBox8
+        'ButtonHideMouse
         '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(120, 373)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 26
+        Me.ButtonHideMouse.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonHideMouse.Location = New System.Drawing.Point(222, 536)
+        Me.ButtonHideMouse.Name = "ButtonHideMouse"
+        Me.ButtonHideMouse.Size = New System.Drawing.Size(213, 38)
+        Me.ButtonHideMouse.TabIndex = 60
+        Me.ButtonHideMouse.UseVisualStyleBackColor = True
         '
-        'Label2
+        'Label5
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label2.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label2.Location = New System.Drawing.Point(10, 370)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 25)
-        Me.Label2.TabIndex = 25
-        Me.Label2.Text = "Cloister Bell"
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(3, 533)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(213, 44)
+        Me.Label5.TabIndex = 59
+        Me.Label5.Text = "Hide Mouse Key"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TrackBar7
+        'ButtonHide
         '
-        Me.TrackBar7.Location = New System.Drawing.Point(246, 145)
-        Me.TrackBar7.Name = "TrackBar7"
-        Me.TrackBar7.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar7.TabIndex = 24
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(119, 149)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 23
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label3.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label3.Location = New System.Drawing.Point(10, 145)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 25)
-        Me.Label3.TabIndex = 22
-        Me.Label3.Text = "2013 Hum"
-        '
-        'TrackBar4
-        '
-        Me.TrackBar4.Location = New System.Drawing.Point(247, 325)
-        Me.TrackBar4.Name = "TrackBar4"
-        Me.TrackBar4.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar4.TabIndex = 21
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(120, 328)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox4.TabIndex = 20
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label15.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label15.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label15.Location = New System.Drawing.Point(10, 325)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(106, 25)
-        Me.Label15.TabIndex = 19
-        Me.Label15.Text = "Time Vortex"
-        '
-        'TrackBar5
-        '
-        Me.TrackBar5.Location = New System.Drawing.Point(247, 280)
-        Me.TrackBar5.Name = "TrackBar5"
-        Me.TrackBar5.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar5.TabIndex = 18
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(120, 283)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 17
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label16.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label16.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label16.Location = New System.Drawing.Point(10, 280)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(57, 25)
-        Me.Label16.TabIndex = 16
-        Me.Label16.Text = "Noise"
-        '
-        'TrackBar6
-        '
-        Me.TrackBar6.Location = New System.Drawing.Point(247, 235)
-        Me.TrackBar6.Name = "TrackBar6"
-        Me.TrackBar6.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar6.TabIndex = 15
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Location = New System.Drawing.Point(120, 238)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 14
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label17.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label17.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label17.Location = New System.Drawing.Point(10, 235)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(92, 25)
-        Me.Label17.TabIndex = 13
-        Me.Label17.Text = "End Drum"
-        '
-        'TrackBar3
-        '
-        Me.TrackBar3.Location = New System.Drawing.Point(247, 190)
-        Me.TrackBar3.Name = "TrackBar3"
-        Me.TrackBar3.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar3.TabIndex = 12
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(120, 193)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 11
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label14.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label14.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label14.Location = New System.Drawing.Point(10, 190)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(99, 25)
-        Me.Label14.TabIndex = 10
-        Me.Label14.Text = "Start Drum"
-        '
-        'TrackBar2
-        '
-        Me.TrackBar2.Location = New System.Drawing.Point(247, 100)
-        Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar2.TabIndex = 9
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(120, 103)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 8
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label13.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label13.Location = New System.Drawing.Point(10, 100)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(96, 25)
-        Me.Label13.TabIndex = 7
-        Me.Label13.Text = "2010 Hum"
-        '
-        'TrackBar1
-        '
-        Me.TrackBar1.Location = New System.Drawing.Point(247, 55)
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(104, 45)
-        Me.TrackBar1.TabIndex = 6
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(120, 58)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 5
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label12.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label12.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label12.Location = New System.Drawing.Point(10, 55)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(96, 25)
-        Me.Label12.TabIndex = 4
-        Me.Label12.Text = "2005 Hum"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.MidnightBlue
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(511, 538)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(577, 89)
-        Me.Label8.TabIndex = 3
-        Me.Label8.Text = "Work In Progress"
-        '
-        'SoundTabText
-        '
-        Me.SoundTabText.AutoSize = True
-        Me.SoundTabText.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.SoundTabText.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.SoundTabText.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.SoundTabText.Location = New System.Drawing.Point(10, 10)
-        Me.SoundTabText.Margin = New System.Windows.Forms.Padding(10)
-        Me.SoundTabText.Name = "SoundTabText"
-        Me.SoundTabText.Size = New System.Drawing.Size(0, 25)
-        Me.SoundTabText.TabIndex = 2
-        '
-        'tabPage3
-        '
-        Me.tabPage3.BackColor = System.Drawing.Color.MidnightBlue
-        Me.tabPage3.Controls.Add(Me.Button10)
-        Me.tabPage3.Controls.Add(Me.Label4)
-        Me.tabPage3.Controls.Add(Me.Button9)
-        Me.tabPage3.Controls.Add(Me.Button7)
-        Me.tabPage3.Controls.Add(Me.Button8)
-        Me.tabPage3.Controls.Add(Me.Button5)
-        Me.tabPage3.Controls.Add(Me.Button6)
-        Me.tabPage3.Controls.Add(Me.Button3)
-        Me.tabPage3.Controls.Add(Me.Button4)
-        Me.tabPage3.Controls.Add(Me.Button2)
-        Me.tabPage3.Controls.Add(Me.Button1)
-        Me.tabPage3.Controls.Add(Me.Label26)
-        Me.tabPage3.Controls.Add(Me.Label25)
-        Me.tabPage3.Controls.Add(Me.Label24)
-        Me.tabPage3.Controls.Add(Me.Label23)
-        Me.tabPage3.Controls.Add(Me.Label22)
-        Me.tabPage3.Controls.Add(Me.Label21)
-        Me.tabPage3.Controls.Add(Me.Label20)
-        Me.tabPage3.Controls.Add(Me.Label19)
-        Me.tabPage3.Controls.Add(Me.Label18)
-        Me.tabPage3.Controls.Add(Me.Label9)
-        Me.tabPage3.Controls.Add(Me.ControlsTextBox)
-        Me.tabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.tabPage3.Name = "tabPage3"
-        Me.tabPage3.Size = New System.Drawing.Size(882, 474)
-        Me.tabPage3.TabIndex = 2
-        Me.tabPage3.Text = "Controls"
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(15, 327)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(75, 23)
-        Me.Button10.TabIndex = 24
-        Me.Button10.Text = "C"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.ButtonHide.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonHide.Location = New System.Drawing.Point(222, 495)
+        Me.ButtonHide.Name = "ButtonHide"
+        Me.ButtonHide.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonHide.TabIndex = 56
+        Me.ButtonHide.UseVisualStyleBackColor = True
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label4.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label4.Location = New System.Drawing.Point(103, 325)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(10)
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(3, 492)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 25)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Cloister Bell"
+        Me.Label4.Size = New System.Drawing.Size(213, 41)
+        Me.Label4.TabIndex = 55
+        Me.Label4.Text = "Hide Key"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button9
+        'Label3
         '
-        Me.Button9.Location = New System.Drawing.Point(15, 57)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(75, 23)
-        Me.Button9.TabIndex = 22
-        Me.Button9.Text = "1"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(3, 451)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(213, 41)
+        Me.Label3.TabIndex = 45
+        Me.Label3.Text = "Close application"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button7
+        'ButtonFullscreen
         '
-        Me.Button7.Location = New System.Drawing.Point(526, 102)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(75, 23)
-        Me.Button7.TabIndex = 21
-        Me.Button7.Text = "F2"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.ButtonFullscreen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonFullscreen.Location = New System.Drawing.Point(222, 413)
+        Me.ButtonFullscreen.Name = "ButtonFullscreen"
+        Me.ButtonFullscreen.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonFullscreen.TabIndex = 41
+        Me.ButtonFullscreen.UseVisualStyleBackColor = True
         '
-        'Button8
+        'Label36
         '
-        Me.Button8.Location = New System.Drawing.Point(526, 147)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(75, 23)
-        Me.Button8.TabIndex = 20
-        Me.Button8.Text = "F11"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.Label36.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label36.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label36.ForeColor = System.Drawing.Color.White
+        Me.Label36.Location = New System.Drawing.Point(3, 410)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(213, 41)
+        Me.Label36.TabIndex = 40
+        Me.Label36.Text = "Fullscreen"
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button5
+        'ButtonMenu
         '
-        Me.Button5.Location = New System.Drawing.Point(15, 102)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 19
-        Me.Button5.Text = "2"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.ButtonMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonMenu.Location = New System.Drawing.Point(222, 372)
+        Me.ButtonMenu.Name = "ButtonMenu"
+        Me.ButtonMenu.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonMenu.TabIndex = 37
+        Me.ButtonMenu.UseVisualStyleBackColor = True
         '
-        'Button6
+        'Label35
         '
-        Me.Button6.Location = New System.Drawing.Point(15, 147)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(75, 23)
-        Me.Button6.TabIndex = 18
-        Me.Button6.Text = "3"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.Label35.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label35.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.White
+        Me.Label35.Location = New System.Drawing.Point(3, 369)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(213, 41)
+        Me.Label35.TabIndex = 36
+        Me.Label35.Text = "Menu"
+        Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button3
+        'CBDevice
         '
-        Me.Button3.Location = New System.Drawing.Point(15, 192)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 17
-        Me.Button3.Text = "Enter"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.CBDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "CBDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CBDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CBDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CBDevice.Enabled = False
+        Me.CBDevice.FormattingEnabled = True
+        Me.CBDevice.Location = New System.Drawing.Point(660, 331)
+        Me.CBDevice.Name = "CBDevice"
+        Me.CBDevice.Size = New System.Drawing.Size(213, 21)
+        Me.CBDevice.TabIndex = 35
+        Me.CBDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.CBDevice
         '
-        'Button4
+        'CBVolume
         '
-        Me.Button4.Location = New System.Drawing.Point(15, 237)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 16
-        Me.Button4.Text = "Space"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.CBVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "CBVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CBVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CBVolume.Enabled = False
+        Me.CBVolume.Location = New System.Drawing.Point(441, 331)
+        Me.CBVolume.Name = "CBVolume"
+        Me.CBVolume.Size = New System.Drawing.Size(213, 35)
+        Me.CBVolume.TabIndex = 34
+        Me.CBVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.CBVolume
         '
-        'Button2
+        'ButtonCB
         '
-        Me.Button2.Location = New System.Drawing.Point(15, 282)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "T"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.ButtonCB.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonCB.Location = New System.Drawing.Point(222, 331)
+        Me.ButtonCB.Name = "ButtonCB"
+        Me.ButtonCB.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonCB.TabIndex = 33
+        Me.ButtonCB.UseVisualStyleBackColor = True
         '
-        'Button1
+        'Label34
         '
-        Me.Button1.Location = New System.Drawing.Point(526, 57)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Esc"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label34.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.White
+        Me.Label34.Location = New System.Drawing.Point(3, 328)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(213, 41)
+        Me.Label34.TabIndex = 32
+        Me.Label34.Text = "Cloister Bell"
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label26
+        'TVDevice
         '
-        Me.Label26.AutoSize = True
-        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label26.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label26.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label26.Location = New System.Drawing.Point(614, 145)
-        Me.Label26.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(89, 25)
-        Me.Label26.TabIndex = 13
-        Me.Label26.Text = "Fullscreen"
+        Me.TVDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "TVDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TVDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TVDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TVDevice.Enabled = False
+        Me.TVDevice.FormattingEnabled = True
+        Me.TVDevice.Location = New System.Drawing.Point(660, 290)
+        Me.TVDevice.Name = "TVDevice"
+        Me.TVDevice.Size = New System.Drawing.Size(213, 21)
+        Me.TVDevice.TabIndex = 31
+        Me.TVDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TVDevice
         '
-        'Label25
+        'TVVolume
         '
-        Me.Label25.AutoSize = True
-        Me.Label25.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label25.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label25.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label25.Location = New System.Drawing.Point(614, 100)
-        Me.Label25.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(49, 25)
-        Me.Label25.TabIndex = 12
-        Me.Label25.Text = "Help"
+        Me.TVVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "TVVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TVVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TVVolume.Enabled = False
+        Me.TVVolume.Location = New System.Drawing.Point(441, 290)
+        Me.TVVolume.Name = "TVVolume"
+        Me.TVVolume.Size = New System.Drawing.Size(213, 35)
+        Me.TVVolume.TabIndex = 30
+        Me.TVVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.TVVolume
         '
-        'Label24
+        'ButtonTV
         '
-        Me.Label24.AutoSize = True
-        Me.Label24.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label24.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label24.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label24.Location = New System.Drawing.Point(614, 55)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(147, 25)
-        Me.Label24.TabIndex = 11
-        Me.Label24.Text = "Close application"
+        Me.ButtonTV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonTV.Location = New System.Drawing.Point(222, 290)
+        Me.ButtonTV.Name = "ButtonTV"
+        Me.ButtonTV.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonTV.TabIndex = 29
+        Me.ButtonTV.UseVisualStyleBackColor = True
         '
-        'Label23
+        'Label33
         '
-        Me.Label23.AutoSize = True
-        Me.Label23.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label23.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label23.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label23.Location = New System.Drawing.Point(103, 280)
-        Me.Label23.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(106, 25)
-        Me.Label23.TabIndex = 10
-        Me.Label23.Text = "Time Vortex"
+        Me.Label33.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label33.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.White
+        Me.Label33.Location = New System.Drawing.Point(3, 287)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(213, 41)
+        Me.Label33.TabIndex = 28
+        Me.Label33.Text = "Time Vortex"
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label22
+        'EndDevice
         '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label22.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label22.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label22.Location = New System.Drawing.Point(103, 235)
-        Me.Label22.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(90, 25)
-        Me.Label22.TabIndex = 9
-        Me.Label22.Text = "End travel"
+        Me.EndDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "EndDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EndDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.EndDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.EndDevice.Enabled = False
+        Me.EndDevice.FormattingEnabled = True
+        Me.EndDevice.Location = New System.Drawing.Point(660, 249)
+        Me.EndDevice.Name = "EndDevice"
+        Me.EndDevice.Size = New System.Drawing.Size(213, 21)
+        Me.EndDevice.TabIndex = 27
+        Me.EndDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.EndDevice
         '
-        'Label21
+        'EndTravelVolume
         '
-        Me.Label21.AutoSize = True
-        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label21.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label21.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label21.Location = New System.Drawing.Point(103, 190)
-        Me.Label21.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(97, 25)
-        Me.Label21.TabIndex = 8
-        Me.Label21.Text = "Start travel"
+        Me.EndTravelVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "EndTravelVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.EndTravelVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.EndTravelVolume.Enabled = False
+        Me.EndTravelVolume.Location = New System.Drawing.Point(441, 249)
+        Me.EndTravelVolume.Name = "EndTravelVolume"
+        Me.EndTravelVolume.Size = New System.Drawing.Size(213, 35)
+        Me.EndTravelVolume.TabIndex = 26
+        Me.EndTravelVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.EndTravelVolume
         '
-        'Label20
+        'ButtonEnd
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label20.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label20.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label20.Location = New System.Drawing.Point(103, 145)
-        Me.Label20.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(117, 25)
-        Me.Label20.TabIndex = 7
-        Me.Label20.Text = "2013 TARDIS"
+        Me.ButtonEnd.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonEnd.Location = New System.Drawing.Point(222, 249)
+        Me.ButtonEnd.Name = "ButtonEnd"
+        Me.ButtonEnd.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonEnd.TabIndex = 25
+        Me.ButtonEnd.UseVisualStyleBackColor = True
         '
-        'Label19
+        'Label32
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label19.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label19.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label19.Location = New System.Drawing.Point(103, 100)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(117, 25)
-        Me.Label19.TabIndex = 6
-        Me.Label19.Text = "2010 TARDIS"
+        Me.Label32.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label32.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.White
+        Me.Label32.Location = New System.Drawing.Point(3, 246)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(213, 41)
+        Me.Label32.TabIndex = 24
+        Me.Label32.Text = "End travel"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label18
+        'TravellingDevice
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 13.0!)
-        Me.Label18.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Label18.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label18.Location = New System.Drawing.Point(103, 55)
-        Me.Label18.Margin = New System.Windows.Forms.Padding(10)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(117, 25)
-        Me.Label18.TabIndex = 5
-        Me.Label18.Text = "2005 TARDIS"
+        Me.TravellingDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "TravellingDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TravellingDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TravellingDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TravellingDevice.Enabled = False
+        Me.TravellingDevice.FormattingEnabled = True
+        Me.TravellingDevice.Location = New System.Drawing.Point(660, 208)
+        Me.TravellingDevice.Name = "TravellingDevice"
+        Me.TravellingDevice.Size = New System.Drawing.Size(213, 21)
+        Me.TravellingDevice.TabIndex = 23
+        Me.TravellingDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TravellingDevice
         '
-        'Label9
+        'TravellingVolume
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.MidnightBlue
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 50.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(511, 538)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(577, 89)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "Work In Progress"
+        Me.TravellingVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "TravellingVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TravellingVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TravellingVolume.Enabled = False
+        Me.TravellingVolume.Location = New System.Drawing.Point(441, 208)
+        Me.TravellingVolume.Name = "TravellingVolume"
+        Me.TravellingVolume.Size = New System.Drawing.Size(213, 35)
+        Me.TravellingVolume.TabIndex = 22
+        Me.TravellingVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.TravellingVolume
         '
-        'ControlsTextBox
+        'Label31
         '
-        Me.ControlsTextBox.AutoSize = True
-        Me.ControlsTextBox.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
-        Me.ControlsTextBox.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.ControlsTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.ControlsTextBox.Location = New System.Drawing.Point(10, 10)
-        Me.ControlsTextBox.Margin = New System.Windows.Forms.Padding(10)
-        Me.ControlsTextBox.Name = "ControlsTextBox"
-        Me.ControlsTextBox.Size = New System.Drawing.Size(0, 25)
-        Me.ControlsTextBox.TabIndex = 2
+        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label31.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.White
+        Me.Label31.Location = New System.Drawing.Point(3, 205)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(213, 41)
+        Me.Label31.TabIndex = 20
+        Me.Label31.Text = "Travelling"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage4
+        'StartDevice
         '
-        Me.TabPage4.BackColor = System.Drawing.Color.MidnightBlue
-        Me.TabPage4.Controls.Add(Me.CheckBox1)
-        Me.TabPage4.Controls.Add(Me.Button11)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(882, 474)
-        Me.TabPage4.TabIndex = 5
-        Me.TabPage4.Text = "Other"
+        Me.StartDevice.DataBindings.Add(New System.Windows.Forms.Binding("Name", Global.TARDIS_App_Beta.My.MySettings.Default, "StartDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.StartDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.StartDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.StartDevice.Enabled = False
+        Me.StartDevice.FormattingEnabled = True
+        Me.StartDevice.Location = New System.Drawing.Point(660, 167)
+        Me.StartDevice.Name = Global.TARDIS_App_Beta.My.MySettings.Default.StartDevice
+        Me.StartDevice.Size = New System.Drawing.Size(213, 21)
+        Me.StartDevice.TabIndex = 19
+        '
+        'StartVolume
+        '
+        Me.StartVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "StartVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.StartVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.StartVolume.Enabled = False
+        Me.StartVolume.Location = New System.Drawing.Point(441, 167)
+        Me.StartVolume.Name = "StartVolume"
+        Me.StartVolume.Size = New System.Drawing.Size(213, 35)
+        Me.StartVolume.TabIndex = 18
+        Me.StartVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.StartVolume
+        '
+        'ButtonStart
+        '
+        Me.ButtonStart.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonStart.Location = New System.Drawing.Point(222, 167)
+        Me.ButtonStart.Name = "ButtonStart"
+        Me.ButtonStart.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonStart.TabIndex = 17
+        Me.ButtonStart.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label30.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.White
+        Me.Label30.Location = New System.Drawing.Point(3, 164)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(213, 41)
+        Me.Label30.TabIndex = 16
+        Me.Label30.Text = "Start travel"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'T2013Device
+        '
+        Me.T2013Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2013Device", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2013Device.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2013Device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.T2013Device.Enabled = False
+        Me.T2013Device.FormattingEnabled = True
+        Me.T2013Device.Location = New System.Drawing.Point(660, 126)
+        Me.T2013Device.Name = "T2013Device"
+        Me.T2013Device.Size = New System.Drawing.Size(213, 21)
+        Me.T2013Device.TabIndex = 15
+        Me.T2013Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2013Device
+        '
+        'T2013Volume
+        '
+        Me.T2013Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2013Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2013Volume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2013Volume.Location = New System.Drawing.Point(441, 126)
+        Me.T2013Volume.Name = "T2013Volume"
+        Me.T2013Volume.Size = New System.Drawing.Size(213, 35)
+        Me.T2013Volume.TabIndex = 14
+        Me.T2013Volume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.T2013Volume
+        '
+        'Button2013
+        '
+        Me.Button2013.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button2013.Location = New System.Drawing.Point(222, 126)
+        Me.Button2013.Name = "Button2013"
+        Me.Button2013.Size = New System.Drawing.Size(213, 35)
+        Me.Button2013.TabIndex = 13
+        Me.Button2013.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.White
+        Me.Label29.Location = New System.Drawing.Point(3, 123)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(213, 41)
+        Me.Label29.TabIndex = 12
+        Me.Label29.Text = "2013 TARDIS"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'T2010Device
+        '
+        Me.T2010Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Device", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2010Device.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2010Device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.T2010Device.Enabled = False
+        Me.T2010Device.FormattingEnabled = True
+        Me.T2010Device.Location = New System.Drawing.Point(660, 85)
+        Me.T2010Device.Name = "T2010Device"
+        Me.T2010Device.Size = New System.Drawing.Size(213, 21)
+        Me.T2010Device.TabIndex = 11
+        Me.T2010Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2010Device
+        '
+        'T2010Volume
+        '
+        Me.T2010Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2010Volume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2010Volume.Location = New System.Drawing.Point(441, 85)
+        Me.T2010Volume.Name = "T2010Volume"
+        Me.T2010Volume.Size = New System.Drawing.Size(213, 35)
+        Me.T2010Volume.TabIndex = 10
+        Me.T2010Volume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.T2010Volume
+        '
+        'Button2010
+        '
+        Me.Button2010.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button2010.Location = New System.Drawing.Point(222, 85)
+        Me.Button2010.Name = "Button2010"
+        Me.Button2010.Size = New System.Drawing.Size(213, 35)
+        Me.Button2010.TabIndex = 9
+        Me.Button2010.UseVisualStyleBackColor = True
+        '
+        'Label28
+        '
+        Me.Label28.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label28.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.White
+        Me.Label28.Location = New System.Drawing.Point(3, 82)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(213, 41)
+        Me.Label28.TabIndex = 8
+        Me.Label28.Text = "2010 TARDIS"
+        Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'T2005Volume
+        '
+        Me.T2005Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2005Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2005Volume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2005Volume.Location = New System.Drawing.Point(441, 44)
+        Me.T2005Volume.Name = "T2005Volume"
+        Me.T2005Volume.Size = New System.Drawing.Size(213, 35)
+        Me.T2005Volume.TabIndex = 7
+        Me.T2005Volume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.T2005Volume
+        '
+        'Label27
+        '
+        Me.Label27.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(3, 41)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(213, 41)
+        Me.Label27.TabIndex = 4
+        Me.Label27.Text = "2005 TARDIS"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label11
+        '
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
+        Me.Label11.Location = New System.Drawing.Point(660, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(213, 41)
+        Me.Label11.TabIndex = 3
+        Me.Label11.Text = "Output driver"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label10
+        '
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(441, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(213, 41)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "Volume"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label6
+        '
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(222, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(213, 41)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "Key"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Button2005
+        '
+        Me.Button2005.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button2005.Location = New System.Drawing.Point(222, 44)
+        Me.Button2005.Name = "Button2005"
+        Me.Button2005.Size = New System.Drawing.Size(213, 35)
+        Me.Button2005.TabIndex = 5
+        Me.Button2005.UseVisualStyleBackColor = True
+        '
+        'ButtonEscape
+        '
+        Me.ButtonEscape.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonEscape.Location = New System.Drawing.Point(222, 454)
+        Me.ButtonEscape.Name = "ButtonEscape"
+        Me.ButtonEscape.Size = New System.Drawing.Size(213, 35)
+        Me.ButtonEscape.TabIndex = 46
+        Me.ButtonEscape.UseVisualStyleBackColor = True
+        '
+        'T2005Device
+        '
+        Me.T2005Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2005Device", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2005Device.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2005Device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.T2005Device.Enabled = False
+        Me.T2005Device.FormattingEnabled = True
+        Me.T2005Device.Location = New System.Drawing.Point(660, 44)
+        Me.T2005Device.Name = "T2005Device"
+        Me.T2005Device.Size = New System.Drawing.Size(213, 21)
+        Me.T2005Device.TabIndex = 63
+        Me.T2005Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2005Device
+        '
+        'TabOther
+        '
+        Me.TabOther.BackColor = System.Drawing.Color.MidnightBlue
+        Me.TabOther.Controls.Add(Me.GroupBox2)
+        Me.TabOther.Controls.Add(Me.GroupBox1)
+        Me.TabOther.Controls.Add(Me.CheckBox1)
+        Me.TabOther.Location = New System.Drawing.Point(4, 22)
+        Me.TabOther.Name = "TabOther"
+        Me.TabOther.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabOther.Size = New System.Drawing.Size(882, 583)
+        Me.TabOther.TabIndex = 5
+        Me.TabOther.Text = "More"
         '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox1.Location = New System.Drawing.Point(7, 6)
+        Me.CheckBox1.Location = New System.Drawing.Point(12, 218)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
         Me.CheckBox1.TabIndex = 27
@@ -747,9 +763,10 @@ Partial Class Form1
         '
         'Button11
         '
-        Me.Button11.Location = New System.Drawing.Point(7, 429)
+        Me.Button11.ForeColor = System.Drawing.Color.Black
+        Me.Button11.Location = New System.Drawing.Point(6, 28)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(152, 39)
+        Me.Button11.Size = New System.Drawing.Size(312, 66)
         Me.Button11.TabIndex = 26
         Me.Button11.Text = "BIG FRIENDLY BUTTON"
         Me.Button11.UseVisualStyleBackColor = True
@@ -792,7 +809,7 @@ Partial Class Form1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BigFriendlyButtonToolStripMenuItem, Me.ToolStripSeparator2, Me.CloseToolStripMenuItem, Me.ToolStripSeparator1, Me.ToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(176, 104)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(176, 82)
         '
         'BigFriendlyButtonToolStripMenuItem
         '
@@ -832,6 +849,60 @@ Partial Class Form1
         Me.videoP.Size = New System.Drawing.Size(1104, 661)
         Me.videoP.TabIndex = 9
         '
+        'DoorTimer
+        '
+        Me.DoorTimer.Interval = 1500
+        '
+        'LanguageComboBox
+        '
+        Me.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.LanguageComboBox.Enabled = False
+        Me.LanguageComboBox.FormattingEnabled = True
+        Me.LanguageComboBox.Items.AddRange(New Object() {"English", "Español"})
+        Me.LanguageComboBox.Location = New System.Drawing.Point(6, 57)
+        Me.LanguageComboBox.Name = "LanguageComboBox"
+        Me.LanguageComboBox.Size = New System.Drawing.Size(312, 29)
+        Me.LanguageComboBox.TabIndex = 28
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.LanguageComboBox)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(328, 100)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Language (Work In Progress)"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Checked = True
+        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox2.Enabled = False
+        Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 28)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(102, 23)
+        Me.CheckBox2.TabIndex = 29
+        Me.CheckBox2.Text = "Auto-detect"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button11)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.Location = New System.Drawing.Point(6, 112)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(328, 100)
+        Me.GroupBox2.TabIndex = 30
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Total application reset"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -849,88 +920,40 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TARDIS App Beta"
         Me.tabControl1.ResumeLayout(False)
-        Me.tabPage1.ResumeLayout(False)
-        Me.tabPage1.PerformLayout()
-        Me.tabPage2.ResumeLayout(False)
-        Me.tabPage2.PerformLayout()
-        CType(Me.TrackBar8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabPage3.ResumeLayout(False)
-        Me.tabPage3.PerformLayout()
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
+        Me.TabHelp.ResumeLayout(False)
+        Me.TabHelp.PerformLayout()
+        Me.TabSettings.ResumeLayout(False)
+        Me.SettingsTable.ResumeLayout(False)
+        Me.SettingsTable.PerformLayout()
+        CType(Me.CBVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TVVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EndTravelVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TravellingVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StartVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.T2013Volume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabOther.ResumeLayout(False)
+        Me.TabOther.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Private WithEvents tabControl1 As System.Windows.Forms.TabControl
-    Private WithEvents tabPage1 As System.Windows.Forms.TabPage
-    Private WithEvents tabPage2 As System.Windows.Forms.TabPage
-    Private WithEvents SoundTabText As System.Windows.Forms.Label
-    Private WithEvents tabPage3 As System.Windows.Forms.TabPage
-    Private WithEvents ControlsTextBox As System.Windows.Forms.Label
+    Private WithEvents TabHelp As System.Windows.Forms.TabPage
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Private WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar1 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents TrackBar4 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
-    Private WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar5 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
-    Private WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar6 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
-    Private WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar3 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Private WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar2 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Private WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Private WithEvents Label26 As System.Windows.Forms.Label
-    Private WithEvents Label25 As System.Windows.Forms.Label
-    Private WithEvents Label24 As System.Windows.Forms.Label
-    Private WithEvents Label23 As System.Windows.Forms.Label
-    Private WithEvents Label22 As System.Windows.Forms.Label
-    Private WithEvents Label21 As System.Windows.Forms.Label
-    Private WithEvents Label20 As System.Windows.Forms.Label
-    Private WithEvents Label19 As System.Windows.Forms.Label
-    Private WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents DelayAndNoise As System.Windows.Forms.Timer
-    Friend WithEvents TrackBar7 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
-    Private WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TrackBar8 As System.Windows.Forms.TrackBar
-    Friend WithEvents ComboBox8 As System.Windows.Forms.ComboBox
-    Private WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Private WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents TabOther As System.Windows.Forms.TabPage
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
@@ -940,5 +963,56 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents BigFriendlyButtonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents DoorTimer As System.Windows.Forms.Timer
+    Friend WithEvents TabSettings As System.Windows.Forms.TabPage
+    Friend WithEvents SettingsTable As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ButtonFullscreen As System.Windows.Forms.Button
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents ButtonMenu As System.Windows.Forms.Button
+    Friend WithEvents Label35 As System.Windows.Forms.Label
+    Friend WithEvents CBDevice As System.Windows.Forms.ComboBox
+    Friend WithEvents CBVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents ButtonCB As System.Windows.Forms.Button
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents TVDevice As System.Windows.Forms.ComboBox
+    Friend WithEvents TVVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents ButtonTV As System.Windows.Forms.Button
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents EndDevice As System.Windows.Forms.ComboBox
+    Friend WithEvents EndTravelVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents ButtonEnd As System.Windows.Forms.Button
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents TravellingDevice As System.Windows.Forms.ComboBox
+    Friend WithEvents TravellingVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents StartDevice As System.Windows.Forms.ComboBox
+    Friend WithEvents StartVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents ButtonStart As System.Windows.Forms.Button
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents T2013Device As System.Windows.Forms.ComboBox
+    Friend WithEvents T2013Volume As System.Windows.Forms.TrackBar
+    Friend WithEvents Button2013 As System.Windows.Forms.Button
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Friend WithEvents T2010Device As System.Windows.Forms.ComboBox
+    Friend WithEvents T2010Volume As System.Windows.Forms.TrackBar
+    Friend WithEvents Button2010 As System.Windows.Forms.Button
+    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents T2005Volume As System.Windows.Forms.TrackBar
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Button2005 As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents ButtonEscape As System.Windows.Forms.Button
+    Friend WithEvents ButtonHideMouse As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ButtonHide As System.Windows.Forms.Button
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents T2005Device As System.Windows.Forms.ComboBox
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents LanguageComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
 
 End Class

@@ -73,6 +73,8 @@ Public Class Form1
     Private EndDrum As WaveOut
     Private CloisterBell As WaveOut
     Private TimeVortex As WaveOut
+    Private Door As WaveOut
+    Private EmergencyFlight As WaveOut
     Private CBPlaying As Boolean
     Private TVPlaying As Boolean
     Private Travelling As Boolean
@@ -82,10 +84,13 @@ Public Class Form1
     Private WordShow As String
     Private WordHide As String
     Private WordClose As String
-    Dim ismousevisible As Boolean
+    Private Areyousure As String
+    Private DoorPlaying As Boolean
+    Private EmergencyFlightPlaying As Boolean
     Sub Initapp()
+
         ThreadPool.QueueUserWorkItem(Sub(o)
-                                         Dim SWFfile As String = Application.StartupPath & "\media\2005Monitor.swf"
+                                         Dim SWFfile As String = Application.StartupPath & "\media\2005\Monitor.swf"
                                          videoP.LoadMovie(0, SWFfile)
                                          videoP.Play()
                                          videoP.Loop = True
@@ -96,12 +101,8 @@ Public Class Form1
         Language = System.Globalization.CultureInfo.CurrentCulture.ToString
         If Language.StartsWith("es") Then
             RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
-            tabPage1.Text = "Ayuda"
-            tabPage2.Text = "Sonido"
-            tabPage3.Text = "Controles"
-            TabPage4.Text = "Otros"
-            SoundTabText.Text = "Dispositivos de salida y controles de volumen (Por hacer)."
-            ControlsTextBox.Text = "Personalizar los controles (Por hacer)."
+            TabHelp.Text = "Ayuda"
+            TabOther.Text = "Más"
             Label1.Text = "No hay vídeo. ¿Tienes uno?"
             Button11.Text = "GRAN BOTÓN AMISTOSO"
             Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
@@ -109,15 +110,19 @@ Public Class Form1
             WordShow = "Mostrar"
             WordHide = "Ocultar"
             WordClose = "Cerrar"
+            TabSettings.Text = "Personalizar controles y ajustes de audio"
+            LanguageComboBox.SelectedIndex = 1
+            Areyousure = "¿Estás seguro?"
+            GroupBox2.Text = "Restablecer ajustes de la aplicación"
         Else
             RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
-            SoundTabText.Text = "Output devices and volume settings (TO-DO)."
-            ControlsTextBox.Text = "Personalize the controls (TO-DO)."
             Label1.Text = "Missing video. Do you have one?"
             Closemsg = "Al changes have been restored. The application will end. You can open it again."
             WordShow = "Show"
             WordHide = "Hide"
             WordClose = "Close"
+            LanguageComboBox.SelectedIndex = 0
+            Areyousure = "Are you sure?"
         End If
         ToolStripMenuItem1.Text = WordHide
         CloseToolStripMenuItem.Text = WordClose
@@ -125,11 +130,13 @@ Public Class Form1
         ' IF IT IS THE FIRST RUN
         ' \\\\\\\\\\\\\\\\\\\\\\\\\\
         If My.Settings.IsFirstTime = True Then
+            My.Settings.Reset()
             My.Settings.IsMouseVisible = True
             tabControl1.Visible = True
             CheckBox1.Checked = False
             ' Setting look
             Play2005()
+            Hum.Volume = "0,5"
             ' Setting the keys
             My.Settings.Escapekey = Keys.Escape
             My.Settings.Helpkey = Keys.F2
@@ -143,6 +150,14 @@ Public Class Form1
             My.Settings.T2010Key = Keys.D2
             My.Settings.T2013key = Keys.D3
             My.Settings.Fullscreenkey = Keys.F11
+            My.Settings.T2005Volume = 5
+            My.Settings.T2010Volume = 5
+            My.Settings.T2013Volume = 5
+            My.Settings.StartVolume = 5
+            My.Settings.TravellingVolume = 5
+            My.Settings.EndTravelVolume = 5
+            My.Settings.TVVolume = 5
+            My.Settings.CBVolume = 5
             My.Settings.Fullscreen = False
             My.Settings.IsFirstTime = False
             My.Settings.Save()
@@ -150,6 +165,7 @@ Public Class Form1
             ' //////////////////////////
             ' IF IT IS NOT THE FIRST RUN
             ' \\\\\\\\\\\\\\\\\\\\\\\\\\
+
             My.Settings.Reload()
             If My.Settings.IsMouseVisible = False Then
                 Cursor.Hide()
@@ -178,8 +194,32 @@ Public Class Form1
                 Play2013()
             End If
         End If
+        Button2005.Text = My.Settings.T2005Key
+        Button2010.Text = My.Settings.T2010Key
+        Button2013.Text = My.Settings.T2013key
+        ButtonCB.Text = My.Settings.CBKey
+        ButtonTV.Text = My.Settings.TVKey
+        ButtonEnd.Text = My.Settings.Endkey
+        ButtonFullscreen.Text = My.Settings.Fullscreenkey
+        ButtonMenu.Text = My.Settings.Helpkey
+        ButtonStart.Text = My.Settings.Startkey
+        ButtonHide.Text = My.Settings.HideKey
+        ButtonHideMouse.Text = My.Settings.MouseKey
+        ButtonEscape.Text = My.Settings.Escapekey
     End Sub
 
+    Sub HideUI()
+        If ToolStripMenuItem1.Text = WordHide Then
+            Me.Visible = False
+            ToolStripMenuItem1.Text = WordShow
+            My.Settings.IsUiVisible = False
+        Else
+            Me.Visible = True
+            tabControl1.Visible = False
+            ToolStripMenuItem1.Text = WordHide
+            My.Settings.IsUiVisible = True
+        End If
+    End Sub
 
     Sub CloseApp()
         My.Settings.Save()
@@ -187,56 +227,76 @@ Public Class Form1
         Application.Exit()
     End Sub
 
+    Sub Bigfriendlyexit()
+        Dim respuesta As DialogResult = MessageBox.Show(Areyousure, Areyousure, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+        Select Case respuesta
+            Case DialogResult.Yes
+                Cursor.Show()
+                My.Settings.IsFirstTime = True
+                start_Up(False)
+                MsgBox(Closemsg)
+                CloseApp()
+            Case DialogResult.No
+        End Select
+        
+    End Sub
+
+
     Sub HelpWindow()
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
-
         Else
             tabControl1.Visible = True
-
         End If
     End Sub
 
     Sub Play2005()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
+        Hum.Volume = My.Settings.T2005Volume
         Hum.Play()
         PictureBox1.Visible = False
         My.Settings.ActualHum = "Hum2005"
     End Sub
 
     Sub Play2010()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
         Hum.Play()
         PictureBox1.Visible = True
-        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010Monitor.jpg")
+        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010\Monitor.jpg")
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
         My.Settings.ActualHum = "Hum2010"
     End Sub
 
     Sub Play2013()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2013Hum.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2013\Hum.wav")
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
         Hum.Play()
         PictureBox1.Visible = True
-        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013Monitor.jpg")
+        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013\Monitor.jpg")
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
         My.Settings.ActualHum = "Hum2013"
     End Sub
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
+        'BIG FRIENDLY KEY
+        If e.KeyCode = Keys.F7 Then
+            Bigfriendlyexit()
+
+
+        End If
+
         ' Hide Key
         If e.KeyCode = My.Settings.HideKey Then
-            Me.Visible = False
-            ToolStripMenuItem1.Text = WordShow
+            HideUI()
         End If
 
         ' Mouse Hide Key
@@ -308,15 +368,15 @@ Public Class Form1
             End If
         End If
 
-        ' End look and hum
-
         ' Start travel
         If e.KeyCode = My.Settings.Startkey Then
             If Travelling = False Then
                 Travelling = True
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\Drum.wav")
+                Dim inputStream As WaveChannel32
+                Dim drumreader As New WaveFileReader(Application.StartupPath & "\media\2005\Drum.wav")
+                inputStream = New WaveChannel32(drumreader)
                 Drum = New WaveOut()
-                Drum.Init(reader)
+                Drum.Init(drumreader)
                 Drum.Play()
                 DelayAndNoise.Enabled = True
             End If
@@ -329,7 +389,7 @@ Public Class Form1
                 SpaceEnabled = False
                 Noise.Stop()
                 Noise.Dispose()
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\EndDrum.wav")
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\EndDrum.wav")
                 EndDrum = New WaveOut()
                 EndDrum.Init(reader)
                 EndDrum.Play()
@@ -351,6 +411,23 @@ Public Class Form1
                 TVPlaying = False
             End If
         End If
+
+        ' Emergency Flight SFX
+        If e.KeyCode = Keys.E Then
+            If EmergencyFlightPlaying = False Then
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\EmergencyFlight.wav")
+                Dim looping As New LoopStream(reader)
+                EmergencyFlight = New WaveOut()
+                EmergencyFlight.Init(looping)
+                EmergencyFlight.Play()
+                EmergencyFlightPlaying = True
+            Else
+                EmergencyFlight.Stop()
+                EmergencyFlight.Dispose()
+                EmergencyFlightPlaying = False
+            End If
+        End If
+
         ' Cloister Bell
         If e.KeyCode = My.Settings.CBKey Then
             If CBPlaying = False Then
@@ -366,6 +443,30 @@ Public Class Form1
                 CBPlaying = False
             End If
         End If
+        ' Open the door
+        If e.KeyCode = Keys.Q Then
+            If DoorTimer.Enabled = False Then
+                DoorTimer.Enabled = True
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")
+                Dim looping As New LoopStream(reader)
+                Door = New WaveOut()
+                Door.Init(reader)
+                Door.Play()
+            End If
+            
+
+        End If
+        ' Close the door
+        If e.KeyCode = Keys.W Then
+            If DoorTimer.Enabled = False Then
+                DoorTimer.Enabled = True
+                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")
+                Dim looping As New LoopStream(reader)
+                Door = New WaveOut()
+                Door.Init(reader)
+                Door.Play()
+            End If
+        End If
 
     End Sub
 
@@ -373,20 +474,8 @@ Public Class Form1
         Initapp()
     End Sub
 
-    Private Sub videoP_GotFocus1(sender As Object, e As EventArgs)
-        Me.Focus()
-    End Sub
-
-    Private Sub videoP_MouseCaptureChanged(sender As Object, e As EventArgs)
-        Me.Focus()
-    End Sub
-
-    Private Sub Help_Tick(sender As Object, e As EventArgs)
-        HelpWindow()
-    End Sub
-
     Private Sub DelayAndNoise_Tick(sender As Object, e As EventArgs) Handles DelayAndNoise.Tick
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\Noise.wav")
+        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\Noise.wav")
         Dim looping As New LoopStream(reader)
         Noise = New WaveOut()
         Noise.Init(looping)
@@ -401,10 +490,8 @@ Public Class Form1
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        My.Settings.IsFirstTime = True
-        start_Up(False)
-        MsgBox(Closemsg)
-        CloseApp()
+        Bigfriendlyexit()
+
     End Sub
 
     Private Function start_Up(ByVal bCreate As Boolean) As String
@@ -447,14 +534,7 @@ Public Class Form1
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        If ToolStripMenuItem1.Text = WordHide Then
-            Me.Visible = False
-            ToolStripMenuItem1.Text = WordShow
-        Else
-            Me.Visible = True
-            tabControl1.Visible = False
-            ToolStripMenuItem1.Text = WordHide
-        End If
+        HideUI()
 
     End Sub
 
@@ -465,10 +545,8 @@ Public Class Form1
     End Sub
 
     Private Sub ContextMenuStrip1_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles ContextMenuStrip1.Closing
-        HelpWindow()
         Me.Focus()
         Me.TopMost = False
-
     End Sub
 
     Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
@@ -486,10 +564,33 @@ Public Class Form1
     End Sub
 
     Private Sub BigFriendlyButtonToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BigFriendlyButtonToolStripMenuItem.Click
-        My.Settings.IsFirstTime = True
-        start_Up(False)
-        MsgBox(Closemsg)
-        CloseApp()
+        Bigfriendlyexit()
     End Sub
-    
+
+    Private Sub DoorTimer_Tick(sender As Object, e As EventArgs) Handles DoorTimer.Tick
+        DoorTimer.Enabled = False
+    End Sub
+
+    Private Sub T2005Volume_Scroll(sender As Object, e As EventArgs) Handles T2005Volume.MouseUp
+        Hum.Volume = Val(T2005Volume.Value) / 10
+        T2010Volume.Value = T2005Volume.Value
+        T2013Volume.Value = T2005Volume.Value
+    End Sub
+
+    Private Sub T2010Volume_Scroll(sender As Object, e As EventArgs) Handles T2010Volume.MouseUp
+        Hum.Volume = Val(T2010Volume.Value) / 10
+        T2005Volume.Value = T2010Volume.Value
+        T2013Volume.Value = T2010Volume.Value
+    End Sub
+
+    Private Sub T2013Volume_Scroll(sender As Object, e As EventArgs) Handles T2013Volume.MouseUp
+        Hum.Volume = Val(T2013Volume.Value) / 10
+        T2005Volume.Value = T2013Volume.Value
+        T2010Volume.Value = T2013Volume.Value
+    End Sub
+
+    Private Sub StartVolume_Scroll(sender As Object, e As EventArgs) Handles StartVolume.Scroll
+        My.Settings.StartVolume = Val(StartVolume.Value) / 10
+    End Sub
+
 End Class
