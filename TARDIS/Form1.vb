@@ -255,7 +255,7 @@ Public Class Form1
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
-        Hum.Volume = My.Settings.T2005Volume
+        Hum.Volume = Val(T2005Volume.Value) / 10
         Hum.Play()
         PictureBox1.Visible = False
         My.Settings.ActualHum = "Hum2005"
@@ -266,6 +266,7 @@ Public Class Form1
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
+        Hum.Volume = Val(T2010Volume.Value) / 10
         Hum.Play()
         PictureBox1.Visible = True
         PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010\Monitor.jpg")
@@ -278,6 +279,7 @@ Public Class Form1
         Dim looping As New LoopStream(reader)
         Hum = New WaveOut()
         Hum.Init(looping)
+        Hum.Volume = Val(T2013Volume.Value) / 10
         Hum.Play()
         PictureBox1.Visible = True
         PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013\Monitor.jpg")
@@ -593,4 +595,7 @@ Public Class Form1
         My.Settings.StartVolume = Val(StartVolume.Value) / 10
     End Sub
 
+    Private Sub T2005Volume_Scroll_1(sender As Object, e As EventArgs) Handles T2005Volume.Scroll
+
+    End Sub
 End Class
