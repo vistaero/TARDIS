@@ -4,6 +4,7 @@ Imports System.Globalization.CultureInfo
 Imports Microsoft
 Imports Microsoft.Win32
 Imports Microsoft.Win32.Registry
+Imports System.IO
 
 Public Class Form1
 
@@ -98,34 +99,7 @@ Public Class Form1
         SpaceEnabled = False
         Travelling = False
         Label1.Parent = PictureBox1
-        Language = System.Globalization.CultureInfo.CurrentCulture.ToString
-        If Language.StartsWith("es") Then
-            RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
-            TabHelp.Text = "Ayuda"
-            TabOther.Text = "Más"
-            Label1.Text = "No hay vídeo. ¿Tienes uno?"
-            Button11.Text = "GRAN BOTÓN AMISTOSO"
-            Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
-            CheckBox1.Text = "Iniciar con Windows."
-            WordShow = "Mostrar"
-            WordHide = "Ocultar"
-            WordClose = "Cerrar"
-            TabSettings.Text = "Personalizar controles y ajustes de audio"
-            LanguageComboBox.SelectedIndex = 1
-            Areyousure = "¿Estás seguro?"
-            GroupBox2.Text = "Restablecer ajustes de la aplicación"
-        Else
-            RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
-            Label1.Text = "Missing video. Do you have one?"
-            Closemsg = "Al changes have been restored. The application will end. You can open it again."
-            WordShow = "Show"
-            WordHide = "Hide"
-            WordClose = "Close"
-            LanguageComboBox.SelectedIndex = 0
-            Areyousure = "Are you sure?"
-        End If
-        ToolStripMenuItem1.Text = WordHide
-        CloseToolStripMenuItem.Text = WordClose
+        
         ' //////////////////////////
         ' IF IT IS THE FIRST RUN
         ' \\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -206,6 +180,47 @@ Public Class Form1
         ButtonHide.Text = My.Settings.HideKey
         ButtonHideMouse.Text = My.Settings.MouseKey
         ButtonEscape.Text = My.Settings.Escapekey
+        ' List language files
+        Dim fileNames() As String
+        Dim result As String
+        fileNames = System.IO.Directory.GetFiles(Application.StartupPath & "\languages\", "*.rtf")
+        For Each file In fileNames
+            result = Path.GetFileNameWithoutExtension(file)
+            Me.LanguageComboBox.Items.Add(result)
+        Next
+        ' End listing language files
+        If My.Settings.LanguageAutoDetect = True Then
+            Language = System.Globalization.CultureInfo.CurrentCulture.ToString
+            If Language.StartsWith("es") Then
+                RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
+                TabHelp.Text = "Ayuda"
+                TabOther.Text = "Más"
+                Label1.Text = "No hay vídeo. ¿Tienes uno?"
+                Button11.Text = "GRAN BOTÓN AMISTOSO"
+                Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
+                CheckBox1.Text = "Iniciar con Windows."
+                WordShow = "Mostrar"
+                WordHide = "Ocultar"
+                WordClose = "Cerrar"
+                TabSettings.Text = "Personalizar controles y ajustes de audio"
+                LanguageComboBox.SelectedIndex = 1
+                Areyousure = "¿Estás seguro?"
+                GroupBox2.Text = "Restablecer ajustes de la aplicación"
+            End If
+        Else
+            ' Here must be the language-selection system, for now it does not work and english is selected.
+            RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
+            Label1.Text = "Missing video. Do you have one?"
+            Closemsg = "Al changes have been restored. The application will end. You can open it again."
+            WordShow = "Show"
+            WordHide = "Hide"
+            WordClose = "Close"
+            LanguageComboBox.SelectedIndex = 0
+            Areyousure = "Are you sure?"
+            ToolStripMenuItem1.Text = WordHide
+            CloseToolStripMenuItem.Text = WordClose
+        End If
+        
     End Sub
 
     Sub HideUI()
@@ -238,7 +253,7 @@ Public Class Form1
                 CloseApp()
             Case DialogResult.No
         End Select
-        
+
     End Sub
 
 
@@ -455,7 +470,7 @@ Public Class Form1
                 Door.Init(reader)
                 Door.Play()
             End If
-            
+
 
         End If
         ' Close the door
@@ -595,7 +610,23 @@ Public Class Form1
         My.Settings.StartVolume = Val(StartVolume.Value) / 10
     End Sub
 
-    Private Sub T2005Volume_Scroll_1(sender As Object, e As EventArgs) Handles T2005Volume.Scroll
-
+    Private Sub CheckBox2_Click(sender As Object, e As EventArgs) Handles CheckBox2.Click
+        Label8.Visible = True
     End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked = False Then
+            LanguageComboBox.Enabled = True
+            My.Settings.LanguageAutoDetect = False
+        Else
+            LanguageComboBox.Enabled = False
+            My.Settings.LanguageAutoDetect = True
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        My.Settings.Save()
+        Initapp()
+    End Sub
+
 End Class

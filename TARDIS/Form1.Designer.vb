@@ -74,9 +74,14 @@ Partial Class Form1
         Me.Button2005 = New System.Windows.Forms.Button()
         Me.ButtonEscape = New System.Windows.Forms.Button()
         Me.T2005Device = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TabOther = New System.Windows.Forms.TabPage()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -89,10 +94,7 @@ Partial Class Form1
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.DoorTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.tabControl1.SuspendLayout()
         Me.TabHelp.SuspendLayout()
         Me.TabSettings.SuspendLayout()
@@ -106,11 +108,11 @@ Partial Class Form1
         CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabOther.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'tabControl1
@@ -226,6 +228,7 @@ Partial Class Form1
         Me.SettingsTable.Controls.Add(Me.Button2005, 1, 1)
         Me.SettingsTable.Controls.Add(Me.ButtonEscape, 1, 11)
         Me.SettingsTable.Controls.Add(Me.T2005Device, 3, 1)
+        Me.SettingsTable.Controls.Add(Me.Label2, 0, 0)
         Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SettingsTable.Location = New System.Drawing.Point(3, 3)
         Me.SettingsTable.Name = "SettingsTable"
@@ -576,6 +579,7 @@ Partial Class Form1
         '
         Me.T2013Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2013Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.T2013Volume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2013Volume.Enabled = False
         Me.T2013Volume.Location = New System.Drawing.Point(441, 126)
         Me.T2013Volume.Name = "T2013Volume"
         Me.T2013Volume.Size = New System.Drawing.Size(213, 35)
@@ -620,6 +624,7 @@ Partial Class Form1
         '
         Me.T2010Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.T2010Volume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.T2010Volume.Enabled = False
         Me.T2010Volume.Location = New System.Drawing.Point(441, 85)
         Me.T2010Volume.Name = "T2010Volume"
         Me.T2010Volume.Size = New System.Drawing.Size(213, 35)
@@ -736,6 +741,18 @@ Partial Class Form1
         Me.T2005Device.TabIndex = 63
         Me.T2005Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2005Device
         '
+        'Label2
+        '
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Crimson
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(213, 41)
+        Me.Label2.TabIndex = 64
+        Me.Label2.Text = "Work In Progress"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TabOther
         '
         Me.TabOther.BackColor = System.Drawing.Color.MidnightBlue
@@ -749,27 +766,76 @@ Partial Class Form1
         Me.TabOther.TabIndex = 5
         Me.TabOther.Text = "More"
         '
-        'CheckBox1
+        'GroupBox2
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox1.Location = New System.Drawing.Point(12, 218)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
-        Me.CheckBox1.TabIndex = 27
-        Me.CheckBox1.Text = "Start with Windows"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.GroupBox2.Controls.Add(Me.Button11)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.Location = New System.Drawing.Point(340, 6)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(328, 127)
+        Me.GroupBox2.TabIndex = 30
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Total application reset"
         '
         'Button11
         '
         Me.Button11.ForeColor = System.Drawing.Color.Black
         Me.Button11.Location = New System.Drawing.Point(6, 28)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(312, 66)
+        Me.Button11.Size = New System.Drawing.Size(312, 90)
         Me.Button11.TabIndex = 26
         Me.Button11.Text = "BIG FRIENDLY BUTTON"
         Me.Button11.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.LanguageComboBox)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(328, 127)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Language (Work In Progress)"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Checked = Global.TARDIS_App_Beta.My.MySettings.Default.LanguageAutoDetect
+        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox2.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.TARDIS_App_Beta.My.MySettings.Default, "LanguageAutoDetect", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 28)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(102, 23)
+        Me.CheckBox2.TabIndex = 29
+        Me.CheckBox2.Text = "Auto-detect"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'LanguageComboBox
+        '
+        Me.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.LanguageComboBox.FormattingEnabled = True
+        Me.LanguageComboBox.Location = New System.Drawing.Point(6, 57)
+        Me.LanguageComboBox.Name = "LanguageComboBox"
+        Me.LanguageComboBox.Size = New System.Drawing.Size(312, 29)
+        Me.LanguageComboBox.TabIndex = 28
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.ForeColor = System.Drawing.Color.White
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 139)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
+        Me.CheckBox1.TabIndex = 27
+        Me.CheckBox1.Text = "Start with Windows"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'DelayAndNoise
         '
@@ -853,55 +919,15 @@ Partial Class Form1
         '
         Me.DoorTimer.Interval = 1500
         '
-        'LanguageComboBox
+        'Label8
         '
-        Me.LanguageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.LanguageComboBox.Enabled = False
-        Me.LanguageComboBox.FormattingEnabled = True
-        Me.LanguageComboBox.Items.AddRange(New Object() {"English", "Español"})
-        Me.LanguageComboBox.Location = New System.Drawing.Point(6, 57)
-        Me.LanguageComboBox.Name = "LanguageComboBox"
-        Me.LanguageComboBox.Size = New System.Drawing.Size(312, 29)
-        Me.LanguageComboBox.TabIndex = 28
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.CheckBox2)
-        Me.GroupBox1.Controls.Add(Me.LanguageComboBox)
-        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 6)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(328, 100)
-        Me.GroupBox1.TabIndex = 29
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Language (Work In Progress)"
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox2.Enabled = False
-        Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 28)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(102, 23)
-        Me.CheckBox2.TabIndex = 29
-        Me.CheckBox2.Text = "Auto-detect"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Button11)
-        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(6, 112)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(328, 100)
-        Me.GroupBox2.TabIndex = 30
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Total application reset"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 97)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(286, 21)
+        Me.Label8.TabIndex = 30
+        Me.Label8.Text = "Restart the application to apply changes"
+        Me.Label8.Visible = False
         '
         'Form1
         '
@@ -935,12 +961,12 @@ Partial Class Form1
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabOther.ResumeLayout(False)
         Me.TabOther.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.videoP, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1014,5 +1040,7 @@ Partial Class Form1
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents LanguageComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 
 End Class
