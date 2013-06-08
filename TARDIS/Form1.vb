@@ -103,7 +103,7 @@ Public Class Form1
     Private EmergencyFlightPattern As Boolean
     Private DoorState As Boolean
     Sub Initapp()
-
+        
         ThreadPool.QueueUserWorkItem(Sub(o)
                                          Dim SWFfile As String = Application.StartupPath & "\media\2005\Monitor.swf"
                                          videoP.LoadMovie(0, SWFfile)
@@ -188,6 +188,9 @@ Public Class Form1
         ButtonHide.Text = My.Settings.HideKey
         ButtonHideMouse.Text = My.Settings.MouseKey
         ButtonEscape.Text = My.Settings.Escapekey
+        ButtonEmergencyFlight.Text = My.Settings.EmergencyFlightKey
+        ButtonDoorOpen.Text = My.Settings.OpenDoorKey
+        ButtonDoorClose.Text = My.Settings.CloseDoorKey
         ' List language files
         Dim fileNames() As String
         Dim result As String
@@ -275,16 +278,20 @@ Public Class Form1
     End Sub
 
     Sub StopAnyHum()
-        Try
+
+        If Hum2005 IsNot Nothing Then
             Hum2005.Stop()
             Hum2005.Dispose()
+        End If
+        If Hum2010 IsNot Nothing Then
             Hum2010.Stop()
             Hum2010.Dispose()
+        End If
+        If Hum2013 IsNot Nothing Then
             Hum2013.Stop()
             Hum2013.Dispose()
-        Catch ex As Exception
+        End If
 
-        End Try
     End Sub
 
     Sub Play2005()
@@ -353,6 +360,7 @@ Public Class Form1
         ' Help key
         If e.KeyCode = My.Settings.Helpkey Then
             HelpWindow()
+            
         End If
 
         ' Fullscreen key
@@ -376,7 +384,6 @@ Public Class Form1
         ' Look and hum
         ' 2005 TARDIS
         If e.KeyCode = My.Settings.T2005Key Then
-
             If My.Settings.ActualHum = "Hum2005" Then
             Else
                 Play2005()
@@ -421,15 +428,15 @@ Public Class Form1
             If SpaceEnabled = True Then
                 Travelling = False
                 SpaceEnabled = False
-                Try
+                If Noise IsNot Nothing Then
                     Noise.Stop()
                     Noise.Dispose()
+                End If
+                If EmergencyFlight IsNot Nothing Then
                     EmergencyFlight.Stop()
                     EmergencyFlight.Dispose()
-                Catch ex As Exception
+                End If
 
-                End Try
-                
                 EndDrumReader = New AudioFileReader(Application.StartupPath & "\media\2010\EndDrum.wav")
                 Dim looping As New LoopStream(EndDrumReader)        '  
                 EndDrum = New WaveOut()
@@ -486,7 +493,7 @@ Public Class Form1
                     DoorOpenReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")       '  
                     DoorOpen = New WaveOut()
                     DoorOpen.Init(DoorOpenReader)
-                    DoorOpenReader.Volume = Val(TravellingVolume.Value) / 10
+                    DoorOpenReader.Volume = Val(DoorOpenVolume.Value) / 10
                     DoorOpen.Play()
                     DoorState = True
                 End If
@@ -500,7 +507,7 @@ Public Class Form1
                     DoorCloseReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")    '  
                     DoorClose = New WaveOut()
                     DoorClose.Init(DoorCloseReader)
-                    DoorCloseReader.Volume = Val(TravellingVolume.Value) / 10
+                    DoorCloseReader.Volume = Val(DoorCloseVolume.Value) / 10
                     DoorClose.Play()
                     DoorState = False
                 End If
@@ -526,7 +533,7 @@ Public Class Form1
             Dim looping As New LoopStream(EmergencyFlightReader)        '  
             EmergencyFlight = New WaveOut()
             EmergencyFlight.Init(looping)
-            EmergencyFlightReader.Volume = Val(TravellingVolume.Value) / 10
+            EmergencyFlightReader.Volume = Val(EmergencyFlightVolume.Value) / 10
             EmergencyFlight.Play()
         End If
         Drum = Nothing
@@ -644,62 +651,84 @@ Public Class Form1
     End Sub
 
     Private Sub T2005Volume_Scroll(sender As Object, e As EventArgs) Handles T2005Volume.Scroll
-        Try
+        If Hum2005 IsNot Nothing Then
             Hum2005Reader.Volume = Val(T2005Volume.Value) / 10
-        Catch ex As Exception
-        End Try
-
+        End If
     End Sub
 
     Private Sub T2010Volume_Scroll(sender As Object, e As EventArgs) Handles T2010Volume.Scroll
-        Try
+        If Hum2010 IsNot Nothing Then
             Hum2010Reader.Volume = Val(T2010Volume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
+
 
     End Sub
 
     Private Sub T2013Volume_Scroll(sender As Object, e As EventArgs) Handles T2013Volume.Scroll
-        Try
+        If Hum2013 IsNot Nothing Then
             Hum2013Reader.Volume = Val(T2013Volume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
+
 
     End Sub
 
     Private Sub StartVolume_Scroll(sender As Object, e As EventArgs) Handles StartVolume.Scroll
-        Try
+        If Drum IsNot Nothing Then
             DrumReader.Volume = Val(StartVolume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
 
     End Sub
 
     Private Sub TravellingVolume_Scroll(sender As Object, e As EventArgs) Handles TravellingVolume.Scroll
-        Try
+        If Noise IsNot Nothing Then
             NoiseReader.Volume = Val(TravellingVolume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
     End Sub
 
     Private Sub EndTravelVolume_Scroll(sender As Object, e As EventArgs) Handles EndTravelVolume.Scroll
-        Try
+        If EndDrum IsNot Nothing Then
             EndDrumReader.Volume = Val(EndTravelVolume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
     End Sub
 
     Private Sub TVVolume_Scroll(sender As Object, e As EventArgs) Handles TVVolume.Scroll
-        Try
+        If TimeVortex IsNot Nothing Then
             TimeVortexReader.Volume = Val(TVVolume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
     End Sub
 
     Private Sub CBVolume_Scroll(sender As Object, e As EventArgs) Handles CBVolume.Scroll
-        Try
+        If CloisterBell IsNot Nothing Then
             CloisterBellReader.Volume = Val(CBVolume.Value) / 10
-        Catch ex As Exception
-        End Try
+        End If
+
+    End Sub
+
+    Private Sub EmergencyFlightVolume_Scroll(sender As Object, e As EventArgs) Handles EmergencyFlightVolume.Scroll
+        If EmergencyFlight IsNot Nothing Then
+            EmergencyFlightReader.Volume = Val(EmergencyFlightVolume.Value) / 10
+        End If
+    End Sub
+
+    Private Sub DoorOpenVolume_Scroll(sender As Object, e As EventArgs) Handles DoorOpenVolume.Scroll
+        If DoorOpen IsNot Nothing Then
+            DoorOpenReader.Volume = Val(DoorOpenVolume.Value) / 10
+        End If
+    End Sub
+
+    Private Sub DoorCloseVolume_Scroll(sender As Object, e As EventArgs) Handles DoorCloseVolume.Scroll
+        If DoorClose IsNot Nothing Then
+            DoorCloseReader.Volume = Val(DoorCloseVolume.Value) / 10
+        End If
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        MsgBox("Personalization of the controls and out-put device are not implemented yet.")
     End Sub
 End Class

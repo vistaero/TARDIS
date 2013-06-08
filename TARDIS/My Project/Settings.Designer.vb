@@ -530,6 +530,78 @@ Namespace My
                 Me("SecondsMouseInactivity") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property EmergencyFlightVolume() As Integer
+            Get
+                Return CType(Me("EmergencyFlightVolume"),Integer)
+            End Get
+            Set
+                Me("EmergencyFlightVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property DoorOpenVolume() As Integer
+            Get
+                Return CType(Me("DoorOpenVolume"),Integer)
+            End Get
+            Set
+                Me("DoorOpenVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property DoorCloseVolume() As Integer
+            Get
+                Return CType(Me("DoorCloseVolume"),Integer)
+            End Get
+            Set
+                Me("DoorCloseVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DoorCloseDevice() As String
+            Get
+                Return CType(Me("DoorCloseDevice"),String)
+            End Get
+            Set
+                Me("DoorCloseDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DoorOpenDevice() As String
+            Get
+                Return CType(Me("DoorOpenDevice"),String)
+            End Get
+            Set
+                Me("DoorOpenDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property EmergencyFlightDevice() As String
+            Get
+                Return CType(Me("EmergencyFlightDevice"),String)
+            End Get
+            Set
+                Me("EmergencyFlightDevice") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
