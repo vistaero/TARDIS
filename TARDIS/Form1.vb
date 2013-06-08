@@ -67,15 +67,28 @@ Public Class Form1
             Return totalBytesRead
         End Function
     End Class
-
-    Private Hum As WaveOut
-    Private Drum As WaveOut
-    Private Noise As WaveOut
-    Private EndDrum As WaveOut
-    Private CloisterBell As WaveOut
-    Private TimeVortex As WaveOut
-    Private Door As WaveOut
-    Private EmergencyFlight As WaveOut
+    Dim Noise As WaveOut
+    Dim NoiseReader As AudioFileReader
+    Dim EmergencyFlight As WaveOut
+    Dim EmergencyFlightReader As AudioFileReader
+    Dim Hum2005 As WaveOut
+    Dim Hum2005Reader As AudioFileReader
+    Dim Hum2010 As WaveOut
+    Dim Hum2010Reader As AudioFileReader
+    Dim Hum2013 As WaveOut
+    Dim Hum2013Reader As AudioFileReader
+    Dim Drum As WaveOut
+    Dim DrumReader As AudioFileReader
+    Dim EndDrum As WaveOut
+    Dim EndDrumReader As AudioFileReader
+    Dim CloisterBell As WaveOut
+    Dim CloisterBellReader As AudioFileReader
+    Dim TimeVortex As WaveOut
+    Dim TimeVortexReader As AudioFileReader
+    Dim DoorOpen As WaveOut
+    Dim DoorOpenReader As AudioFileReader
+    Dim DoorClose As WaveOut
+    Dim DoorCloseReader As AudioFileReader
     Private CBPlaying As Boolean
     Private TVPlaying As Boolean
     Private Travelling As Boolean
@@ -87,7 +100,8 @@ Public Class Form1
     Private WordClose As String
     Private Areyousure As String
     Private DoorPlaying As Boolean
-    Private EmergencyFlightPlaying As Boolean
+    Private EmergencyFlightPattern As Boolean
+    Private DoorState As Boolean
     Sub Initapp()
 
         ThreadPool.QueueUserWorkItem(Sub(o)
@@ -110,7 +124,6 @@ Public Class Form1
             CheckBox1.Checked = False
             ' Setting look
             Play2005()
-            Hum.Volume = "0,5"
             ' Setting the keys
             My.Settings.Escapekey = Keys.Escape
             My.Settings.Helpkey = Keys.F2
@@ -118,20 +131,15 @@ Public Class Form1
             My.Settings.Endkey = Keys.Space
             My.Settings.TVKey = Keys.T
             My.Settings.CBKey = Keys.C
+            My.Settings.CloseDoorKey = Keys.W
+            My.Settings.OpenDoorKey = Keys.Q
+            My.Settings.EmergencyFlightKey = Keys.E
             My.Settings.MouseKey = Keys.M
             My.Settings.HideKey = Keys.H
             My.Settings.T2005Key = Keys.D1
             My.Settings.T2010Key = Keys.D2
             My.Settings.T2013key = Keys.D3
             My.Settings.Fullscreenkey = Keys.F11
-            My.Settings.T2005Volume = 5
-            My.Settings.T2010Volume = 5
-            My.Settings.T2013Volume = 5
-            My.Settings.StartVolume = 5
-            My.Settings.TravellingVolume = 5
-            My.Settings.EndTravelVolume = 5
-            My.Settings.TVVolume = 5
-            My.Settings.CBVolume = 5
             My.Settings.Fullscreen = False
             My.Settings.IsFirstTime = False
             My.Settings.Save()
@@ -230,6 +238,7 @@ Public Class Form1
             My.Settings.IsUiVisible = False
         Else
             Me.Visible = True
+            Me.Focus()
             tabControl1.Visible = False
             ToolStripMenuItem1.Text = WordHide
             My.Settings.IsUiVisible = True
@@ -265,24 +274,39 @@ Public Class Form1
         End If
     End Sub
 
+    Sub StopAnyHum()
+        Try
+            Hum2005.Stop()
+            Hum2005.Dispose()
+            Hum2010.Stop()
+            Hum2010.Dispose()
+            Hum2013.Stop()
+            Hum2013.Dispose()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Sub Play2005()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\Hum.wav")
-        Dim looping As New LoopStream(reader)
-        Hum = New WaveOut()
-        Hum.Init(looping)
-        Hum.Volume = Val(T2005Volume.Value) / 10
-        Hum.Play()
+        StopAnyHum()
+        Hum2005Reader = New AudioFileReader(Application.StartupPath & "\media\2005\Hum.wav")
+        Dim looping As New LoopStream(Hum2005Reader)        '  
+        Hum2005 = New WaveOut()
+        Hum2005.Init(looping)
+        Hum2005Reader.Volume = Val(T2005Volume.Value) / 10
+        Hum2005.Play()
         PictureBox1.Visible = False
         My.Settings.ActualHum = "Hum2005"
     End Sub
 
     Sub Play2010()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\Hum.wav")
-        Dim looping As New LoopStream(reader)
-        Hum = New WaveOut()
-        Hum.Init(looping)
-        Hum.Volume = Val(T2010Volume.Value) / 10
-        Hum.Play()
+        StopAnyHum()
+        Hum2010Reader = New AudioFileReader(Application.StartupPath & "\media\2010\Hum.wav")
+        Dim looping As New LoopStream(Hum2010Reader)        '  
+        Hum2010 = New WaveOut()
+        Hum2010.Init(looping)
+        Hum2010Reader.Volume = Val(T2010Volume.Value) / 10
+        Hum2010.Play()
         PictureBox1.Visible = True
         PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010\Monitor.jpg")
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
@@ -290,12 +314,13 @@ Public Class Form1
     End Sub
 
     Sub Play2013()
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2013\Hum.wav")
-        Dim looping As New LoopStream(reader)
-        Hum = New WaveOut()
-        Hum.Init(looping)
-        Hum.Volume = Val(T2013Volume.Value) / 10
-        Hum.Play()
+        StopAnyHum()
+        Hum2013Reader = New AudioFileReader(Application.StartupPath & "\media\2013\Hum.wav")
+        Dim looping As New LoopStream(Hum2013Reader)        '  
+        Hum2013 = New WaveOut()
+        Hum2013.Init(looping)
+        Hum2013Reader.Volume = Val(T2013Volume.Value) / 10
+        Hum2013.Play()
         PictureBox1.Visible = True
         PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013\Monitor.jpg")
         PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
@@ -307,8 +332,6 @@ Public Class Form1
         'BIG FRIENDLY KEY
         If e.KeyCode = Keys.F7 Then
             Bigfriendlyexit()
-
-
         End If
 
         ' Hide Key
@@ -356,8 +379,6 @@ Public Class Form1
 
             If My.Settings.ActualHum = "Hum2005" Then
             Else
-                Hum.Stop()
-                Hum.Dispose()
                 Play2005()
                 My.Settings.ActualHum = "Hum2005"
             End If
@@ -367,8 +388,6 @@ Public Class Form1
         If e.KeyCode = My.Settings.T2010Key Then
             If My.Settings.ActualHum = "Hum2010" Then
             Else
-                Hum.Stop()
-                Hum.Dispose()
                 Play2010()
                 My.Settings.ActualHum = "Hum2010"
             End If
@@ -378,8 +397,6 @@ Public Class Form1
         If e.KeyCode = My.Settings.T2013key Then
             If My.Settings.ActualHum = "Hum2013" Then
             Else
-                Hum.Stop()
-                Hum.Dispose()
                 Play2013()
                 My.Settings.ActualHum = "Hum2013"
             End If
@@ -389,11 +406,11 @@ Public Class Form1
         If e.KeyCode = My.Settings.Startkey Then
             If Travelling = False Then
                 Travelling = True
-                Dim inputStream As WaveChannel32
-                Dim drumreader As New WaveFileReader(Application.StartupPath & "\media\2005\Drum.wav")
-                inputStream = New WaveChannel32(drumreader)
+                DrumReader = New AudioFileReader(Application.StartupPath & "\media\2005\Drum.wav")
+                Dim looping As New LoopStream(DrumReader)        '  
                 Drum = New WaveOut()
-                Drum.Init(drumreader)
+                Drum.Init(DrumReader)
+                DrumReader.Volume = Val(My.Settings.StartVolume) / 10
                 Drum.Play()
                 DelayAndNoise.Enabled = True
             End If
@@ -404,22 +421,33 @@ Public Class Form1
             If SpaceEnabled = True Then
                 Travelling = False
                 SpaceEnabled = False
-                Noise.Stop()
-                Noise.Dispose()
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\EndDrum.wav")
+                Try
+                    Noise.Stop()
+                    Noise.Dispose()
+                    EmergencyFlight.Stop()
+                    EmergencyFlight.Dispose()
+                Catch ex As Exception
+
+                End Try
+                
+                EndDrumReader = New AudioFileReader(Application.StartupPath & "\media\2010\EndDrum.wav")
+                Dim looping As New LoopStream(EndDrumReader)        '  
                 EndDrum = New WaveOut()
-                EndDrum.Init(reader)
+                EndDrum.Init(EndDrumReader)
+                EndDrumReader.Volume = Val(My.Settings.EndTravelVolume) / 10
                 EndDrum.Play()
+                EmergencyFlightPattern = False
             End If
         End If
 
         ' Time Vortex
         If e.KeyCode = My.Settings.TVKey Then
             If TVPlaying = False Then
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\TimeVortex.wav")
-                Dim looping As New LoopStream(reader)
+                TimeVortexReader = New AudioFileReader(Application.StartupPath & "\media\TimeVortex.wav")
+                Dim looping As New LoopStream(TimeVortexReader)        '  
                 TimeVortex = New WaveOut()
                 TimeVortex.Init(looping)
+                TimeVortexReader.Volume = Val(My.Settings.TVVolume) / 10
                 TimeVortex.Play()
                 TVPlaying = True
             Else
@@ -430,28 +458,18 @@ Public Class Form1
         End If
 
         ' Emergency Flight SFX
-        If e.KeyCode = Keys.E Then
-            If EmergencyFlightPlaying = False Then
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\EmergencyFlight.wav")
-                Dim looping As New LoopStream(reader)
-                EmergencyFlight = New WaveOut()
-                EmergencyFlight.Init(looping)
-                EmergencyFlight.Play()
-                EmergencyFlightPlaying = True
-            Else
-                EmergencyFlight.Stop()
-                EmergencyFlight.Dispose()
-                EmergencyFlightPlaying = False
-            End If
+        If e.KeyCode = My.Settings.EmergencyFlightKey Then
+            EmergencyFlightPattern = True
         End If
 
         ' Cloister Bell
         If e.KeyCode = My.Settings.CBKey Then
             If CBPlaying = False Then
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\CloisterBell.wav")
-                Dim looping As New LoopStream(reader)
+                CloisterBellReader = New AudioFileReader(Application.StartupPath & "\media\CloisterBell.wav")
+                Dim looping As New LoopStream(CloisterBellReader)        '  
                 CloisterBell = New WaveOut()
                 CloisterBell.Init(looping)
+                CloisterBellReader.Volume = Val(My.Settings.CBVolume) / 10
                 CloisterBell.Play()
                 CBPlaying = True
             Else
@@ -461,27 +479,31 @@ Public Class Form1
             End If
         End If
         ' Open the door
-        If e.KeyCode = Keys.Q Then
-            If DoorTimer.Enabled = False Then
-                DoorTimer.Enabled = True
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")
-                Dim looping As New LoopStream(reader)
-                Door = New WaveOut()
-                Door.Init(reader)
-                Door.Play()
+        If e.KeyCode = My.Settings.OpenDoorKey Then
+            If DoorState = False Then
+                If DoorTimer.Enabled = False Then
+                    DoorTimer.Enabled = True
+                    DoorOpenReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")       '  
+                    DoorOpen = New WaveOut()
+                    DoorOpen.Init(DoorOpenReader)
+                    DoorOpenReader.Volume = Val(TravellingVolume.Value) / 10
+                    DoorOpen.Play()
+                    DoorState = True
+                End If
             End If
-
-
         End If
         ' Close the door
-        If e.KeyCode = Keys.W Then
-            If DoorTimer.Enabled = False Then
-                DoorTimer.Enabled = True
-                Dim reader As New WaveFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")
-                Dim looping As New LoopStream(reader)
-                Door = New WaveOut()
-                Door.Init(reader)
-                Door.Play()
+        If e.KeyCode = My.Settings.CloseDoorKey Then
+            If DoorState = True Then
+                If DoorTimer.Enabled = False Then
+                    DoorTimer.Enabled = True
+                    DoorCloseReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")    '  
+                    DoorClose = New WaveOut()
+                    DoorClose.Init(DoorCloseReader)
+                    DoorCloseReader.Volume = Val(TravellingVolume.Value) / 10
+                    DoorClose.Play()
+                    DoorState = False
+                End If
             End If
         End If
 
@@ -492,14 +514,28 @@ Public Class Form1
     End Sub
 
     Private Sub DelayAndNoise_Tick(sender As Object, e As EventArgs) Handles DelayAndNoise.Tick
-        Dim reader As New WaveFileReader(Application.StartupPath & "\media\2010\Noise.wav")
-        Dim looping As New LoopStream(reader)
-        Noise = New WaveOut()
-        Noise.Init(looping)
-        Noise.Play()
+        If EmergencyFlightPattern = False Then
+            NoiseReader = New AudioFileReader(Application.StartupPath & "\media\2010\Noise.wav")
+            Dim looping As New LoopStream(NoiseReader)        '  
+            Noise = New WaveOut()
+            Noise.Init(looping)
+            NoiseReader.Volume = Val(TravellingVolume.Value) / 10
+            Noise.Play()
+        Else
+            EmergencyFlightReader = New AudioFileReader(Application.StartupPath & "\media\EmergencyFlight.wav")
+            Dim looping As New LoopStream(EmergencyFlightReader)        '  
+            EmergencyFlight = New WaveOut()
+            EmergencyFlight.Init(looping)
+            EmergencyFlightReader.Volume = Val(TravellingVolume.Value) / 10
+            EmergencyFlight.Play()
+        End If
         Drum = Nothing
         SpaceEnabled = True
         DelayAndNoise.Enabled = False
+    End Sub
+
+    Private Sub RichTextBox1_GotFocus(sender As Object, e As EventArgs) Handles RichTextBox1.GotFocus
+        Me.Focus()
     End Sub
 
     Private Sub RichTextBox1_LinkClicked1(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox1.LinkClicked
@@ -588,28 +624,6 @@ Public Class Form1
         DoorTimer.Enabled = False
     End Sub
 
-    Private Sub T2005Volume_Scroll(sender As Object, e As EventArgs) Handles T2005Volume.MouseUp
-        Hum.Volume = Val(T2005Volume.Value) / 10
-        T2010Volume.Value = T2005Volume.Value
-        T2013Volume.Value = T2005Volume.Value
-    End Sub
-
-    Private Sub T2010Volume_Scroll(sender As Object, e As EventArgs) Handles T2010Volume.MouseUp
-        Hum.Volume = Val(T2010Volume.Value) / 10
-        T2005Volume.Value = T2010Volume.Value
-        T2013Volume.Value = T2010Volume.Value
-    End Sub
-
-    Private Sub T2013Volume_Scroll(sender As Object, e As EventArgs) Handles T2013Volume.MouseUp
-        Hum.Volume = Val(T2013Volume.Value) / 10
-        T2005Volume.Value = T2013Volume.Value
-        T2010Volume.Value = T2013Volume.Value
-    End Sub
-
-    Private Sub StartVolume_Scroll(sender As Object, e As EventArgs) Handles StartVolume.Scroll
-        My.Settings.StartVolume = Val(StartVolume.Value) / 10
-    End Sub
-
     Private Sub CheckBox2_Click(sender As Object, e As EventArgs) Handles CheckBox2.Click
         Label8.Visible = True
     End Sub
@@ -629,4 +643,63 @@ Public Class Form1
         Initapp()
     End Sub
 
+    Private Sub T2005Volume_Scroll(sender As Object, e As EventArgs) Handles T2005Volume.Scroll
+        Try
+            Hum2005Reader.Volume = Val(T2005Volume.Value) / 10
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub T2010Volume_Scroll(sender As Object, e As EventArgs) Handles T2010Volume.Scroll
+        Try
+            Hum2010Reader.Volume = Val(T2010Volume.Value) / 10
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub T2013Volume_Scroll(sender As Object, e As EventArgs) Handles T2013Volume.Scroll
+        Try
+            Hum2013Reader.Volume = Val(T2013Volume.Value) / 10
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub StartVolume_Scroll(sender As Object, e As EventArgs) Handles StartVolume.Scroll
+        Try
+            DrumReader.Volume = Val(StartVolume.Value) / 10
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub TravellingVolume_Scroll(sender As Object, e As EventArgs) Handles TravellingVolume.Scroll
+        Try
+            NoiseReader.Volume = Val(TravellingVolume.Value) / 10
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub EndTravelVolume_Scroll(sender As Object, e As EventArgs) Handles EndTravelVolume.Scroll
+        Try
+            EndDrumReader.Volume = Val(EndTravelVolume.Value) / 10
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub TVVolume_Scroll(sender As Object, e As EventArgs) Handles TVVolume.Scroll
+        Try
+            TimeVortexReader.Volume = Val(TVVolume.Value) / 10
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub CBVolume_Scroll(sender As Object, e As EventArgs) Handles CBVolume.Scroll
+        Try
+            CloisterBellReader.Volume = Val(CBVolume.Value) / 10
+        Catch ex As Exception
+        End Try
+    End Sub
 End Class

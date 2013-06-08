@@ -8,11 +8,9 @@
 5. Personalize controls.
 
 ## Next version `1.1`
-1. Make work the volume controls.
-2. Make work the output driver/device for each sound.
-4. Secret button.
-5. Implement Time Vortex (video and sound while travelling).
-6. The looping sounds should only can be stopped at the end of a cycle, not at any moment.
+1. Make work the output driver for each sound.
+2. Implement Time Vortex (video and sound while travelling).
+3. The looping sounds should only can be stopped at the end of a cycle, not at any moment.
 
 ## Future version `1.2`
 1. Add a option to automatic hidding of the mouse.
@@ -24,6 +22,7 @@
 	- TARDIS 2005: One single screen
 	- TARDIS 2010: One normal screen and one a big round screen
 	- TARDIS 2013: Two normal screen and one elliptical screen
+7. Secret button.
 	
 ## To do when I can
 - Webcams with motor can be controllable.

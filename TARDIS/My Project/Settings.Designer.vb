@@ -199,7 +199,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
         Public Property ActualHum() As String
             Get
                 Return CType(Me("ActualHum"),String)
@@ -269,7 +269,19 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property LanguageAutoDetect() As Boolean
+            Get
+                Return CType(Me("LanguageAutoDetect"),Boolean)
+            End Get
+            Set
+                Me("LanguageAutoDetect") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property T2005Volume() As Integer
             Get
                 Return CType(Me("T2005Volume"),Integer)
@@ -281,7 +293,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property T2010Volume() As Integer
             Get
                 Return CType(Me("T2010Volume"),Integer)
@@ -293,7 +305,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property T2013Volume() As Integer
             Get
                 Return CType(Me("T2013Volume"),Integer)
@@ -305,7 +317,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property StartVolume() As Integer
             Get
                 Return CType(Me("StartVolume"),Integer)
@@ -317,7 +329,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property TravellingVolume() As Integer
             Get
                 Return CType(Me("TravellingVolume"),Integer)
@@ -329,7 +341,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property EndTravelVolume() As Integer
             Get
                 Return CType(Me("EndTravelVolume"),Integer)
@@ -341,7 +353,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property TVVolume() As Integer
             Get
                 Return CType(Me("TVVolume"),Integer)
@@ -353,7 +365,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property CBVolume() As Integer
             Get
                 Return CType(Me("CBVolume"),Integer)
@@ -401,7 +413,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("StartDevice")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property StartDevice() As String
             Get
                 Return CType(Me("StartDevice"),String)
@@ -461,13 +473,61 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
-        Public Property LanguageAutoDetect() As Boolean
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property OpenDoorKey() As String
             Get
-                Return CType(Me("LanguageAutoDetect"),Boolean)
+                Return CType(Me("OpenDoorKey"),String)
             End Get
             Set
-                Me("LanguageAutoDetect") = value
+                Me("OpenDoorKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CloseDoorKey() As String
+            Get
+                Return CType(Me("CloseDoorKey"),String)
+            End Get
+            Set
+                Me("CloseDoorKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property EmergencyFlightKey() As String
+            Get
+                Return CType(Me("EmergencyFlightKey"),String)
+            End Get
+            Set
+                Me("EmergencyFlightKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property InactivityHideMouse() As Boolean
+            Get
+                Return CType(Me("InactivityHideMouse"),Boolean)
+            End Get
+            Set
+                Me("InactivityHideMouse") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property SecondsMouseInactivity() As Decimal
+            Get
+                Return CType(Me("SecondsMouseInactivity"),Decimal)
+            End Get
+            Set
+                Me("SecondsMouseInactivity") = value
             End Set
         End Property
     End Class

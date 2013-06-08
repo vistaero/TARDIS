@@ -76,9 +76,13 @@ Partial Class Form1
         Me.T2005Device = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TabOther = New System.Windows.Forms.TabPage()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -92,9 +96,8 @@ Partial Class Form1
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.DoorTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.videoP = New AxShockwaveFlashObjects.AxShockwaveFlash()
         Me.tabControl1.SuspendLayout()
         Me.TabHelp.SuspendLayout()
         Me.TabSettings.SuspendLayout()
@@ -108,6 +111,7 @@ Partial Class Form1
         CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabOther.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -358,13 +362,11 @@ Partial Class Form1
         Me.CBDevice.Name = "CBDevice"
         Me.CBDevice.Size = New System.Drawing.Size(213, 21)
         Me.CBDevice.TabIndex = 35
-        Me.CBDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.CBDevice
         '
         'CBVolume
         '
         Me.CBVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "CBVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.CBVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CBVolume.Enabled = False
         Me.CBVolume.Location = New System.Drawing.Point(441, 331)
         Me.CBVolume.Name = "CBVolume"
         Me.CBVolume.Size = New System.Drawing.Size(213, 35)
@@ -403,13 +405,11 @@ Partial Class Form1
         Me.TVDevice.Name = "TVDevice"
         Me.TVDevice.Size = New System.Drawing.Size(213, 21)
         Me.TVDevice.TabIndex = 31
-        Me.TVDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TVDevice
         '
         'TVVolume
         '
         Me.TVVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "TVVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TVVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TVVolume.Enabled = False
         Me.TVVolume.Location = New System.Drawing.Point(441, 290)
         Me.TVVolume.Name = "TVVolume"
         Me.TVVolume.Size = New System.Drawing.Size(213, 35)
@@ -448,18 +448,16 @@ Partial Class Form1
         Me.EndDevice.Name = "EndDevice"
         Me.EndDevice.Size = New System.Drawing.Size(213, 21)
         Me.EndDevice.TabIndex = 27
-        Me.EndDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.EndDevice
         '
         'EndTravelVolume
         '
         Me.EndTravelVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "EndTravelVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.EndTravelVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EndTravelVolume.Enabled = False
         Me.EndTravelVolume.Location = New System.Drawing.Point(441, 249)
         Me.EndTravelVolume.Name = "EndTravelVolume"
         Me.EndTravelVolume.Size = New System.Drawing.Size(213, 35)
         Me.EndTravelVolume.TabIndex = 26
-        Me.EndTravelVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.EndTravelVolume
+        Me.EndTravelVolume.Value = 5
         '
         'ButtonEnd
         '
@@ -493,13 +491,11 @@ Partial Class Form1
         Me.TravellingDevice.Name = "TravellingDevice"
         Me.TravellingDevice.Size = New System.Drawing.Size(213, 21)
         Me.TravellingDevice.TabIndex = 23
-        Me.TravellingDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TravellingDevice
         '
         'TravellingVolume
         '
         Me.TravellingVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "TravellingVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.TravellingVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TravellingVolume.Enabled = False
         Me.TravellingVolume.Location = New System.Drawing.Point(441, 208)
         Me.TravellingVolume.Name = "TravellingVolume"
         Me.TravellingVolume.Size = New System.Drawing.Size(213, 35)
@@ -526,7 +522,7 @@ Partial Class Form1
         Me.StartDevice.Enabled = False
         Me.StartDevice.FormattingEnabled = True
         Me.StartDevice.Location = New System.Drawing.Point(660, 167)
-        Me.StartDevice.Name = Global.TARDIS_App_Beta.My.MySettings.Default.StartDevice
+        Me.StartDevice.Name = "StartDevice"
         Me.StartDevice.Size = New System.Drawing.Size(213, 21)
         Me.StartDevice.TabIndex = 19
         '
@@ -534,7 +530,6 @@ Partial Class Form1
         '
         Me.StartVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "StartVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.StartVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.StartVolume.Enabled = False
         Me.StartVolume.Location = New System.Drawing.Point(441, 167)
         Me.StartVolume.Name = "StartVolume"
         Me.StartVolume.Size = New System.Drawing.Size(213, 35)
@@ -573,13 +568,11 @@ Partial Class Form1
         Me.T2013Device.Name = "T2013Device"
         Me.T2013Device.Size = New System.Drawing.Size(213, 21)
         Me.T2013Device.TabIndex = 15
-        Me.T2013Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2013Device
         '
         'T2013Volume
         '
         Me.T2013Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2013Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.T2013Volume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.T2013Volume.Enabled = False
         Me.T2013Volume.Location = New System.Drawing.Point(441, 126)
         Me.T2013Volume.Name = "T2013Volume"
         Me.T2013Volume.Size = New System.Drawing.Size(213, 35)
@@ -618,13 +611,11 @@ Partial Class Form1
         Me.T2010Device.Name = "T2010Device"
         Me.T2010Device.Size = New System.Drawing.Size(213, 21)
         Me.T2010Device.TabIndex = 11
-        Me.T2010Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2010Device
         '
         'T2010Volume
         '
         Me.T2010Volume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Volume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.T2010Volume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.T2010Volume.Enabled = False
         Me.T2010Volume.Location = New System.Drawing.Point(441, 85)
         Me.T2010Volume.Name = "T2010Volume"
         Me.T2010Volume.Size = New System.Drawing.Size(213, 35)
@@ -739,7 +730,6 @@ Partial Class Form1
         Me.T2005Device.Name = "T2005Device"
         Me.T2005Device.Size = New System.Drawing.Size(213, 21)
         Me.T2005Device.TabIndex = 63
-        Me.T2005Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2005Device
         '
         'Label2
         '
@@ -756,6 +746,9 @@ Partial Class Form1
         'TabOther
         '
         Me.TabOther.BackColor = System.Drawing.Color.MidnightBlue
+        Me.TabOther.Controls.Add(Me.Label9)
+        Me.TabOther.Controls.Add(Me.NumericUpDown1)
+        Me.TabOther.Controls.Add(Me.CheckBox3)
         Me.TabOther.Controls.Add(Me.GroupBox2)
         Me.TabOther.Controls.Add(Me.GroupBox1)
         Me.TabOther.Controls.Add(Me.CheckBox1)
@@ -765,6 +758,41 @@ Partial Class Form1
         Me.TabOther.Size = New System.Drawing.Size(882, 583)
         Me.TabOther.TabIndex = 5
         Me.TabOther.Text = "More"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(225, 152)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(284, 21)
+        Me.Label9.TabIndex = 33
+        Me.Label9.Text = "seconds of inactivity (Work In Progress)"
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "SecondsMouseInactivity", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.NumericUpDown1.Enabled = False
+        Me.NumericUpDown1.Location = New System.Drawing.Point(178, 156)
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(41, 20)
+        Me.NumericUpDown1.TabIndex = 32
+        Me.NumericUpDown1.Value = Global.TARDIS_App_Beta.My.MySettings.Default.SecondsMouseInactivity
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Checked = Global.TARDIS_App_Beta.My.MySettings.Default.InactivityHideMouse
+        Me.CheckBox3.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.TARDIS_App_Beta.My.MySettings.Default, "InactivityHideMouse", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBox3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox3.ForeColor = System.Drawing.Color.White
+        Me.CheckBox3.Location = New System.Drawing.Point(6, 151)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(174, 25)
+        Me.CheckBox3.TabIndex = 31
+        Me.CheckBox3.Text = "Hide the mouse after"
+        Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -802,6 +830,16 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Language (Work In Progress)"
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 97)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(286, 21)
+        Me.Label8.TabIndex = 30
+        Me.Label8.Text = "Restart the application to apply changes"
+        Me.Label8.Visible = False
+        '
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
@@ -830,7 +868,7 @@ Partial Class Form1
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 139)
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 182)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
         Me.CheckBox1.TabIndex = 27
@@ -905,6 +943,10 @@ Partial Class Form1
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(175, 22)
         Me.ToolStripMenuItem1.Text = "Hide"
         '
+        'DoorTimer
+        '
+        Me.DoorTimer.Interval = 1300
+        '
         'videoP
         '
         Me.videoP.Dock = System.Windows.Forms.DockStyle.Fill
@@ -914,20 +956,6 @@ Partial Class Form1
         Me.videoP.OcxState = CType(resources.GetObject("videoP.OcxState"), System.Windows.Forms.AxHost.State)
         Me.videoP.Size = New System.Drawing.Size(1104, 661)
         Me.videoP.TabIndex = 9
-        '
-        'DoorTimer
-        '
-        Me.DoorTimer.Interval = 1500
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 97)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(286, 21)
-        Me.Label8.TabIndex = 30
-        Me.Label8.Text = "Restart the application to apply changes"
-        Me.Label8.Visible = False
         '
         'Form1
         '
@@ -961,6 +989,7 @@ Partial Class Form1
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabOther.ResumeLayout(False)
         Me.TabOther.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -978,7 +1007,6 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
     Friend WithEvents TabOther As System.Windows.Forms.TabPage
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
@@ -1042,5 +1070,9 @@ Partial Class Form1
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
+    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
+    Friend WithEvents videoP As AxShockwaveFlashObjects.AxShockwaveFlash
 
 End Class
