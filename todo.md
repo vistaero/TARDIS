@@ -1,22 +1,19 @@
 # TO-DO
 
 ## Current version `1.0`
-1. Option to choose the language. (A list box)
-2. Making language files must be as simple as copying the original file with another name (the name of the language) and translate it.
-3. Get looping videos for 2010 and 2013 TARDIS screens.
+1. Make work the output driver for each sound.
+2. Option to choose the language. (A list box)
+3. Making language files must be as simple as copying the original file with another name (the name of the language) and translate it.
 4. The app must open hidden if it was closed hidden.
 5. Personalize controls.
+6. Implement Time Vortex (video and sound while travelling).
+7. Get looping videos for 2010 and 2013 TARDIS screens.
 
 ## Next version `1.1`
-1. Make work the output driver for each sound.
-2. Implement Time Vortex (video and sound while travelling).
-3. The looping sounds should only can be stopped at the end of a cycle, not at any moment.
-
-## Future version `1.2`
-1. Add a option to automatic hidding of the mouse.
+1. The looping sounds should only can be stopped at the end of a cycle, not at any moment.
 2. Record audio session.
-3. Webcam compatibility.
-4. Implement web browser.
+3. Add a option to automatic hidding of the mouse.
+4. Webcam compatibility.
 5. Compatibility with third-party controllers, like Xbox 360 controller for Windows or PC Joysticks.
 6. Compatibility with up to three monitors. (One TARDIS screen for each PC monitor)
 	- TARDIS 2005: One single screen
@@ -27,6 +24,7 @@
 ## To do when I can
 - Webcams with motor can be controllable.
 - Implement a graphic engine (cocos2d is a possibility).
+- Implement web browser.
 - Implement Google Maps to show the user location.
 - Can set a time and space destination to travel.
 
