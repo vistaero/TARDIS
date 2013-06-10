@@ -6,8 +6,7 @@ Imports Microsoft.Win32
 Imports Microsoft.Win32.Registry
 Imports System.IO
 
-Public Class Form1
-
+Public Class Screen1
     Public Class LoopStream
         Inherits WaveStream
         Private sourceStream As WaveStream
@@ -102,18 +101,43 @@ Public Class Form1
     Private DoorPlaying As Boolean
     Private EmergencyFlightPattern As Boolean
     Private DoorState As Boolean
+    Public audiodevices As ComboBox
+
+    Private Sub InitialiseDeviceCombo()
+        For deviceId As Integer = 0 To WaveOut.DeviceCount - 1
+            Dim capabilities = WaveOut.GetCapabilities(deviceId)
+            T2005Device.Items.Add([String].Format("Device {0} ({1})", deviceId, capabilities.ProductName))
+        Next
+        If T2005Device.Items.Count > 0 Then
+            T2005Device.SelectedIndex = 0
+        End If
+        T2010Device.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        T2010Device.SelectedIndex = 0
+        T2013Device.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        T2013Device.SelectedIndex = 0
+        StartDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        StartDevice.SelectedIndex = 0
+        TravellingDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        TravellingDevice.SelectedIndex = 0
+        EndDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        EndDevice.SelectedIndex = 0
+        TVDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        TVDevice.SelectedIndex = 0
+        CBDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        CBDevice.SelectedIndex = 0
+        EmergencyFlightDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        EmergencyFlightDevice.SelectedIndex = 0
+        DoorOpenDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        DoorOpenDevice.SelectedIndex = 0
+        DoorCloseDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        DoorCloseDevice.SelectedIndex = 0
+    End Sub
+
     Sub Initapp()
-        
-        ThreadPool.QueueUserWorkItem(Sub(o)
-                                         Dim SWFfile As String = Application.StartupPath & "\media\2005\Monitor.swf"
-                                         videoP.LoadMovie(0, SWFfile)
-                                         videoP.Play()
-                                         videoP.Loop = True
-                                     End Sub)
+        InitialiseDeviceCombo()
         SpaceEnabled = False
         Travelling = False
-        Label1.Parent = PictureBox1
-        
+
         ' //////////////////////////
         ' IF IT IS THE FIRST RUN
         ' \\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -166,6 +190,7 @@ Public Class Form1
                 Me.TopMost = False
                 My.Settings.Fullscreen = False
             End If
+
             If My.Settings.ActualHum = "Hum2005" Then
                 Play2005()
             End If
@@ -200,13 +225,12 @@ Public Class Form1
             Me.LanguageComboBox.Items.Add(result)
         Next
         ' End listing language files
-        If My.Settings.LanguageAutoDetect = True Then
+        If CheckBox2.Checked = True Then
             Language = System.Globalization.CultureInfo.CurrentCulture.ToString
             If Language.StartsWith("es") Then
                 RichTextBox1.LoadFile(Application.StartupPath & "\languages\spanish.rtf")
                 TabHelp.Text = "Ayuda"
                 TabOther.Text = "Más"
-                Label1.Text = "No hay vídeo. ¿Tienes uno?"
                 Button11.Text = "GRAN BOTÓN AMISTOSO"
                 Closemsg = "Todos los cambios han sido restaurados. El programa se cerrará. A continuación podrá abrirlo de nuevo."
                 CheckBox1.Text = "Iniciar con Windows."
@@ -217,34 +241,48 @@ Public Class Form1
                 LanguageComboBox.SelectedIndex = 1
                 Areyousure = "¿Estás seguro?"
                 GroupBox2.Text = "Restablecer ajustes de la aplicación"
+                LabelKey.Text = "Tecla"
+                LabelVolume.Text = "Volumen"
+                LabelOutputDevice.Text = "Dispositivo de salida"
+                LabelCloseApp.Text = "Cerrar app"
+                LabelCloseDoor.Text = "Cerrar puerta"
+                LabelOpenDoor.Text = "Abrir puerta"
+                LabelEmergencyFlight.Text = "Vuelo de emergencia"
+                LabelStartTravel.Text = "Iniciar viaje"
+                LabelEndTravel.Text = "Terminar viaje"
+                LabelTravelling.Text = "Viajando"
+                LabelFullscreen.Text = "Pantalla completa"
+                LabelMenu.Text = "Menú"
+                LabelHideKey.Text = "Ocultar app"
+                LabelTimeVortex.Text = "Vórtice del tiempo"
+                LabelHideMouseKey.Text = "Ocultar cursor"
             End If
         Else
-            ' Here must be the language-selection system, for now it does not work and english is selected.
+            'Here must be the language-selection system, for now it does not work and english is selected.
             RichTextBox1.LoadFile(Application.StartupPath & "\languages\english.rtf")
-            Label1.Text = "Missing video. Do you have one?"
             Closemsg = "Al changes have been restored. The application will end. You can open it again."
             WordShow = "Show"
             WordHide = "Hide"
             WordClose = "Close"
             LanguageComboBox.SelectedIndex = 0
             Areyousure = "Are you sure?"
-            ToolStripMenuItem1.Text = WordHide
-            CloseToolStripMenuItem.Text = WordClose
+            
         End If
-        
+        ToolStripMenuItem1.Text = WordHide
+        CloseToolStripMenuItem.Text = WordClose
+        AxShockwaveFlash1.Movie = Application.StartupPath & "\media\2005\Monitor.swf"
+        AxShockwaveFlash1.Play()
     End Sub
 
     Sub HideUI()
         If ToolStripMenuItem1.Text = WordHide Then
             Me.Visible = False
             ToolStripMenuItem1.Text = WordShow
-            My.Settings.IsUiVisible = False
         Else
             Me.Visible = True
             Me.Focus()
             tabControl1.Visible = False
             ToolStripMenuItem1.Text = WordHide
-            My.Settings.IsUiVisible = True
         End If
     End Sub
 
@@ -268,17 +306,17 @@ Public Class Form1
 
     End Sub
 
-
     Sub HelpWindow()
         If tabControl1.Visible = True Then
             tabControl1.Visible = False
+            tabControl1.SelectTab(TabHelp)
         Else
             tabControl1.Visible = True
         End If
+
     End Sub
 
     Sub StopAnyHum()
-
         If Hum2005 IsNot Nothing Then
             Hum2005.Stop()
             Hum2005.Dispose()
@@ -299,10 +337,10 @@ Public Class Form1
         Hum2005Reader = New AudioFileReader(Application.StartupPath & "\media\2005\Hum.wav")
         Dim looping As New LoopStream(Hum2005Reader)        '  
         Hum2005 = New WaveOut()
+        Hum2005.DeviceNumber = T2005Device.SelectedIndex
         Hum2005.Init(looping)
         Hum2005Reader.Volume = Val(T2005Volume.Value) / 10
         Hum2005.Play()
-        PictureBox1.Visible = False
         My.Settings.ActualHum = "Hum2005"
     End Sub
 
@@ -311,12 +349,10 @@ Public Class Form1
         Hum2010Reader = New AudioFileReader(Application.StartupPath & "\media\2010\Hum.wav")
         Dim looping As New LoopStream(Hum2010Reader)        '  
         Hum2010 = New WaveOut()
+        Hum2010.DeviceNumber = T2010Device.SelectedIndex
         Hum2010.Init(looping)
         Hum2010Reader.Volume = Val(T2010Volume.Value) / 10
         Hum2010.Play()
-        PictureBox1.Visible = True
-        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2010\Monitor.jpg")
-        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
         My.Settings.ActualHum = "Hum2010"
     End Sub
 
@@ -325,12 +361,10 @@ Public Class Form1
         Hum2013Reader = New AudioFileReader(Application.StartupPath & "\media\2013\Hum.wav")
         Dim looping As New LoopStream(Hum2013Reader)        '  
         Hum2013 = New WaveOut()
+        Hum2013.DeviceNumber = T2013Device.SelectedIndex
         Hum2013.Init(looping)
         Hum2013Reader.Volume = Val(T2013Volume.Value) / 10
         Hum2013.Play()
-        PictureBox1.Visible = True
-        PictureBox1.Image = System.Drawing.Image.FromFile(Application.StartupPath & "\media\2013\Monitor.jpg")
-        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
         My.Settings.ActualHum = "Hum2013"
     End Sub
 
@@ -416,6 +450,7 @@ Public Class Form1
                 DrumReader = New AudioFileReader(Application.StartupPath & "\media\2005\Drum.wav")
                 Dim looping As New LoopStream(DrumReader)        '  
                 Drum = New WaveOut()
+                Drum.DeviceNumber = StartDevice.SelectedIndex
                 Drum.Init(DrumReader)
                 DrumReader.Volume = Val(My.Settings.StartVolume) / 10
                 Drum.Play()
@@ -440,6 +475,7 @@ Public Class Form1
                 EndDrumReader = New AudioFileReader(Application.StartupPath & "\media\2010\EndDrum.wav")
                 Dim looping As New LoopStream(EndDrumReader)        '  
                 EndDrum = New WaveOut()
+                EndDrum.DeviceNumber = EndDevice.SelectedIndex
                 EndDrum.Init(EndDrumReader)
                 EndDrumReader.Volume = Val(My.Settings.EndTravelVolume) / 10
                 EndDrum.Play()
@@ -453,6 +489,7 @@ Public Class Form1
                 TimeVortexReader = New AudioFileReader(Application.StartupPath & "\media\TimeVortex.wav")
                 Dim looping As New LoopStream(TimeVortexReader)        '  
                 TimeVortex = New WaveOut()
+                TimeVortex.DeviceNumber = TVDevice.SelectedIndex
                 TimeVortex.Init(looping)
                 TimeVortexReader.Volume = Val(My.Settings.TVVolume) / 10
                 TimeVortex.Play()
@@ -475,6 +512,7 @@ Public Class Form1
                 CloisterBellReader = New AudioFileReader(Application.StartupPath & "\media\CloisterBell.wav")
                 Dim looping As New LoopStream(CloisterBellReader)        '  
                 CloisterBell = New WaveOut()
+                CloisterBell.DeviceNumber = CBDevice.SelectedIndex
                 CloisterBell.Init(looping)
                 CloisterBellReader.Volume = Val(My.Settings.CBVolume) / 10
                 CloisterBell.Play()
@@ -492,6 +530,7 @@ Public Class Form1
                     DoorTimer.Enabled = True
                     DoorOpenReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")       '  
                     DoorOpen = New WaveOut()
+                    DoorOpen.DeviceNumber = DoorOpenDevice.SelectedIndex
                     DoorOpen.Init(DoorOpenReader)
                     DoorOpenReader.Volume = Val(DoorOpenVolume.Value) / 10
                     DoorOpen.Play()
@@ -506,6 +545,7 @@ Public Class Form1
                     DoorTimer.Enabled = True
                     DoorCloseReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")    '  
                     DoorClose = New WaveOut()
+                    DoorClose.DeviceNumber = DoorCloseDevice.SelectedIndex
                     DoorClose.Init(DoorCloseReader)
                     DoorCloseReader.Volume = Val(DoorCloseVolume.Value) / 10
                     DoorClose.Play()
@@ -523,15 +563,16 @@ Public Class Form1
     Private Sub DelayAndNoise_Tick(sender As Object, e As EventArgs) Handles DelayAndNoise.Tick
         If EmergencyFlightPattern = False Then
             NoiseReader = New AudioFileReader(Application.StartupPath & "\media\2010\Noise.wav")
-            Dim looping As New LoopStream(NoiseReader)        '  
+            Dim looping As New LoopStream(NoiseReader)
             Noise = New WaveOut()
             Noise.Init(looping)
             NoiseReader.Volume = Val(TravellingVolume.Value) / 10
             Noise.Play()
         Else
             EmergencyFlightReader = New AudioFileReader(Application.StartupPath & "\media\EmergencyFlight.wav")
-            Dim looping As New LoopStream(EmergencyFlightReader)        '  
+            Dim looping As New LoopStream(EmergencyFlightReader)
             EmergencyFlight = New WaveOut()
+            EmergencyFlight.DeviceNumber = EmergencyFlightDevice.SelectedIndex
             EmergencyFlight.Init(looping)
             EmergencyFlightReader.Volume = Val(EmergencyFlightVolume.Value) / 10
             EmergencyFlight.Play()
@@ -623,10 +664,6 @@ Public Class Form1
         Me.TopMost = False
     End Sub
 
-    Private Sub BigFriendlyButtonToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BigFriendlyButtonToolStripMenuItem.Click
-        Bigfriendlyexit()
-    End Sub
-
     Private Sub DoorTimer_Tick(sender As Object, e As EventArgs) Handles DoorTimer.Tick
         DoorTimer.Enabled = False
     End Sub
@@ -660,26 +697,18 @@ Public Class Form1
         If Hum2010 IsNot Nothing Then
             Hum2010Reader.Volume = Val(T2010Volume.Value) / 10
         End If
-
-
-
     End Sub
 
     Private Sub T2013Volume_Scroll(sender As Object, e As EventArgs) Handles T2013Volume.Scroll
         If Hum2013 IsNot Nothing Then
             Hum2013Reader.Volume = Val(T2013Volume.Value) / 10
         End If
-
-
-
     End Sub
 
     Private Sub StartVolume_Scroll(sender As Object, e As EventArgs) Handles StartVolume.Scroll
         If Drum IsNot Nothing Then
             DrumReader.Volume = Val(StartVolume.Value) / 10
         End If
-
-
     End Sub
 
     Private Sub TravellingVolume_Scroll(sender As Object, e As EventArgs) Handles TravellingVolume.Scroll
@@ -729,6 +758,13 @@ Public Class Form1
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-        MsgBox("Personalization of the controls and out-put device are not implemented yet.")
+        MsgBox("Personalization of the controls is not implemented yet.")
     End Sub
+
+    Private Sub Button2005_Click(sender As Object, e As EventArgs) Handles Button2005.Click
+        KeyChanger.EditingKey = "Button2005"
+        KeyChanger.EditingKeyName = "2005 TARDIS"
+        KeyChanger.ShowDialog()
+    End Sub
+
 End Class
