@@ -565,6 +565,7 @@ Public Class Screen1
             NoiseReader = New AudioFileReader(Application.StartupPath & "\media\2010\Noise.wav")
             Dim looping As New LoopStream(NoiseReader)
             Noise = New WaveOut()
+            Noise.DeviceNumber = TravellingDevice.SelectedIndex
             Noise.Init(looping)
             NoiseReader.Volume = Val(TravellingVolume.Value) / 10
             Noise.Play()

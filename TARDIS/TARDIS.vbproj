@@ -306,9 +306,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="media\2005\2005.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="media\AppIcon.ico" />
     <Content Include="media\2005\DoorClose.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
