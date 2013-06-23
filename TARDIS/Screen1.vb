@@ -68,6 +68,8 @@ Public Class Screen1
     End Class
     Dim Noise As WaveOut
     Dim NoiseReader As AudioFileReader
+    Dim TraditionalNoise As WaveOut
+    Dim TraditionalNoiseReader As AudioFileReader
     Dim EmergencyFlight As WaveOut
     Dim EmergencyFlightReader As AudioFileReader
     Dim Hum2005 As WaveOut
@@ -99,9 +101,12 @@ Public Class Screen1
     Private WordClose As String
     Private Areyousure As String
     Private DoorPlaying As Boolean
-    Private EmergencyFlightPattern As Boolean
-    Private DoorState As Boolean
-    Public audiodevices As ComboBox
+    Private FlyMode As Integer
+    Private DoorOpened As Boolean
+    Private TVortexatOpen As Boolean
+    Dim ScreenRatio As String
+    Dim TotalWidth As Integer
+    Dim TotalHeight As Integer
 
     Private Sub InitialiseDeviceCombo()
         For deviceId As Integer = 0 To WaveOut.DeviceCount - 1
@@ -112,31 +117,45 @@ Public Class Screen1
             T2005Device.SelectedIndex = 0
         End If
         T2010Device.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        T2010Device.SelectedIndex = 0
         T2013Device.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        T2013Device.SelectedIndex = 0
         StartDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        StartDevice.SelectedIndex = 0
         TravellingDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        TravellingDevice.SelectedIndex = 0
         EndDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        EndDevice.SelectedIndex = 0
         TVDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        TVDevice.SelectedIndex = 0
         CBDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        CBDevice.SelectedIndex = 0
         EmergencyFlightDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        EmergencyFlightDevice.SelectedIndex = 0
         DoorOpenDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
-        DoorOpenDevice.SelectedIndex = 0
         DoorCloseDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        TraditionalNoiseDevice.Items.AddRange(T2005Device.Items.Cast(Of String).ToArray)
+        T2010Device.SelectedIndex = 0
+        T2013Device.SelectedIndex = 0
+        StartDevice.SelectedIndex = 0
+        TravellingDevice.SelectedIndex = 0
+        EndDevice.SelectedIndex = 0
+        TVDevice.SelectedIndex = 0
+        CBDevice.SelectedIndex = 0
+        EmergencyFlightDevice.SelectedIndex = 0
+        DoorOpenDevice.SelectedIndex = 0
         DoorCloseDevice.SelectedIndex = 0
+        TraditionalNoiseDevice.SelectedIndex = 0
+    End Sub
+
+    Sub RatioCalc()
+        Dim desktopSize As Size
+        desktopSize = System.Windows.Forms.SystemInformation.PrimaryMonitorSize
+        Dim screenheight As Integer = desktopSize.Height
+        Dim screenwidth As Integer = desktopSize.Width
+        ScreenRatio = Val(screenwidth) / (screenheight)
+        TotalWidth = Val(screenwidth) / "100" * "40"
+        totalHeight = Val(screenheight) / "100" * "40"
+
     End Sub
 
     Sub Initapp()
         InitialiseDeviceCombo()
         SpaceEnabled = False
         Travelling = False
+        FlyMode = 1
 
         ' //////////////////////////
         ' IF IT IS THE FIRST RUN
@@ -158,6 +177,8 @@ Public Class Screen1
             My.Settings.CloseDoorKey = Keys.W
             My.Settings.OpenDoorKey = Keys.Q
             My.Settings.EmergencyFlightKey = Keys.E
+            My.Settings.TraditionalNoiseKey = Keys.F
+            My.Settings.NewNoiseKey = Keys.R
             My.Settings.MouseKey = Keys.M
             My.Settings.HideKey = Keys.H
             My.Settings.T2005Key = Keys.D1
@@ -167,6 +188,8 @@ Public Class Screen1
             My.Settings.Fullscreen = False
             My.Settings.IsFirstTime = False
             My.Settings.Save()
+
+            
         Else
             ' //////////////////////////
             ' IF IT IS NOT THE FIRST RUN
@@ -214,6 +237,7 @@ Public Class Screen1
         ButtonHideMouse.Text = My.Settings.MouseKey
         ButtonEscape.Text = My.Settings.Escapekey
         ButtonEmergencyFlight.Text = My.Settings.EmergencyFlightKey
+        ButtonTraditionalNoise.Text = My.Settings.TraditionalNoiseKey
         ButtonDoorOpen.Text = My.Settings.OpenDoorKey
         ButtonDoorClose.Text = My.Settings.CloseDoorKey
         ' List language files
@@ -368,6 +392,17 @@ Public Class Screen1
         My.Settings.ActualHum = "Hum2013"
     End Sub
 
+    Sub PlayTimeVortex()
+        TimeVortexReader = New AudioFileReader(Application.StartupPath & "\media\TimeVortex.wav")
+        Dim looping As New LoopStream(TimeVortexReader)        '  
+        TimeVortex = New WaveOut()
+        TimeVortex.DeviceNumber = TVDevice.SelectedIndex
+        TimeVortex.Init(looping)
+        TimeVortexReader.Volume = Val(My.Settings.TVVolume) / 10
+        TimeVortex.Play()
+        TVPlaying = True
+    End Sub
+
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         'BIG FRIENDLY KEY
@@ -394,7 +429,7 @@ Public Class Screen1
         ' Help key
         If e.KeyCode = My.Settings.Helpkey Then
             HelpWindow()
-            
+
         End If
 
         ' Fullscreen key
@@ -463,6 +498,10 @@ Public Class Screen1
             If SpaceEnabled = True Then
                 Travelling = False
                 SpaceEnabled = False
+                If TraditionalNoise IsNot Nothing Then
+                    TraditionalNoise.Stop()
+                    TraditionalNoise.Dispose()
+                End If
                 If Noise IsNot Nothing Then
                     Noise.Stop()
                     Noise.Dispose()
@@ -479,31 +518,31 @@ Public Class Screen1
                 EndDrum.Init(EndDrumReader)
                 EndDrumReader.Volume = Val(My.Settings.EndTravelVolume) / 10
                 EndDrum.Play()
-                EmergencyFlightPattern = False
             End If
         End If
 
         ' Time Vortex
         If e.KeyCode = My.Settings.TVKey Then
-            If TVPlaying = False Then
-                TimeVortexReader = New AudioFileReader(Application.StartupPath & "\media\TimeVortex.wav")
-                Dim looping As New LoopStream(TimeVortexReader)        '  
-                TimeVortex = New WaveOut()
-                TimeVortex.DeviceNumber = TVDevice.SelectedIndex
-                TimeVortex.Init(looping)
-                TimeVortexReader.Volume = Val(My.Settings.TVVolume) / 10
-                TimeVortex.Play()
-                TVPlaying = True
+            If TVortexatOpen = False Then
+                TVortexatOpen = True
             Else
-                TimeVortex.Stop()
-                TimeVortex.Dispose()
-                TVPlaying = False
+                TVortexatOpen = False
             End If
         End If
 
         ' Emergency Flight SFX
         If e.KeyCode = My.Settings.EmergencyFlightKey Then
-            EmergencyFlightPattern = True
+            FlyMode = 3
+        End If
+
+        ' Traditional Noise SFX
+        If e.KeyCode = My.Settings.TraditionalNoiseKey Then
+            FlyMode = 2
+        End If
+
+        ' New Noise
+        If e.KeyCode = My.Settings.NewNoiseKey Then
+            FlyMode = 1
         End If
 
         ' Cloister Bell
@@ -525,7 +564,7 @@ Public Class Screen1
         End If
         ' Open the door
         If e.KeyCode = My.Settings.OpenDoorKey Then
-            If DoorState = False Then
+            If DoorOpened = False Then
                 If DoorTimer.Enabled = False Then
                     DoorTimer.Enabled = True
                     DoorOpenReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorOpen.wav")       '  
@@ -534,14 +573,19 @@ Public Class Screen1
                     DoorOpen.Init(DoorOpenReader)
                     DoorOpenReader.Volume = Val(DoorOpenVolume.Value) / 10
                     DoorOpen.Play()
-                    DoorState = True
+                    DoorOpened = True
+                    If TVortexatOpen = True Then
+                        PlayTimeVortex()
+                    End If
+
                 End If
             End If
         End If
         ' Close the door
         If e.KeyCode = My.Settings.CloseDoorKey Then
-            If DoorState = True Then
+            If DoorOpened = True Then
                 If DoorTimer.Enabled = False Then
+                    DoorTimer.Interval = 500
                     DoorTimer.Enabled = True
                     DoorCloseReader = New AudioFileReader(Application.StartupPath & "\media\2005\DoorClose.wav")    '  
                     DoorClose = New WaveOut()
@@ -549,7 +593,14 @@ Public Class Screen1
                     DoorClose.Init(DoorCloseReader)
                     DoorCloseReader.Volume = Val(DoorCloseVolume.Value) / 10
                     DoorClose.Play()
-                    DoorState = False
+                    DoorOpened = False
+                    If TimeVortex IsNot Nothing Then
+                        TimeVortex.Stop()
+                        TimeVortex.Dispose()
+                        TVPlaying = False
+                    End If
+
+
                 End If
             End If
         End If
@@ -561,7 +612,7 @@ Public Class Screen1
     End Sub
 
     Private Sub DelayAndNoise_Tick(sender As Object, e As EventArgs) Handles DelayAndNoise.Tick
-        If EmergencyFlightPattern = False Then
+        If FlyMode = 1 Then
             NoiseReader = New AudioFileReader(Application.StartupPath & "\media\2010\Noise.wav")
             Dim looping As New LoopStream(NoiseReader)
             Noise = New WaveOut()
@@ -569,7 +620,19 @@ Public Class Screen1
             Noise.Init(looping)
             NoiseReader.Volume = Val(TravellingVolume.Value) / 10
             Noise.Play()
-        Else
+        End If
+
+        If FlyMode = 2 Then
+            TraditionalNoiseReader = New AudioFileReader(Application.StartupPath & "\media\2005\Noise.wav")
+            Dim looping As New LoopStream(TraditionalNoiseReader)
+            TraditionalNoise = New WaveOut()
+            TraditionalNoise.DeviceNumber = TraditionalNoiseDevice.SelectedIndex
+            TraditionalNoise.Init(looping)
+            TraditionalNoiseReader.Volume = Val(TraditionalNoiseVolume.Value) / 10
+            TraditionalNoise.Play()
+        End If
+
+        If FlyMode = 3 Then
             EmergencyFlightReader = New AudioFileReader(Application.StartupPath & "\media\EmergencyFlight.wav")
             Dim looping As New LoopStream(EmergencyFlightReader)
             EmergencyFlight = New WaveOut()
@@ -577,6 +640,12 @@ Public Class Screen1
             EmergencyFlight.Init(looping)
             EmergencyFlightReader.Volume = Val(EmergencyFlightVolume.Value) / 10
             EmergencyFlight.Play()
+        End If
+
+
+
+        If DoorOpened = True Then
+            PlayTimeVortex()
         End If
         Drum = Nothing
         SpaceEnabled = True
@@ -746,6 +815,13 @@ Public Class Screen1
         End If
     End Sub
 
+
+    Private Sub TraditionalNoiseVolume_Scroll(sender As Object, e As EventArgs) Handles TraditionalNoiseVolume.Scroll
+        If TraditionalNoise IsNot Nothing Then
+            TraditionalNoiseReader.Volume = Val(TraditionalNoiseVolume.Value) / 10
+        End If
+    End Sub
+
     Private Sub DoorOpenVolume_Scroll(sender As Object, e As EventArgs) Handles DoorOpenVolume.Scroll
         If DoorOpen IsNot Nothing Then
             DoorOpenReader.Volume = Val(DoorOpenVolume.Value) / 10
@@ -768,4 +844,92 @@ Public Class Screen1
         KeyChanger.ShowDialog()
     End Sub
 
+    Private Sub Button2010_Click(sender As Object, e As EventArgs) Handles Button2010.Click
+        KeyChanger.EditingKey = "Button2010"
+        KeyChanger.EditingKeyName = "2010 TARDIS"
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub Button2013_Click(sender As Object, e As EventArgs) Handles Button2013.Click
+        KeyChanger.EditingKey = "Button2013"
+        KeyChanger.EditingKeyName = "2013 TARDIS"
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonStart_Click(sender As Object, e As EventArgs) Handles ButtonStart.Click
+        KeyChanger.EditingKey = "ButtonStart"
+        KeyChanger.EditingKeyName = LabelStartTravel.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonEnd_Click(sender As Object, e As EventArgs) Handles ButtonEnd.Click
+        KeyChanger.EditingKey = "ButtonEnd"
+        KeyChanger.EditingKeyName = LabelEndTravel.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonTV_Click(sender As Object, e As EventArgs) Handles ButtonTV.Click
+        KeyChanger.EditingKey = "ButtonTV"
+        KeyChanger.EditingKeyName = LabelTimeVortex.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonCB_Click(sender As Object, e As EventArgs) Handles ButtonCB.Click
+        KeyChanger.EditingKey = "ButtonCB"
+        KeyChanger.EditingKeyName = LabelCloisterBell.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonEmergencyFlight_Click(sender As Object, e As EventArgs) Handles ButtonEmergencyFlight.Click
+        KeyChanger.EditingKey = "ButtonEmergencyFlight"
+        KeyChanger.EditingKeyName = LabelEmergencyFlight.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonDoorOpen_Click(sender As Object, e As EventArgs) Handles ButtonDoorOpen.Click
+        KeyChanger.EditingKey = "ButtonDoorOpen"
+        KeyChanger.EditingKeyName = LabelOpenDoor.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonDoorClose_Click(sender As Object, e As EventArgs) Handles ButtonDoorClose.Click
+        KeyChanger.EditingKey = "ButtonDoorClose"
+        KeyChanger.EditingKeyName = LabelCloseDoor.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonMenu_Click(sender As Object, e As EventArgs) Handles ButtonMenu.Click
+        KeyChanger.EditingKey = "ButtonMenu"
+        KeyChanger.EditingKeyName = LabelMenu.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonFullscreen_Click(sender As Object, e As EventArgs) Handles ButtonFullscreen.Click
+        KeyChanger.EditingKey = "ButtonFullscreen"
+        KeyChanger.EditingKeyName = LabelFullscreen.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonHide_Click(sender As Object, e As EventArgs) Handles ButtonHide.Click
+        KeyChanger.EditingKey = "ButtonHide"
+        KeyChanger.EditingKeyName = LabelHideKey.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonHideMouse_Click(sender As Object, e As EventArgs) Handles ButtonHideMouse.Click
+        KeyChanger.EditingKey = "ButtonHideMouse"
+        KeyChanger.EditingKeyName = LabelHideMouseKey.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+    Private Sub ButtonEscape_Click(sender As Object, e As EventArgs) Handles ButtonEscape.Click
+        KeyChanger.EditingKey = "ButtonEscape"
+        KeyChanger.EditingKeyName = LabelCloseApp.Text
+        KeyChanger.ShowDialog()
+    End Sub
+
+
+    Private Sub TraditionalNoiseKey_Click(sender As Object, e As EventArgs) Handles ButtonTraditionalNoise.Click
+
+    End Sub
 End Class

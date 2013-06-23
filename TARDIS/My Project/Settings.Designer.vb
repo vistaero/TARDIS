@@ -281,7 +281,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public Property T2005Volume() As Integer
             Get
                 Return CType(Me("T2005Volume"),Integer)
@@ -293,7 +293,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property T2010Volume() As Integer
             Get
                 Return CType(Me("T2010Volume"),Integer)
@@ -305,7 +305,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property T2013Volume() As Integer
             Get
                 Return CType(Me("T2013Volume"),Integer)
@@ -317,7 +317,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property StartVolume() As Integer
             Get
                 Return CType(Me("StartVolume"),Integer)
@@ -329,7 +329,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property TravellingVolume() As Integer
             Get
                 Return CType(Me("TravellingVolume"),Integer)
@@ -353,7 +353,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
         Public Property TVVolume() As Integer
             Get
                 Return CType(Me("TVVolume"),Integer)
@@ -365,7 +365,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
         Public Property CBVolume() As Integer
             Get
                 Return CType(Me("CBVolume"),Integer)
@@ -533,7 +533,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property EmergencyFlightVolume() As Integer
             Get
                 Return CType(Me("EmergencyFlightVolume"),Integer)
@@ -545,7 +545,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property DoorOpenVolume() As Integer
             Get
                 Return CType(Me("DoorOpenVolume"),Integer)
@@ -557,7 +557,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
         Public Property DoorCloseVolume() As Integer
             Get
                 Return CType(Me("DoorCloseVolume"),Integer)
@@ -600,6 +600,66 @@ Namespace My
             End Get
             Set
                 Me("EmergencyFlightDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TraditionalNoise() As String
+            Get
+                Return CType(Me("TraditionalNoise"),String)
+            End Get
+            Set
+                Me("TraditionalNoise") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("4")>  _
+        Public Property TraditionalNoiseVolume() As Integer
+            Get
+                Return CType(Me("TraditionalNoiseVolume"),Integer)
+            End Get
+            Set
+                Me("TraditionalNoiseVolume") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TraditionalNoiseDevice() As String
+            Get
+                Return CType(Me("TraditionalNoiseDevice"),String)
+            End Get
+            Set
+                Me("TraditionalNoiseDevice") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property TraditionalNoiseKey() As String
+            Get
+                Return CType(Me("TraditionalNoiseKey"),String)
+            End Get
+            Set
+                Me("TraditionalNoiseKey") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property NewNoiseKey() As String
+            Get
+                Return CType(Me("NewNoiseKey"),String)
+            End Get
+            Set
+                Me("NewNoiseKey") = value
             End Set
         End Property
     End Class

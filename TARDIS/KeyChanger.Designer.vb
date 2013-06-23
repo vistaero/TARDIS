@@ -51,6 +51,7 @@ Partial Class KeyChanger
         '
         'Button2
         '
+        Me.Button2.Enabled = False
         Me.Button2.Location = New System.Drawing.Point(12, 34)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(253, 23)
@@ -91,10 +92,8 @@ Partial Class KeyChanger
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 125)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 13)
+        Me.Label2.Size = New System.Drawing.Size(0, 13)
         Me.Label2.TabIndex = 6
-        Me.Label2.Text = "X key will be the key"
-        Me.Label2.Visible = False
         '
         'KeyChanger
         '

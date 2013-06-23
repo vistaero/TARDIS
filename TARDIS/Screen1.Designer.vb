@@ -41,9 +41,9 @@ Partial Class Screen1
         Me.ButtonHide = New System.Windows.Forms.Button()
         Me.ButtonHideMouse = New System.Windows.Forms.Button()
         Me.ButtonEscape = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.SettingsTable = New System.Windows.Forms.TableLayoutPanel()
-        Me.LabelCloseDoor = New System.Windows.Forms.Label()
-        Me.LabelOpenDoor = New System.Windows.Forms.Label()
         Me.LabelEmergencyFlight = New System.Windows.Forms.Label()
         Me.CBDevice = New System.Windows.Forms.ComboBox()
         Me.CBVolume = New System.Windows.Forms.TrackBar()
@@ -78,19 +78,24 @@ Partial Class Screen1
         Me.LabelVolume = New System.Windows.Forms.Label()
         Me.LabelKey = New System.Windows.Forms.Label()
         Me.Button2005 = New System.Windows.Forms.Button()
-        Me.ButtonDoorClose = New System.Windows.Forms.Button()
         Me.T2005Device = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ButtonDoorOpen = New System.Windows.Forms.Button()
         Me.ButtonEmergencyFlight = New System.Windows.Forms.Button()
         Me.EmergencyFlightVolume = New System.Windows.Forms.TrackBar()
-        Me.DoorOpenVolume = New System.Windows.Forms.TrackBar()
-        Me.DoorCloseVolume = New System.Windows.Forms.TrackBar()
         Me.EmergencyFlightDevice = New System.Windows.Forms.ComboBox()
-        Me.DoorOpenDevice = New System.Windows.Forms.ComboBox()
+        Me.LabelCloseDoor = New System.Windows.Forms.Label()
+        Me.LabelOpenDoor = New System.Windows.Forms.Label()
+        Me.ButtonDoorClose = New System.Windows.Forms.Button()
+        Me.ButtonDoorOpen = New System.Windows.Forms.Button()
+        Me.DoorCloseVolume = New System.Windows.Forms.TrackBar()
+        Me.DoorOpenVolume = New System.Windows.Forms.TrackBar()
         Me.DoorCloseDevice = New System.Windows.Forms.ComboBox()
+        Me.DoorOpenDevice = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ButtonTraditionalNoise = New System.Windows.Forms.Button()
+        Me.TraditionalNoiseVolume = New System.Windows.Forms.TrackBar()
+        Me.TraditionalNoiseDevice = New System.Windows.Forms.ComboBox()
         Me.TabOther = New System.Windows.Forms.TabPage()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -98,8 +103,6 @@ Partial Class Screen1
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.LanguageComboBox = New System.Windows.Forms.ComboBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.DelayAndNoise = New System.Windows.Forms.Timer(Me.components)
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -123,12 +126,12 @@ Partial Class Screen1
         CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmergencyFlightVolume, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DoorOpenVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DoorCloseVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DoorOpenVolume, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TraditionalNoiseVolume, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabOther.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -212,7 +215,7 @@ Partial Class Screen1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.06383!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.93617!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 219.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 266.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 267.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.LabelMenu, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelFullscreen, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.LabelHideKey, 0, 2)
@@ -223,8 +226,10 @@ Partial Class Screen1
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonHide, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonHideMouse, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.ButtonEscape, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel3, 3, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 492)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 533)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 5
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
@@ -288,7 +293,7 @@ Partial Class Screen1
         Me.ButtonFullscreen.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonFullscreen.Location = New System.Drawing.Point(193, 44)
         Me.ButtonFullscreen.Name = "ButtonFullscreen"
-        Me.ButtonFullscreen.Size = New System.Drawing.Size(177, 35)
+        Me.ButtonFullscreen.Size = New System.Drawing.Size(176, 35)
         Me.ButtonFullscreen.TabIndex = 41
         Me.ButtonFullscreen.UseVisualStyleBackColor = True
         '
@@ -309,7 +314,7 @@ Partial Class Screen1
         Me.ButtonMenu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonMenu.Location = New System.Drawing.Point(193, 3)
         Me.ButtonMenu.Name = "ButtonMenu"
-        Me.ButtonMenu.Size = New System.Drawing.Size(177, 35)
+        Me.ButtonMenu.Size = New System.Drawing.Size(176, 35)
         Me.ButtonMenu.TabIndex = 37
         Me.ButtonMenu.UseVisualStyleBackColor = True
         '
@@ -318,7 +323,7 @@ Partial Class Screen1
         Me.ButtonHide.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonHide.Location = New System.Drawing.Point(193, 85)
         Me.ButtonHide.Name = "ButtonHide"
-        Me.ButtonHide.Size = New System.Drawing.Size(177, 35)
+        Me.ButtonHide.Size = New System.Drawing.Size(176, 35)
         Me.ButtonHide.TabIndex = 42
         Me.ButtonHide.UseVisualStyleBackColor = True
         '
@@ -327,7 +332,7 @@ Partial Class Screen1
         Me.ButtonHideMouse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonHideMouse.Location = New System.Drawing.Point(193, 126)
         Me.ButtonHideMouse.Name = "ButtonHideMouse"
-        Me.ButtonHideMouse.Size = New System.Drawing.Size(177, 35)
+        Me.ButtonHideMouse.Size = New System.Drawing.Size(176, 35)
         Me.ButtonHideMouse.TabIndex = 43
         Me.ButtonHideMouse.UseVisualStyleBackColor = True
         '
@@ -336,9 +341,23 @@ Partial Class Screen1
         Me.ButtonEscape.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ButtonEscape.Location = New System.Drawing.Point(193, 167)
         Me.ButtonEscape.Name = "ButtonEscape"
-        Me.ButtonEscape.Size = New System.Drawing.Size(177, 35)
+        Me.ButtonEscape.Size = New System.Drawing.Size(176, 35)
         Me.ButtonEscape.TabIndex = 44
         Me.ButtonEscape.UseVisualStyleBackColor = True
+        '
+        'Panel2
+        '
+        Me.Panel2.Location = New System.Drawing.Point(375, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(213, 35)
+        Me.Panel2.TabIndex = 45
+        '
+        'Panel3
+        '
+        Me.Panel3.Location = New System.Drawing.Point(594, 3)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(258, 21)
+        Me.Panel3.TabIndex = 46
         '
         'SettingsTable
         '
@@ -347,8 +366,6 @@ Partial Class Screen1
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.42857!))
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.5102!))
         Me.SettingsTable.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.61225!))
-        Me.SettingsTable.Controls.Add(Me.LabelCloseDoor, 0, 11)
-        Me.SettingsTable.Controls.Add(Me.LabelOpenDoor, 0, 10)
         Me.SettingsTable.Controls.Add(Me.LabelEmergencyFlight, 0, 9)
         Me.SettingsTable.Controls.Add(Me.CBDevice, 3, 8)
         Me.SettingsTable.Controls.Add(Me.CBVolume, 2, 8)
@@ -383,21 +400,27 @@ Partial Class Screen1
         Me.SettingsTable.Controls.Add(Me.LabelVolume, 2, 0)
         Me.SettingsTable.Controls.Add(Me.LabelKey, 1, 0)
         Me.SettingsTable.Controls.Add(Me.Button2005, 1, 1)
-        Me.SettingsTable.Controls.Add(Me.ButtonDoorClose, 1, 11)
         Me.SettingsTable.Controls.Add(Me.T2005Device, 3, 1)
         Me.SettingsTable.Controls.Add(Me.Label2, 0, 0)
-        Me.SettingsTable.Controls.Add(Me.ButtonDoorOpen, 1, 10)
         Me.SettingsTable.Controls.Add(Me.ButtonEmergencyFlight, 1, 9)
         Me.SettingsTable.Controls.Add(Me.EmergencyFlightVolume, 2, 9)
-        Me.SettingsTable.Controls.Add(Me.DoorOpenVolume, 2, 10)
-        Me.SettingsTable.Controls.Add(Me.DoorCloseVolume, 2, 11)
         Me.SettingsTable.Controls.Add(Me.EmergencyFlightDevice, 3, 9)
-        Me.SettingsTable.Controls.Add(Me.DoorOpenDevice, 3, 10)
-        Me.SettingsTable.Controls.Add(Me.DoorCloseDevice, 3, 11)
+        Me.SettingsTable.Controls.Add(Me.LabelCloseDoor, 0, 12)
+        Me.SettingsTable.Controls.Add(Me.LabelOpenDoor, 0, 11)
+        Me.SettingsTable.Controls.Add(Me.ButtonDoorClose, 1, 12)
+        Me.SettingsTable.Controls.Add(Me.ButtonDoorOpen, 1, 11)
+        Me.SettingsTable.Controls.Add(Me.DoorCloseVolume, 2, 12)
+        Me.SettingsTable.Controls.Add(Me.DoorOpenVolume, 2, 11)
+        Me.SettingsTable.Controls.Add(Me.DoorCloseDevice, 3, 12)
+        Me.SettingsTable.Controls.Add(Me.DoorOpenDevice, 3, 11)
+        Me.SettingsTable.Controls.Add(Me.Label1, 0, 10)
+        Me.SettingsTable.Controls.Add(Me.ButtonTraditionalNoise, 1, 10)
+        Me.SettingsTable.Controls.Add(Me.TraditionalNoiseVolume, 2, 10)
+        Me.SettingsTable.Controls.Add(Me.TraditionalNoiseDevice, 3, 10)
         Me.SettingsTable.Dock = System.Windows.Forms.DockStyle.Top
         Me.SettingsTable.Location = New System.Drawing.Point(0, 0)
         Me.SettingsTable.Name = "SettingsTable"
-        Me.SettingsTable.RowCount = 12
+        Me.SettingsTable.RowCount = 13
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
@@ -410,32 +433,10 @@ Partial Class Screen1
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
-        Me.SettingsTable.Size = New System.Drawing.Size(859, 492)
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.SettingsTable.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.SettingsTable.Size = New System.Drawing.Size(859, 533)
         Me.SettingsTable.TabIndex = 0
-        '
-        'LabelCloseDoor
-        '
-        Me.LabelCloseDoor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelCloseDoor.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelCloseDoor.ForeColor = System.Drawing.Color.White
-        Me.LabelCloseDoor.Location = New System.Drawing.Point(3, 451)
-        Me.LabelCloseDoor.Name = "LabelCloseDoor"
-        Me.LabelCloseDoor.Size = New System.Drawing.Size(186, 41)
-        Me.LabelCloseDoor.TabIndex = 45
-        Me.LabelCloseDoor.Text = "Close Door"
-        Me.LabelCloseDoor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LabelOpenDoor
-        '
-        Me.LabelOpenDoor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabelOpenDoor.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelOpenDoor.ForeColor = System.Drawing.Color.White
-        Me.LabelOpenDoor.Location = New System.Drawing.Point(3, 410)
-        Me.LabelOpenDoor.Name = "LabelOpenDoor"
-        Me.LabelOpenDoor.Size = New System.Drawing.Size(186, 41)
-        Me.LabelOpenDoor.TabIndex = 40
-        Me.LabelOpenDoor.Text = "Open Door"
-        Me.LabelOpenDoor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LabelEmergencyFlight
         '
@@ -459,6 +460,7 @@ Partial Class Screen1
         Me.CBDevice.Name = "CBDevice"
         Me.CBDevice.Size = New System.Drawing.Size(258, 21)
         Me.CBDevice.TabIndex = 35
+        Me.CBDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.CBDevice
         '
         'CBVolume
         '
@@ -501,6 +503,7 @@ Partial Class Screen1
         Me.TVDevice.Name = "TVDevice"
         Me.TVDevice.Size = New System.Drawing.Size(258, 21)
         Me.TVDevice.TabIndex = 31
+        Me.TVDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TVDevice
         '
         'TVVolume
         '
@@ -543,6 +546,7 @@ Partial Class Screen1
         Me.EndDevice.Name = "EndDevice"
         Me.EndDevice.Size = New System.Drawing.Size(258, 21)
         Me.EndDevice.TabIndex = 27
+        Me.EndDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.EndDevice
         '
         'EndTravelVolume
         '
@@ -611,6 +615,7 @@ Partial Class Screen1
         'StartDevice
         '
         Me.StartDevice.DataBindings.Add(New System.Windows.Forms.Binding("Name", Global.TARDIS_App_Beta.My.MySettings.Default, "StartDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.StartDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "StartDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.StartDevice.Dock = System.Windows.Forms.DockStyle.Fill
         Me.StartDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.StartDevice.FormattingEnabled = True
@@ -618,6 +623,7 @@ Partial Class Screen1
         Me.StartDevice.Name = "StartDevice"
         Me.StartDevice.Size = New System.Drawing.Size(258, 21)
         Me.StartDevice.TabIndex = 19
+        Me.StartDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.StartDevice
         '
         'StartVolume
         '
@@ -660,6 +666,7 @@ Partial Class Screen1
         Me.T2013Device.Name = "T2013Device"
         Me.T2013Device.Size = New System.Drawing.Size(258, 21)
         Me.T2013Device.TabIndex = 15
+        Me.T2013Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2013Device
         '
         'T2013Volume
         '
@@ -694,7 +701,7 @@ Partial Class Screen1
         '
         'T2010Device
         '
-        Me.T2010Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Device", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.T2010Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2010Key", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.T2010Device.Dock = System.Windows.Forms.DockStyle.Fill
         Me.T2010Device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.T2010Device.FormattingEnabled = True
@@ -702,6 +709,7 @@ Partial Class Screen1
         Me.T2010Device.Name = "T2010Device"
         Me.T2010Device.Size = New System.Drawing.Size(258, 21)
         Me.T2010Device.TabIndex = 11
+        Me.T2010Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2010Key
         '
         'T2010Volume
         '
@@ -801,15 +809,6 @@ Partial Class Screen1
         Me.Button2005.TabIndex = 5
         Me.Button2005.UseVisualStyleBackColor = True
         '
-        'ButtonDoorClose
-        '
-        Me.ButtonDoorClose.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonDoorClose.Location = New System.Drawing.Point(195, 454)
-        Me.ButtonDoorClose.Name = "ButtonDoorClose"
-        Me.ButtonDoorClose.Size = New System.Drawing.Size(178, 35)
-        Me.ButtonDoorClose.TabIndex = 46
-        Me.ButtonDoorClose.UseVisualStyleBackColor = True
-        '
         'T2005Device
         '
         Me.T2005Device.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "T2005Device", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -820,6 +819,7 @@ Partial Class Screen1
         Me.T2005Device.Name = "T2005Device"
         Me.T2005Device.Size = New System.Drawing.Size(258, 21)
         Me.T2005Device.TabIndex = 63
+        Me.T2005Device.Text = Global.TARDIS_App_Beta.My.MySettings.Default.T2005Device
         '
         'Label2
         '
@@ -831,15 +831,6 @@ Partial Class Screen1
         Me.Label2.Size = New System.Drawing.Size(186, 41)
         Me.Label2.TabIndex = 64
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'ButtonDoorOpen
-        '
-        Me.ButtonDoorOpen.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ButtonDoorOpen.Location = New System.Drawing.Point(195, 413)
-        Me.ButtonDoorOpen.Name = "ButtonDoorOpen"
-        Me.ButtonDoorOpen.Size = New System.Drawing.Size(178, 35)
-        Me.ButtonDoorOpen.TabIndex = 65
-        Me.ButtonDoorOpen.UseVisualStyleBackColor = True
         '
         'ButtonEmergencyFlight
         '
@@ -860,26 +851,6 @@ Partial Class Screen1
         Me.EmergencyFlightVolume.TabIndex = 67
         Me.EmergencyFlightVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.EmergencyFlightVolume
         '
-        'DoorOpenVolume
-        '
-        Me.DoorOpenVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorOpenVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DoorOpenVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DoorOpenVolume.Location = New System.Drawing.Point(379, 413)
-        Me.DoorOpenVolume.Name = "DoorOpenVolume"
-        Me.DoorOpenVolume.Size = New System.Drawing.Size(213, 35)
-        Me.DoorOpenVolume.TabIndex = 68
-        Me.DoorOpenVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.DoorOpenVolume
-        '
-        'DoorCloseVolume
-        '
-        Me.DoorCloseVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorCloseVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DoorCloseVolume.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DoorCloseVolume.Location = New System.Drawing.Point(379, 454)
-        Me.DoorCloseVolume.Name = "DoorCloseVolume"
-        Me.DoorCloseVolume.Size = New System.Drawing.Size(213, 35)
-        Me.DoorCloseVolume.TabIndex = 69
-        Me.DoorCloseVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.DoorCloseVolume
-        '
         'EmergencyFlightDevice
         '
         Me.EmergencyFlightDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "EmergencyFlightDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
@@ -892,17 +863,67 @@ Partial Class Screen1
         Me.EmergencyFlightDevice.TabIndex = 70
         Me.EmergencyFlightDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.EmergencyFlightDevice
         '
-        'DoorOpenDevice
+        'LabelCloseDoor
         '
-        Me.DoorOpenDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorOpenDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.DoorOpenDevice.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DoorOpenDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DoorOpenDevice.FormattingEnabled = True
-        Me.DoorOpenDevice.Location = New System.Drawing.Point(598, 413)
-        Me.DoorOpenDevice.Name = "DoorOpenDevice"
-        Me.DoorOpenDevice.Size = New System.Drawing.Size(258, 21)
-        Me.DoorOpenDevice.TabIndex = 71
-        Me.DoorOpenDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.DoorOpenDevice
+        Me.LabelCloseDoor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelCloseDoor.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelCloseDoor.ForeColor = System.Drawing.Color.White
+        Me.LabelCloseDoor.Location = New System.Drawing.Point(3, 492)
+        Me.LabelCloseDoor.Name = "LabelCloseDoor"
+        Me.LabelCloseDoor.Size = New System.Drawing.Size(186, 41)
+        Me.LabelCloseDoor.TabIndex = 45
+        Me.LabelCloseDoor.Text = "Close Door"
+        Me.LabelCloseDoor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LabelOpenDoor
+        '
+        Me.LabelOpenDoor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabelOpenDoor.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelOpenDoor.ForeColor = System.Drawing.Color.White
+        Me.LabelOpenDoor.Location = New System.Drawing.Point(3, 451)
+        Me.LabelOpenDoor.Name = "LabelOpenDoor"
+        Me.LabelOpenDoor.Size = New System.Drawing.Size(186, 41)
+        Me.LabelOpenDoor.TabIndex = 40
+        Me.LabelOpenDoor.Text = "Open Door"
+        Me.LabelOpenDoor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonDoorClose
+        '
+        Me.ButtonDoorClose.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonDoorClose.Location = New System.Drawing.Point(195, 495)
+        Me.ButtonDoorClose.Name = "ButtonDoorClose"
+        Me.ButtonDoorClose.Size = New System.Drawing.Size(178, 35)
+        Me.ButtonDoorClose.TabIndex = 46
+        Me.ButtonDoorClose.UseVisualStyleBackColor = True
+        '
+        'ButtonDoorOpen
+        '
+        Me.ButtonDoorOpen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonDoorOpen.Location = New System.Drawing.Point(195, 454)
+        Me.ButtonDoorOpen.Name = "ButtonDoorOpen"
+        Me.ButtonDoorOpen.Size = New System.Drawing.Size(178, 35)
+        Me.ButtonDoorOpen.TabIndex = 65
+        Me.ButtonDoorOpen.UseVisualStyleBackColor = True
+        '
+        'DoorCloseVolume
+        '
+        Me.DoorCloseVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorCloseVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DoorCloseVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DoorCloseVolume.Location = New System.Drawing.Point(379, 495)
+        Me.DoorCloseVolume.Name = "DoorCloseVolume"
+        Me.DoorCloseVolume.Size = New System.Drawing.Size(213, 35)
+        Me.DoorCloseVolume.TabIndex = 69
+        Me.DoorCloseVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.DoorCloseVolume
+        '
+        'DoorOpenVolume
+        '
+        Me.DoorOpenVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorOpenVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DoorOpenVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DoorOpenVolume.Location = New System.Drawing.Point(379, 454)
+        Me.DoorOpenVolume.Name = "DoorOpenVolume"
+        Me.DoorOpenVolume.Size = New System.Drawing.Size(213, 35)
+        Me.DoorOpenVolume.TabIndex = 68
+        Me.DoorOpenVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.DoorOpenVolume
         '
         'DoorCloseDevice
         '
@@ -910,38 +931,81 @@ Partial Class Screen1
         Me.DoorCloseDevice.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DoorCloseDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.DoorCloseDevice.FormattingEnabled = True
-        Me.DoorCloseDevice.Location = New System.Drawing.Point(598, 454)
+        Me.DoorCloseDevice.Location = New System.Drawing.Point(598, 495)
         Me.DoorCloseDevice.Name = "DoorCloseDevice"
         Me.DoorCloseDevice.Size = New System.Drawing.Size(258, 21)
         Me.DoorCloseDevice.TabIndex = 72
         Me.DoorCloseDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.DoorCloseDevice
         '
+        'DoorOpenDevice
+        '
+        Me.DoorOpenDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "DoorOpenDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.DoorOpenDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DoorOpenDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DoorOpenDevice.FormattingEnabled = True
+        Me.DoorOpenDevice.Location = New System.Drawing.Point(598, 454)
+        Me.DoorOpenDevice.Name = "DoorOpenDevice"
+        Me.DoorOpenDevice.Size = New System.Drawing.Size(258, 21)
+        Me.DoorOpenDevice.TabIndex = 71
+        Me.DoorOpenDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.DoorOpenDevice
+        '
+        'Label1
+        '
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(3, 410)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(186, 41)
+        Me.Label1.TabIndex = 73
+        Me.Label1.Text = "Traditional Noise"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'ButtonTraditionalNoise
+        '
+        Me.ButtonTraditionalNoise.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "TraditionalNoiseKey", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.ButtonTraditionalNoise.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ButtonTraditionalNoise.Location = New System.Drawing.Point(195, 413)
+        Me.ButtonTraditionalNoise.Name = "ButtonTraditionalNoise"
+        Me.ButtonTraditionalNoise.Size = New System.Drawing.Size(178, 35)
+        Me.ButtonTraditionalNoise.TabIndex = 74
+        Me.ButtonTraditionalNoise.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TraditionalNoiseKey
+        Me.ButtonTraditionalNoise.UseVisualStyleBackColor = True
+        '
+        'TraditionalNoiseVolume
+        '
+        Me.TraditionalNoiseVolume.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "TraditionalNoiseVolume", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TraditionalNoiseVolume.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TraditionalNoiseVolume.Location = New System.Drawing.Point(379, 413)
+        Me.TraditionalNoiseVolume.Name = "TraditionalNoiseVolume"
+        Me.TraditionalNoiseVolume.Size = New System.Drawing.Size(213, 35)
+        Me.TraditionalNoiseVolume.TabIndex = 75
+        Me.TraditionalNoiseVolume.Value = Global.TARDIS_App_Beta.My.MySettings.Default.TraditionalNoiseVolume
+        '
+        'TraditionalNoiseDevice
+        '
+        Me.TraditionalNoiseDevice.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.TARDIS_App_Beta.My.MySettings.Default, "TraditionalNoiseDevice", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TraditionalNoiseDevice.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TraditionalNoiseDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TraditionalNoiseDevice.FormattingEnabled = True
+        Me.TraditionalNoiseDevice.Location = New System.Drawing.Point(598, 413)
+        Me.TraditionalNoiseDevice.Name = "TraditionalNoiseDevice"
+        Me.TraditionalNoiseDevice.Size = New System.Drawing.Size(258, 21)
+        Me.TraditionalNoiseDevice.TabIndex = 76
+        Me.TraditionalNoiseDevice.Text = Global.TARDIS_App_Beta.My.MySettings.Default.TraditionalNoiseDevice
+        '
         'TabOther
         '
         Me.TabOther.BackColor = System.Drawing.Color.MidnightBlue
-        Me.TabOther.Controls.Add(Me.Label9)
         Me.TabOther.Controls.Add(Me.GroupBox2)
         Me.TabOther.Controls.Add(Me.GroupBox1)
         Me.TabOther.Controls.Add(Me.CheckBox1)
-        Me.TabOther.Controls.Add(Me.NumericUpDown1)
-        Me.TabOther.Controls.Add(Me.CheckBox3)
         Me.TabOther.Location = New System.Drawing.Point(4, 22)
         Me.TabOther.Name = "TabOther"
         Me.TabOther.Padding = New System.Windows.Forms.Padding(3)
         Me.TabOther.Size = New System.Drawing.Size(882, 583)
         Me.TabOther.TabIndex = 5
         Me.TabOther.Text = "More"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.White
-        Me.Label9.Location = New System.Drawing.Point(225, 152)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(284, 21)
-        Me.Label9.TabIndex = 33
-        Me.Label9.Text = "seconds of inactivity (Work In Progress)"
         '
         'GroupBox2
         '
@@ -1017,36 +1081,12 @@ Partial Class Screen1
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckBox1.ForeColor = System.Drawing.Color.White
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 182)
+        Me.CheckBox1.Location = New System.Drawing.Point(674, 102)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(165, 25)
         Me.CheckBox1.TabIndex = 27
         Me.CheckBox1.Text = "Start with Windows"
         Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'NumericUpDown1
-        '
-        Me.NumericUpDown1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.TARDIS_App_Beta.My.MySettings.Default, "SecondsMouseInactivity", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.NumericUpDown1.Enabled = False
-        Me.NumericUpDown1.Location = New System.Drawing.Point(178, 156)
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(41, 20)
-        Me.NumericUpDown1.TabIndex = 32
-        Me.NumericUpDown1.Value = Global.TARDIS_App_Beta.My.MySettings.Default.SecondsMouseInactivity
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Checked = Global.TARDIS_App_Beta.My.MySettings.Default.InactivityHideMouse
-        Me.CheckBox3.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.TARDIS_App_Beta.My.MySettings.Default, "InactivityHideMouse", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CheckBox3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox3.ForeColor = System.Drawing.Color.White
-        Me.CheckBox3.Location = New System.Drawing.Point(6, 151)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(174, 25)
-        Me.CheckBox3.TabIndex = 31
-        Me.CheckBox3.Text = "Hide the mouse after"
-        Me.CheckBox3.UseVisualStyleBackColor = True
         '
         'DelayAndNoise
         '
@@ -1063,23 +1103,23 @@ Partial Class Screen1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CloseToolStripMenuItem, Me.ToolStripSeparator1, Me.ToolStripMenuItem1})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(153, 76)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(104, 54)
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(103, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(100, 6)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(103, 22)
         Me.ToolStripMenuItem1.Text = "Hide"
         '
         'DoorTimer
@@ -1127,14 +1167,14 @@ Partial Class Screen1
         CType(Me.T2010Volume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.T2005Volume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmergencyFlightVolume, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DoorOpenVolume, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DoorCloseVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DoorOpenVolume, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TraditionalNoiseVolume, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabOther.ResumeLayout(False)
         Me.TabOther.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1159,9 +1199,6 @@ Partial Class Screen1
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
     Friend WithEvents SettingsTable As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents LabelCloseDoor As System.Windows.Forms.Label
     Friend WithEvents ButtonFullscreen As System.Windows.Forms.Button
@@ -1224,5 +1261,11 @@ Partial Class Screen1
     Friend WithEvents DoorCloseDevice As System.Windows.Forms.ComboBox
     Public WithEvents LanguageComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents AxShockwaveFlash1 As AxShockwaveFlashObjects.AxShockwaveFlash
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ButtonTraditionalNoise As System.Windows.Forms.Button
+    Friend WithEvents TraditionalNoiseVolume As System.Windows.Forms.TrackBar
+    Friend WithEvents TraditionalNoiseDevice As System.Windows.Forms.ComboBox
 
 End Class
